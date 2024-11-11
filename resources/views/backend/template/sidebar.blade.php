@@ -81,7 +81,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Tables</span>
+                        <span class="sidebar-text">Master</span>
                     </span>
                     <span class="link-arrow">
                         <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
@@ -95,17 +95,17 @@
                 <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
                     <ul class="flex-column nav">
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ asset('backend') }}/pages/tables/bootstrap-tables.html">
+                            <a class="nav-link" href="{{ route('panel.car.index') }}">
                                 <span class="sidebar-text">Car</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ asset('backend') }}/pages/tables/bootstrap-tables.html">
+                            <a class="nav-link" href="#">
                                 <span class="sidebar-text">Event</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ asset('backend') }}/pages/tables/bootstrap-tables.html">
+                            <a class="nav-link" href="#">
                                 <span class="sidebar-text">Driver</span>
                             </a>
                         </li>
