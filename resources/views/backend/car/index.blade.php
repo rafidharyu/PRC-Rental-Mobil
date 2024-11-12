@@ -75,17 +75,17 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('panel.car.show', $item->uuid) }}" class="btn btn-sm btn-info">
-                                            <i class="fas fa-eye">show</i>
+                                            <i class="fas fa-eye"></i>
                                         </a>
 
                                         <a href="{{ route('panel.car.edit', $item->uuid) }}"
                                             class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit">edit</i>
+                                            <i class="fas fa-edit"></i>
                                         </a>
 
                                         <button class="btn btn-sm btn-danger" onclick="deleteCar(this)"
                                             data-uuid="{{ $item->uuid }}">
-                                            <i class="fas fa-trash-alt">delete</i>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </div>
                                 </td>
