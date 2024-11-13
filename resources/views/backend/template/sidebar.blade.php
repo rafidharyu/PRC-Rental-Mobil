@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('panel.event.index') }}">
                                 <span class="sidebar-text">Event</span>
                             </a>
                         </li>
