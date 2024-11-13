@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\CarController;
-<<<<<<< HEAD
 use App\Http\Controllers\Frontend\MainController;
-=======
 use App\Http\Controllers\Backend\EventController;
->>>>>>> 03bddd59c774ab423229b80ade84a7b4548e451b
+
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/about', [MainController::class, 'about'])->name('about');
