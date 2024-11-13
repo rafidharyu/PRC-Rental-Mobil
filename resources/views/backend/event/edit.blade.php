@@ -73,18 +73,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="date">Event Date</label>
-                <input type="date" name="date" id="date"
-                    class="form-control @error('date') is-invalid @enderror" value="{{ old('date', $event->date) }}">
-
-                @error('date')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
                     <option value="active" {{ old('status', $event->status) == 'active' ? 'selected' : '' }}>Active</option>
