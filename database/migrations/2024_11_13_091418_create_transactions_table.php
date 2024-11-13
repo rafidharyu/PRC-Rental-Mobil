@@ -14,19 +14,24 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->char('uuid');
-            $table->forignId('car_id')->constrained('cars')->onDelete('cascade');
+            $table->foreignId('car_id')->constrained('cars')->onDelete('cascade');;
             $table->string('code');
             $table->string('name');
             $table->string('email');
             $table->string('phone');
             $table->date('pick');
-            $table->date(drop);
-            $table->enum();
-            $table->enum();
-            $table->id();
+            $table->date('drop');
+            $table->enum('pick_option', ['garasi', 'tempat_lain']);
+            $table->enum('drop_option', ['garasi', 'tempat_lain']);
+            $table->enum('drive_option', ['menyetir_sendiri', 'dikemudikan_oleh_sopir']);
+            $table->integer('price_total');
+            $table->string('file')->nullable();
+            $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

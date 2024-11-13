@@ -1,11 +1,14 @@
-<div class="modal fade" id="modalBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Booking Mobil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="bg-secondary p-5">
+<!-- Modal -->
+<div class="modal fade" id="modalBook" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">CONTINUE CAR RESERVATION</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="bg-secondary rounded p-5">
+                {{-- <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4> --}}
                 <form>
                     <div class="row g-3">
                         <div class="col-12">
@@ -58,7 +61,7 @@
 
                         <div class="col-12">
                             <select name="type" id="type" class="form-select @error('type') is-invalid @enderror" aria-label="Default select example">
-                                <option selected>Pilih Jenis Mobil</option>
+                                <option value="" hidden>Pilih Jenis Mobil</option>
                                 <option value="new_avanza">New Avanza</option>
                                 <option value="avanza">Avanza</option>
                                 <option value="brio">Brio</option>
@@ -82,10 +85,13 @@
                                     <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
                                 </div>
 
-                                <input type="text" name="pick" class="form-control @error('pick') is-invalid @enderror"
-                                    id="pick" placeholder="Masukan Lokasi Jemput" value="{{ old('pick') }}">
+                                <select name="pick_option" id="pick_option" class="form-select @error('pick_option') is-invalid @enderror">
+                                    <option value="" hidden>Pilih Lokasi Pengambilan</option>
+                                    <option value="garasi">Garasi</option>
+                                    <option value="tempat_lain">Tempat Lain</option>
+                                </select>
 
-                                @error('pick')
+                                @error('pick_option')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -99,10 +105,13 @@
                                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                     <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
                                 </div>
-                                <input type="text" name="drop" class="form-control @error('drop') is-invalid @enderror"
-                                    id="drop" placeholder="Masukan Lokasi Jemput" value="{{ old('drop') }}">
+                                <select name="drop_option" id="drop_option" class="form-select @error('drop_option') is-invalid @enderror">
+                                    <option value="" hidden>Pilih Lokasi Pengembalian</option>
+                                    <option value="garasi">Garasi</option>
+                                    <option value="tempat_lain">Tempat Lain</option>
+                                </select>
 
-                                @error('drop')
+                                @error('drop_option')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -159,7 +168,10 @@
                         <div class="col-12">
                             <div class="input-group">
                                 <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="5"
-                                placeholder="Catatan">{{ old('message') }}</textarea>
+                                placeholder="Catatan :
+- Berikan catatan yang diinginkan.
+- Berikan alamat lokasi jika memilih opsi 'tempat lain'.
+- Upload file bukti pembayaran jika sudah memberikan DP.">{{ old('message') }}</textarea>
 
                                 @error('message')
                                 <span class="invalid-feedback" role="alert">
@@ -187,5 +199,6 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
             <button type="button" class="btn btn-primary">Kirim</button>
         </div>
+      </div>
     </div>
-</div>
+  </div>
