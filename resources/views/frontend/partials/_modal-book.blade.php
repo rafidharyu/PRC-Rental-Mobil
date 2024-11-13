@@ -173,7 +173,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="agree" required>
                                 <label class="form-check-label" for="agree">
-                                    Saya setuju dengan <a href="{{ route('about') }}">syarat dan kondisi</a> yang berlaku
+                                    Saya setuju dengan <a href="{{ route('blog') }}">syarat dan kondisi</a> yang berlaku
                                 </label>
                                 <div class="invalid-feedback">
                                     Anda harus menyetujui syarat dan kondisi
