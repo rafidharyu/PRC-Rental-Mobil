@@ -60,6 +60,8 @@
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                 </div>
                 <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                <span class="ms-3"></span>
+                <a class="btn btn-primary rounded-pill py-2 px-4" href="#" data-bs-toggle="modal" data-bs-target="#modalBook">Booking</a>
             </div>
         </nav>
     </div>

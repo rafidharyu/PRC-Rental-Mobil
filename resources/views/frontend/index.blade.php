@@ -17,13 +17,13 @@
                     <div class="container py-4">
                         <div class="row g-5">
                             <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
-                                <div class="bg-secondary rounded p-5">
-                                    <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
+                                {{-- <div class="bg-secondary rounded p-5">
+                                    <h4 class="text-white mb-4">BOOKING MOBIL</h4>
                                     <form>
                                         <div class="row g-3">
                                             <div class="col-12">
                                                 <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Select Your Car type</option>
+                                                    <option selected>Pilih Jenis Mobil</option>
                                                     <option value="1">VW Golf VII</option>
                                                     <option value="2">Audi A1 S-Line</option>
                                                     <option value="3">Toyota Camry</option>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
@@ -194,6 +194,9 @@
 </div>
 <!-- Carousel End -->
 
+        <!-- Features Start -->
+        @include('frontend.partials._modal-book')
+        <!-- Features End -->
 
         <!-- Features Start -->
         @include('frontend.partials._features')
