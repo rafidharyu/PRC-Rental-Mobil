@@ -21,8 +21,8 @@ Route::get('/testimonial', [MainController::class, 'testimonial'])->name('testim
 
 Route::post('booking', [BookingController::class, 'store'])->name('book.attempt');
 
-Route::prefix('panel')->middleware('auth')->group(function () {
-// Routes for the backend panel, protected by authentication and operator middleware
+// Route::prefix('panel')->middleware('auth')->group(function () {
+// // Routes for the backend panel, protected by authentication and operator middleware
 Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(function () {
 
     Route::get('/dashboard', function () {
@@ -49,7 +49,7 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
 
 
 });
+// });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

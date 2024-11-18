@@ -136,10 +136,6 @@
                     <span class="sidebar-text">Reviews</span>
                 </a>
             </li>
-
-            <li class="nav-item {{ request()->is('panel/settings') ? 'active' : '' }}">
-                <a href="#" class="nav-link">
-            </li>
             @if(auth()->check() && auth()->user()->role === 'owner')
             <li class="nav-item ">
                 <a href="{{ route('backend.operators.index') }}" class="nav-link">
@@ -158,7 +154,6 @@
             @endif
             <li class="nav-item ">
                 <a href="{{ asset('backend') }}/pages/settings.html" class="nav-link">
-            </li>
                     <span class="sidebar-icon">
                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
