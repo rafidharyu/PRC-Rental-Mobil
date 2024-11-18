@@ -29,10 +29,16 @@
         <!-- Template Stylesheet -->
         <link href="{{ asset('frontend') }}/css/style.css" rel="stylesheet">
 
+        {{-- sweetalert --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         @stack('css')
     </head>
 
     <body>
+
+        <div class="swal" data-swal="{{ session('success') }}"></div>
+        <div class="swal-error" data-swal="{{ session('error') }}"></div>
 
         {{-- Navbar --}}
         @include('frontend.template.navbar')
@@ -72,6 +78,36 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('frontend') }}/js/main.js"></script>
+
+{{-- jquery --}}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+{{-- sweetalert --}}
+<script>
+    const swal = $('.swal').data('swal');
+
+    if (swal) {
+        Swal.fire({
+            title: 'Success!',
+            text: swal,
+            icon: 'success',
+            timer: 2500,
+            showConfirmButton: false
+        })
+    }
+
+    const swalError = $('.swal-error').data('swal');
+
+    if (swalError) {
+        Swal.fire({
+            title: 'Error!',
+            text: swalError,
+            icon: 'error',
+            timer: 2500,
+            showConfirmButton: false
+        })
+    }
+</script>
 
 @stack('js')
 </body>
