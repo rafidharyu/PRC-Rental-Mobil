@@ -1,7 +1,7 @@
 @extends('frontend.template.main')
 
-@section('title', 'Car')
-@section('head', 'Our Cars')
+@section('title', 'Mobil')
+@section('head', 'Kategori Mobil')
 
 @section('content')
 

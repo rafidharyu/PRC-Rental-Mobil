@@ -1,16 +1,28 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\CarService;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    public function __construct(
+        private CarService $carService
+    ) {}
+
     public function index()
     {
-        // Ambil data dari backend jika diperlukan
-        return view('frontend.index');
+        return view('frontend.index',[
+            'cars' => $this->carService->select(10)
+        ]);
+    }
+
+    public function car()
+    {
+        return view('frontend.car',[
+            'cars' => $this->carService->select(10)
+        ]);
     }
 
     public function about()
@@ -25,7 +37,6 @@ class MainController extends Controller
 
     public function blog()
     {
-        // Ambil data blog dari backend jika diperlukan
         return view('frontend.blog');
     }
 
@@ -39,15 +50,9 @@ class MainController extends Controller
         return view('frontend.feature');
     }
 
-    public function car()
-    {
-        // Ambil data mobil dari backend jika diperlukan
-        return view('frontend.car');
-    }
-
     public function testimonial()
     {
-        // Ambil data testimoni dari backend jika diperlukan
         return view('frontend.testimonial');
     }
+
 }
