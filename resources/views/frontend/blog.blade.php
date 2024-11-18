@@ -76,5 +76,4 @@
         <!-- Banner Start -->
         @include('frontend.partials._banner')
         <!-- Banner End -->
-
 @endsection
