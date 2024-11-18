@@ -9,7 +9,8 @@
         <div class="modal-body">
             <div class="bg-secondary rounded p-5">
                 {{-- <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4> --}}
-                <form>
+                <form action="{{ route('book.attempt') }}" method="post" role="form" id="bookForm" enctype="multipart/form-data">
+                    @csrf
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="input-group">
@@ -60,19 +61,22 @@
                         </div>
 
                         <div class="col-12">
-                            <select name="type" id="type" class="form-select @error('type') is-invalid @enderror" aria-label="Default select example">
+                            <select name="car_id" id="car_id" class="form-select @error('car_id') is-invalid @enderror" aria-label="Default select example">
                                 <option value="" hidden>Pilih Jenis Mobil</option>
-                                <option value="new_avanza">New Avanza</option>
+                                @foreach ($cars as $car)
+                                <option value="{{ $car->id }}">{{ $car->name }}</option>
+                                @endforeach
+                                {{-- <option value="new_avanza">New Avanza</option>
                                 <option value="avanza">Avanza</option>
                                 <option value="brio">Brio</option>
                                 <option value="xpander">Xpander</option>
                                 <option value="new_rush">New Rush</option>
                                 <option value="innova_reborn">Innova Reborn</option>
                                 <option value="fortuner_vrz">Fortuner VRZ</option>
-                                <option value="pajero">Pajero</option>
+                                <option value="pajero">Pajero</option> --}}
                             </select>
 
-                            @error('type')
+                            @error('car_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -100,7 +104,6 @@
                         </div>
 
                         <div class="col-12">
-                            <a href="#" class="text-start text-white d-block mb-2">Butuh lokasi pengantaran yang berbeda?</a>
                             <div class="input-group">
                                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                     <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
@@ -123,39 +126,54 @@
                                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                     <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
                                 </div>
-                                <input class="form-control" type="date">
-                                <select class="form-select ms-3" aria-label="Default select example">
-                                    <option selected>12:00AM</option>
-                                    <option value="1">1:00AM</option>
-                                    <option value="2">2:00AM</option>
-                                    <option value="3">3:00AM</option>
-                                    <option value="4">4:00AM</option>
-                                    <option value="5">5:00AM</option>
-                                    <option value="6">6:00AM</option>
-                                    <option value="7">7:00AM</option>
+                                <input class="form-control" type="date" name="pick_date" value="{{ old('pick_date') }}" required>
+                                <select class="form-select ms-3" name="pick_time" aria-label="Default select example">
+                                    <option value="06:00" {{ old('pick_time') == '06:00' ? 'selected' : '' }}>6:00 Pagi</option>
+                                    <option value="07:00" {{ old('pick_time') == '07:00' ? 'selected' : '' }}>7:00 Pagi</option>
+                                    <option value="08:00" {{ old('pick_time') == '08:00' ? 'selected' : '' }}>8:00 Pagi</option>
+                                    <option value="09:00" {{ old('pick_time') == '09:00' ? 'selected' : '' }}>9:00 Pagi</option>
+                                    <option value="10:00" {{ old('pick_time') == '10:00' ? 'selected' : '' }}>10:00 Pagi</option>
+                                    <option value="11:00" {{ old('pick_time') == '11:00' ? 'selected' : '' }}>11:00 Pagi</option>
+                                    <option value="12:00" {{ old('pick_time') == '12:00' ? 'selected' : '' }}>12:00 Siang</option>
+                                    <option value="13:00" {{ old('pick_time') == '13:00' ? 'selected' : '' }}>1:00 Siang</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="input-group">
                                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                    <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                    <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop Off</span>
                                 </div>
-                                <input class="form-control" type="date">
-                                <select class="form-select ms-3" aria-label="Default select example">
-                                    <option selected>12:00AM</option>
-                                    <option value="1">1:00AM</option>
-                                    <option value="2">2:00AM</option>
-                                    <option value="3">3:00AM</option>
-                                    <option value="4">4:00AM</option>
-                                    <option value="5">5:00AM</option>
-                                    <option value="6">6:00AM</option>
-                                    <option value="7">7:00AM</option>
+                                <input class="form-control" type="date" name="drop_date" value="{{ old('drop_date') }}" required>
+                                <select class="form-select ms-3" name="drop_time" aria-label="Default select example">
+                                    <option value="06:00" {{ old('drop_time') == '06:00' ? 'selected' : '' }}>6:00 Pagi</option>
+                                    <option value="07:00" {{ old('drop_time') == '07:00' ? 'selected' : '' }}>7:00 Pagi</option>
+                                    <option value="08:00" {{ old('drop_time') == '08:00' ? 'selected' : '' }}>8:00 Pagi</option>
+                                    <option value="09:00" {{ old('drop_time') == '09:00' ? 'selected' : '' }}>9:00 Pagi</option>
+                                    <option value="10:00" {{ old('drop_time') == '10:00' ? 'selected' : '' }}>10:00 Pagi</option>
+                                    <option value="11:00" {{ old('drop_time') == '11:00' ? 'selected' : '' }}>11:00 Pagi</option>
+                                    <option value="12:00" {{ old('drop_time') == '12:00' ? 'selected' : '' }}>12:00 Siang</option>
+                                    <option value="13:00" {{ old('drop_time') == '13:00' ? 'selected' : '' }}>1:00 Siang</option>
                                 </select>
                             </div>
                         </div>
 
+                        <div class="col-12">
+                            <select name="drive_option" id="drive_option" class="form-select @error('drive_option') is-invalid @enderror" aria-label="Default select example">
+                                <option value="" hidden>Pilih Jenis Pengemudi</option>
+                                <option value="menyetir_sendiri">Menyetir Sendiri</option>
+                                <option value="dikemudikan_oleh_sopir">Include Sopir</option>
+                            </select>
+
+                            @error('drive_option')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-group mt-3">
+                            <a href="#" class="text-start text-white d-block mb-2">Upload Bukti Pembayaran DP,<span>     </span>jika diperlukan: </a>
                             <input type="file" name="file" class="form-control @error('file') is-invalid @enderror">
 
                             @error('file')
@@ -197,7 +215,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-primary">Kirim</button>
+            <button type="submit" form="bookForm" class="btn btn-primary">Kirim</button>
         </div>
       </div>
     </div>
