@@ -1,12 +1,16 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
+
 use App\Http\Controllers\Controller;
 use App\Http\Services\CarService;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MainController extends Controller
 {
+
     public function __construct(
         private CarService $carService
     ) {}
@@ -54,5 +58,6 @@ class MainController extends Controller
     {
         return view('frontend.testimonial');
     }
+
 
 }
