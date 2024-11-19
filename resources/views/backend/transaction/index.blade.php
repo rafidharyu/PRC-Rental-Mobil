@@ -27,10 +27,12 @@
                 <p class="mb-0">Daftar Sewa Mobil PRC</p>
             </div>
             <div>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#downloadModal"
-                    class="btn btn-success d-inline-flex align-items-center text-white">
-                    <i class="fas fa-file-excel me-1"></i> Download
-                </button>
+                @if (auth()->user()->role === 'owner')
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#downloadModal"
+                        class="btn btn-success d-inline-flex align-items-center text-white">
+                        <i class="fas fa-file-excel me-1"></i> Download
+                    </button>
+                @endif
             </div>
         </div>
     </div>
@@ -94,20 +96,22 @@
                                             <i class="fas fa-eye"></i>
                                         </a>
 
-                                        <button type="button" class="btn btn-sm btn-primary" onclick="confirmModal(this)"
-                                            data-uuid="{{ $item->uuid }}">
-                                            <i class="fa-solid fa-list"></i>
-                                        </button>
+                                        @if (auth()->user()->role === 'operator')
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="confirmModal(this)"
+                                                data-uuid="{{ $item->uuid }}">
+                                                <i class="fa-solid fa-list"></i>
+                                            </button>
 
-                                        {{-- <a href="{{ route('panel.transaction.edit', $item->uuid) }}"
-                                            class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a> --}}
+                                            {{-- <a href="{{ route('panel.transaction.edit', $item->uuid) }}"
+                                                class="btn btn-sm btn-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </a> --}}
 
-                                        <button class="btn btn-sm btn-danger" onclick="deleteTransaction(this)"
-                                            data-uuid="{{ $item->uuid }}">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
+                                            <button class="btn btn-sm btn-danger" onclick="deleteTransaction(this)"
+                                                data-uuid="{{ $item->uuid }}">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

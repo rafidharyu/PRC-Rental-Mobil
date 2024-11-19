@@ -82,8 +82,10 @@
         </table>
 
         <div class="float-end mt-2">
+        @if (auth()->user()->role === 'operator')
             <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
                 Edit</a>
+        @endif
         </div>
     </div>
 </div>
