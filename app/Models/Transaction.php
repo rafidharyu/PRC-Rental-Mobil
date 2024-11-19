@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transaction extends Model
@@ -34,6 +35,11 @@ class Transaction extends Model
             $model->uuid = Str::uuid();
             $model->code = Str::random(6);
         });
+    }
+
+    public function review(): HasOne
+    {
+        return $this->hasOne(Review::class);
     }
 
     public function car(): BelongsTo

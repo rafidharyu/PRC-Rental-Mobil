@@ -122,7 +122,7 @@
                         </td>
                     </tr>
 
-                    {{-- @isset($review)
+                    @isset($review)
                         <tr>
                             <th>Rating</th>
                             <td width="60%">
@@ -136,7 +136,7 @@
                                 : {{ $review->comment }}
                             </td>
                         </tr>
-                    @endisset --}}
+                    @endisset
                 </table>
             </div>
 

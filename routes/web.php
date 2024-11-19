@@ -8,6 +8,8 @@ use App\Http\Controllers\Frontend\MainController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\OperatorActivationController;
+use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Frontend\ReviewController as FrontReviewController;
 
 
 Route::get('/', [MainController::class, 'index'])->name('index');
@@ -20,6 +22,7 @@ Route::get('/car', [MainController::class, 'car'])->name('car');
 Route::get('/testimonial', [MainController::class, 'testimonial'])->name('testimonial');
 
 Route::post('booking', [BookingController::class, 'store'])->name('book.attempt');
+Route::post('review', [FrontReviewController::class, 'store'])->name('review.attempt');
 
 // Route::prefix('panel')->middleware('auth')->group(function () {
 // // Routes for the backend panel, protected by authentication and operator middleware
@@ -35,6 +38,10 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
     Route::resource('transaction', TransactionController::class)
     ->except(['create', 'store'])
     ->names('panel.transaction');
+
+    Route::resource('review', ReviewController::class)
+    // ->only('index', 'show', 'destroy')
+    ->names('panel.review');
 
     // Operator-specific routes
     Route::get('operators/serverside', [OperatorActivationController::class, 'serverside'])->name('backend.operators.serverside');
