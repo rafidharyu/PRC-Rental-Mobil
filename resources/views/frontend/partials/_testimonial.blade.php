@@ -33,70 +33,53 @@
                     <div class="card shadow mx-4">
                         <div class="bg-secondary rounded p-5">
                             <h4 class="text-white mb-4">Berikan Penilaian Anda</h4>
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <div class="col-12">
-                                            <div class="input-group">
-                                                <div class="d-flex align-items-center bg-light text-body rounded-start p-1">
-                                                    <span class="ms-1">Kode</span>
-                                                </div>
-                                                <input type="text" name="code"
-                                                    class="form-control @error('code') is-invalid @enderror" id="code"
-                                                    placeholder="Kode Transaksi Anda" value="{{ old('code') }}">
+                            <form action= method="post">
+                                @csrf
 
-                                                @error('code')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
+                                <div class="mb-3">
+                                    <label for="code">Code Transaction</label>
+                                    <input type="text" name="code" id="code" class="form-control @error('code') 'is-invalid' @enderror"
+                                        value="{{ old('code') }}">
 
-                                            <div class="mb-3">
-                                                <div class="rating-container">
-                                                    <label for="rate">Rating</label>
-                                                    <div class="star-rating">
-                                                        <input type="radio" id="star5" name="rate" value="5" />
-                                                        <label for="star5" title="5 stars">&#9733;</label>
-                                                        <input type="radio" id="star4" name="rate" value="4" />
-                                                        <label for="star4" title="4 stars">&#9733;</label>
-                                                        <input type="radio" id="star3" name="rate" value="3" />
-                                                        <label for="star3" title="3 stars">&#9733;</label>
-                                                        <input type="radio" id="star2" name="rate" value="2" />
-                                                        <label for="star2" title="2 stars">&#9733;</label>
-                                                        <input type="radio" id="star1" name="rate" value="1" />
-                                                        <label for="star1" title="1 star">&#9733;</label>
-                                                    </div>
-                                                </div>
+                                    @error('code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
 
-                                                @error('rate')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
+                                <div class="mb-3">
+                                    <label for="rate">Rating <span style="color: gold;">&#9733;</span></label>
+                                    <select name="rate" id="rate" class="form-select">
+                                        <option value="" hidden>-- Choose Review --</option>
+                                        <option value="1" style="color: gold;">&#9733;</option>
+                                        <option value="2" style="color: gold;">&#9733;&#9733;</option>
+                                        <option value="3" style="color: gold;">&#9733;&#9733;&#9733;</option>
+                                        <option value="4" style="color: gold;">&#9733;&#9733;&#9733;&#9733;</option>
+                                        <option value="5" style="color: gold;">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                    </select>
 
-                                            <div class="col-12">
-                                                <div class="input-group">
-                                                    <textarea
-                                                        class="form-control @error('comment') is-invalid @enderror"
-                                                        name="comment" rows="5"
-                                                        placeholder="Berikan Komentar Anda">{{ old('comment') }}</textarea>
+                                    @error('rate')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
 
-                                                    @error('comment')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                <div class="mb-3">
+                                    <label for="comment">Comment</label>
+                                    <textarea name="comment" id="comment" cols="5" rows="5"
+                                        class="form-control @error('code') 'is-invalid' @enderror">{{ old('comment') }}</textarea>
 
-                                        </div>
-                                    </div>
+                                    @error('code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
 
-                                    <div class="col-12">
-                                        <button class="btn btn-light w-100 py-2">Kirim</button>
-                                    </div>
+                                <div class="float-end">
+                                    <button type="submit" class="btn btn-primary">Kirim</button>
                                 </div>
                             </form>
                         </div>
@@ -106,3 +89,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    const select = document.getElementById('rate');
+
+    select.addEventListener('change', function () {
+        // Ambil opsi yang dipilih
+        const selectedOption = select.options[select.selectedIndex];
+        // Terapkan warna emas ke elemen dropdown
+        select.style.color = 'gold';
+        select.style.fontWeight = 'bold';
+    });
+</script>

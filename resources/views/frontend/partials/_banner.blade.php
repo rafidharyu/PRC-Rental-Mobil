@@ -3,7 +3,7 @@
         <div class="banner-item rounded">
             <img src="{{ asset('frontend') }}/img/banner-1.jpg" class="img-fluid rounded w-100" alt="">
             <div class="banner-content">
-                <h2 class="text-primary">Rent Your Car</h2>
+                <h2 class="text-judul">Rent Your Car</h2>
                 <h1 class="text-white">Interested in Renting?</h1>
                 <p class="text-white">Don't hesitate and send us a message.</p>
                 <div class="banner-btn">

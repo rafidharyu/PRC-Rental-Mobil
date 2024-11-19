@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Car;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,8 @@ class MainController extends Controller
     public function index()
 {
     $cars = Car::where('status', 'available')->get();
-    return view('frontend.index', compact('cars'));
+    $events = Event::orderByDesc('created_at')->get();
+    return view('frontend.index', compact('cars', 'events'));
 }
 
 public function about()

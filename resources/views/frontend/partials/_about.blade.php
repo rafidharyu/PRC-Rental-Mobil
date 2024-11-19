@@ -4,7 +4,7 @@
             <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="about-item">
                     <div class="pb-5">
-                        <h1 class="display-5 text-capitalize">Cental <span class="text-primary">About</span></h1>
+                        <h1 class="display-5 text-capitalize">Cental <span class="text-judul">About</span></h1>
                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
                         </p>
                     </div>
@@ -39,10 +39,10 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="rounded">
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Morbi tristique senectus</p>
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> A scelerisque purus</p>
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Dictumst vestibulum</p>
-                                <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> dio aenean sed adipiscing</p>
+                                <p class="mb-2"><i class="fa fa-check-circle check-icon me-1"></i> Morbi tristique senectus</p>
+                                <p class="mb-2"><i class="fa fa-check-circle check-icon me-1"></i> A scelerisque purus</p>
+                                <p class="mb-2"><i class="fa fa-check-circle check-icon me-1"></i> Dictumst vestibulum</p>
+                                <p class="mb-0"><i class="fa fa-check-circle check-icon me-1"></i> dio aenean sed adipiscing</p>
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex align-items-center">
