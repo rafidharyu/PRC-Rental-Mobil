@@ -907,6 +907,17 @@
     background: var(--bs-white);
     transition: 0.5s;
 }
+
+.star {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff;
+    font-size: 2rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.star.text-warning {
+    text-shadow: 0 0 4px #fff, 0 0 8px #ffc107;
+}
+
 /*** Testimonial End ***/
 
 /*** Contact Start ***/

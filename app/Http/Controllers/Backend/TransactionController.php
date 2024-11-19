@@ -35,11 +35,11 @@ class TransactionController extends Controller
     public function show(string $uuid)
     {
         $transaction = Transaction::where('uuid', $uuid)->firstOrFail();
-        // $review = Review::where('transaction_id', $transaction->id)->first();
+        $review = Review::where('transaction_id', $transaction->id)->first();
 
         return view('backend.transaction.show', [
             'transaction' => $transaction,
-            // 'review' => $review
+            'review' => $review
         ]);
     }
 

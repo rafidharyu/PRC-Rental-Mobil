@@ -32,6 +32,9 @@
         {{-- sweetalert --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
         @stack('css')
     </head>
 
@@ -88,7 +91,7 @@
 
     if (swal) {
         Swal.fire({
-            title: 'Success!',
+            title: 'Berhasil!',
             text: swal,
             icon: 'success',
             timer: 2500,
@@ -100,7 +103,7 @@
 
     if (swalError) {
         Swal.fire({
-            title: 'Error!',
+            title: 'Kesalahan!',
             text: swalError,
             icon: 'error',
             timer: 2500,
