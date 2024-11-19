@@ -36,12 +36,13 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
     Route::resource('event', EventController::class)->names('panel.event');
 
     Route::resource('transaction', TransactionController::class)
-    ->except(['create', 'store'])
-    ->names('panel.transaction');
+        ->except(['create', 'store'])
+        ->names('panel.transaction');
+    Route::post('transaction/download', [TransactionController::class, 'download'])->name('panel.transaction.download');
 
     Route::resource('review', ReviewController::class)
-    // ->only('index', 'show', 'destroy')
-    ->names('panel.review');
+        // ->only('index', 'show', 'destroy')
+        ->names('panel.review');
 
     // Operator-specific routes
     Route::get('operators/serverside', [OperatorActivationController::class, 'serverside'])->name('backend.operators.serverside');
@@ -53,8 +54,6 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
         ->names('backend.operators');
 
     Route::get('operator/inactive', [OperatorActivationController::class, 'showInactiveAccountPage'])->name('operator.inactive');
-
-
 });
 // });
 

@@ -129,6 +129,7 @@
 
     {{-- modal --}}
     @include('backend.transaction._modal-confirm')
+    @include('backend.transaction._modal-download')
 @endsection
 
 @push('js')
