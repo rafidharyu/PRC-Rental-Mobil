@@ -76,7 +76,7 @@ class TransactionController extends Controller
     public function destroy(string $id)
     {
         // Cek apakah user adalah operator
-        if (auth()->check() && auth()->user()->role === 'operator') {
+        if (auth()->check() && auth()->user()->role === 'owner') {
             return redirect()->route('panel.transaction.index')->with('error', 'Owner tidak diizinkan menghapus transaksi.');
         }
 

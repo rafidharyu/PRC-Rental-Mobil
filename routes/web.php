@@ -5,10 +5,11 @@ use App\Http\Middleware\OperatorMiddleware;
 use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Frontend\MainController;
+use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Frontend\BookingController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\OperatorActivationController;
-use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Frontend\ReviewController as FrontReviewController;
 
 
@@ -28,9 +29,7 @@ Route::post('review', [FrontReviewController::class, 'store'])->name('review.att
 // // Routes for the backend panel, protected by authentication and operator middleware
 Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('backend.dashboard.index');
-    })->name('panel.dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('panel.dashboard');
 
     Route::resource('car', CarController::class)->names('panel.car');
     Route::resource('event', EventController::class)->names('panel.event');
