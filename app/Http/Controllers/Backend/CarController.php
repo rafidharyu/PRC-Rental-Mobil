@@ -27,6 +27,11 @@ class CarController extends Controller
      */
     public function create()
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.car.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
+        }
+
         return view('backend.car.create');
     }
 
@@ -62,6 +67,11 @@ class CarController extends Controller
 
     public function edit(string $uuid)
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.car.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
+        }
+
         return view('backend.car.edit', [
             'car' => $this->carService->selectFirstBy('uuid', $uuid)
         ]);
@@ -107,6 +117,11 @@ class CarController extends Controller
      */
     public function destroy(string $uuid)
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.car.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
+        }
+        
         $getCar = $this->carService->selectFirstBy('uuid', $uuid);
 
         $this->fileService->delete($getCar->image);

@@ -141,8 +141,10 @@
             </div>
 
             <div class="float-end mt-2">
-                <a href="" class="btn btn-warning"><i
-                        class="fas fa-edit"></i> Confirm</a>
+                @if (auth()->user()->role === 'operator')
+                    <a href="" class="btn btn-warning"><i
+                            class="fas fa-edit"></i> Confirm</a>
+                @endif
             </div>
         </div>
     </div>

@@ -101,8 +101,10 @@
         </table>
 
         <div class="float-end mt-2">
-            <a href="{{ route('panel.car.edit', $car->uuid) }}" class="btn btn-warning"><i
-                    class="fas fa-edit"></i> Edit</a>
+            @if (auth()->user()->role === 'operator')
+                <a href="{{ route('panel.car.edit', $car->uuid) }}" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Edit</a>
+            @endif
         </div>
     </div>
 </div>
