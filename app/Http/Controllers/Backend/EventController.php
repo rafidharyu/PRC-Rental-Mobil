@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Services\FileService;
 use App\Http\Requests\EventRequest;
 use App\Http\Services\EventService;
@@ -31,8 +32,13 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.event.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
+        }
+
         return view('backend.event.create');
     }
 
@@ -77,8 +83,13 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $uuid): View
+    public function edit(string $uuid): View|RedirectResponse
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.event.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
+        }
+
         return view('backend.event.edit', [
             'event' => $this->eventService->selectFirstBy('uuid', $uuid)
         ]);
@@ -122,8 +133,13 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $uuid): \Illuminate\Http\JsonResponse
+    public function destroy(string $uuid): JsonResponse|RedirectResponse
     {
+        // Cek apakah user adalah owner
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.event.index')->with('error', 'Owner tidak diizinkan menghapus event.');
+        }
+
         $getEvent = $this->eventService->selectFirstBy('uuid', $uuid);
 
         $this->fileService->delete($getEvent->image);

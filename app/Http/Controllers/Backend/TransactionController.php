@@ -75,6 +75,11 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
+        // Cek apakah user adalah operator
+        if (auth()->check() && auth()->user()->role === 'owner') {
+            return redirect()->route('panel.transaction.index')->with('error', 'Owner tidak diizinkan menghapus transaksi.');
+        }
+
         $getTransaction = Transaction::where('uuid', $id)->firstOrFail();
 
         $this->fileService->delete($getTransaction->file);
@@ -86,17 +91,17 @@ class TransactionController extends Controller
         ]);
     }
 
-    // public function download(Request $request)
-    // {
-    //     $data = $request->validate([
-    //         'start_date' => 'required|date',
-    //         'end_date' => 'required|date|after_or_equal:start_date'
-    //     ]);
+    public function download(Request $request)
+    {
+        $data = $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date'
+        ]);
 
-    //     try {
-    //         return Excel::download(new TransactionExport($data['start_date'], $data['end_date']), 'transactions.xlsx');
-    //     } catch (\Exception $error) {
-    //         return redirect()->back()->with('error', $error->getMessage());
-    //     }
-    // }
+        try {
+            return Excel::download(new TransactionExport($data['start_date'], $data['end_date']), 'transactions.xlsx');
+        } catch (\Exception $error) {
+            return redirect()->back()->with('error', $error->getMessage());
+        }
+    }
 }

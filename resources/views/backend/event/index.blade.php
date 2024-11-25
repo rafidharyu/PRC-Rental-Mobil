@@ -27,9 +27,11 @@
             <p class="mb-0">Daftar Event PRC</p>
         </div>
         <div>
+        @if (auth()->user()->role === 'operator')
             <a href="{{ route('panel.event.create') }}" class="btn btn-warning d-inline-flex align-items-center">
                 <i class="fas fa-plus me-1"></i> Create Event
             </a>
+        @endif
         </div>
     </div>
 </div>
@@ -79,14 +81,16 @@
                                         <i class="fas fa-eye"></i>
                                     </a>
 
-                                    <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-sm btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
+                                    @if (auth()->user()->role === 'operator')
+                                        <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
 
-                                    <button class="btn btn-sm btn-danger" onclick="deleteEvent(this)"
-                                        data-uuid="{{ $event->uuid }}">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteEvent(this)"
+                                            data-uuid="{{ $event->uuid }}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

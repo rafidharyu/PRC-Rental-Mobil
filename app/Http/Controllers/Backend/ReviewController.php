@@ -28,6 +28,13 @@ class ReviewController extends Controller
 
     public function destroy(string $uuid): JsonResponse
     {
+        // Check if the user is not an operator
+        if (auth()->check() && auth()->user()->role !== 'operator') {
+            return response()->json([
+                'message' => 'You are not authorized to delete this review.'
+            ]);
+        }
+
         $review = Review::where('uuid', $uuid)->firstOrFail();
         $review->delete();
 
