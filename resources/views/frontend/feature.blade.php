@@ -1,7 +1,7 @@
 @extends('frontend.template.main')
 
-@section('title', 'Feature')
-@section('head', 'Our Features')
+@section('title', 'Fitur')
+@section('head', 'Fitur Kami')
 
 @section('content')
         <!-- Feature Start -->

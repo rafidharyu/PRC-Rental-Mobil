@@ -10,8 +10,8 @@
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-4 text-capitalize mb-3">Syarat dan <span class="text-judul">Ketentuan</span></h1>
         </div>
-            <div class="container-fluid overflow-hidden syarat py-5">
-                <div class="container py-5">
+            <div class="container-fluid overflow-hidden syarat">
+                <div class="container pb-5">
                     <div class="row g-5">
                         <div class="col-xl-15 mx-auto wow fadeInUp" data-wow-delay="0.2s">
                             <div class="syarat-item">
