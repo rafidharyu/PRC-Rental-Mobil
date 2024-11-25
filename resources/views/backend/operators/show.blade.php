@@ -1,77 +1,96 @@
 @extends('backend.template.main')
 
-@section('title', 'operators: ' . $operator->name)
+@section('title', 'Operator: ' . $operator->name)
 
 @section('content')
-<div class="py-4">
-    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-            <li class="breadcrumb-item">
-                <a href="#">
-                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                        </path>
-                    </svg>
+    <div class="py-4">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-custom">
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('panel.dashboard') }}" class="breadcrumb-link text-gold">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('backend.operators.index') }}" class="breadcrumb-link text-gold">Operators</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $operator->name }}</li>
+            </ol>
+        </nav>
+        <div class="d-flex justify-content-between w-100 flex-wrap mb-4">
+            <div>
+                <h1 class="h4 text-dark font-weight-bold">Operator Details: {{ $operator->name }}</h1>
+                <p class="mb-0 text-muted">Detailed information of this operator.</p>
+            </div>
+            <div>
+                <a href="{{ route('backend.operators.index') }}" class="btn btn-gradient">
+                    <i class="fas fa-arrow-left me-1"></i> Back
                 </a>
-            </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.operators.index') }}">operators</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $operator->name }}</li>
-        </ol>
-    </nav>
-
-    <div class="d-flex justify-content-between w-100 flex-wrap">
-        <div class="mb-3 mb-lg-0">
-            <h1 class="h4">operators: {{ $operator->name }}</h1>
-            <p class="mb-0">Detail operators: {{ $operator->name }}</p>
+            </div>
         </div>
-        <div>
-            <a href="{{ route('backend.operators.index') }}"
-                class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
-            </a>
+
+        <!-- Success Alert -->
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        <div class="card border-0 shadow mb-4">
+            <table class="table table-bordered align-middle">
+                <thead class="table-header">
+                    <tr>
+                        <th>Kolom</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td>Name</td>
+                        <td>{{ $operator->name }}</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>Email</td>
+                        <td>{{ $operator->email }}</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>Status</td>
+                        <td>
+                            @if ($operator->is_active)
+                                <span class="badge status-available">Active</span>
+                            @else
+                                <span class="badge status-unavailable">Inactive</span>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>Created At</td>
+                        <td>{{ date('Y-m-d H:i:s', strtotime($operator->created_at)) }}</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>Updated At</td>
+                        <td>{{ date('Y-m-d H:i:s', strtotime($operator->updated_at)) }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <!-- Edit Button -->
+        {{-- @if (auth()->user()->role === 'admin')
+    <div class="text-end mt-4">
+        <a href="{{ route('backend.operators.edit', $operator->id) }}" class="btn btn-edit">
+            <i class="fas fa-edit"></i> Edit
+        </a>
     </div>
-</div>
+    @endif --}}
 
-@if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-@endif
-
-{{-- Table --}}
-<div class="card border-0 shadow mb-4">
-    <div class="card-body">
-        <table class="table table-striped">
-            <tr>
-                <th>Name</th>
-                <td>: {{ $operator->name }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>: {{ $operator->email }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>:
-                    @if ($operator->is_active)
-                        <span class="badge bg-success">Active</span>
-                    @else
-                        <span class="badge bg-secondary">Inactive</span>
-                    @endif
-                </td>
-            </tr>
-        </table>
-
-        <div class="float-end mt-2">
-            <a href="{{ route('backend.operators.edit', $operator->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
-                Edit</a>
-        </div>
-    </div>
-</div>
-
 @endsection

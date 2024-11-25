@@ -21,7 +21,7 @@
                 style="background-image: url({{ asset('backend/assets/img/illustrations/signin.svg') }});">
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                        <div class="text-center text-md-center mb-4 mt-md-0">
+                        <div class="text-center text-white text-md-center mb-4 mt-md-0">
                             <h1 class="mb-0 h3">Sign in to our platform</h1>
                         </div>
                         <form action="{{ route('login') }}" method="POST" class="mt-4">
@@ -84,7 +84,7 @@
                                     </div>
 
                                     @if (Route::has('password.request'))
-                                    <div><a href="{{ route('password.request') }}" class="small text-right">Lost password?</a>
+                                    <div><a href="{{ route('password.request') }}" class="small text-right text-white">Lost password?</a>
                                     </div>
                                     @endif
                                 </div>
@@ -96,7 +96,7 @@
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="fw-normal">
                                 Not registered?
-                                <a href="{{ route('register') }}" class="fw-bold">Create account</a>
+                                <a href="{{ route('register') }}" class="fw-bold text-white">Create account</a>
                             </span>
                         </div>
                     </div>

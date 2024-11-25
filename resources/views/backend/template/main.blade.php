@@ -35,8 +35,10 @@
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('backend') }}/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('backend') }}/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('backend') }}/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('backend') }}/assets/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="{{ asset('backend') }}/assets/img/favicon/site.webmanifest">
     <link rel="mask-icon" href="{{ asset('backend') }}/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -52,10 +54,12 @@
     <link type="text/css" href="{{ asset('backend/assets') }}/css/volt.css" rel="stylesheet">
 
     {{-- fontawesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
     @stack('css')
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +79,7 @@
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
                     <p class="mb-0 text-center text-lg-start">© 2024-<span class="current-year"></span> <a
-                            class="text-primary fw-normal" href="#" target="_blank">SIB SOMEAH</a>
+                            class="text-white fw-normal" href="#" target="_blank">SIB SOMEAH</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
@@ -90,7 +94,7 @@
                         <li class="list-inline-item px-0 px-sm-2">
                             <a href="https://themesberg.com/blog">Blog</a>
                         </li> --}}
-                        <li class="list-inline-item px-0 px-sm-2">
+                        <li class="list-inline-item text-white px-0 px-sm-2">
                             <a href="#">Kelompok 2 (A)</a>
                         </li>
                     </ul>
@@ -141,6 +145,8 @@
     <script src="{{ asset('backend') }}/assets/js/volt.js"></script>
 
     @stack('js')
+
+
 </body>
 
 </html>

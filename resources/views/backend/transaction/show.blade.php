@@ -5,9 +5,9 @@
 @section('content')
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-custom">
                 <li class="breadcrumb-item">
-                    <a href="#">
+                    <a href="#" class="breadcrumb-link">
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -16,136 +16,130 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.transaction.index') }}">Transaction</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $transaction->name }}</li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('panel.dashboard') }}" class="breadcrumb-link text-gold">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('panel.transaction.index') }}" class="breadcrumb-link text-gold">Transaction</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $transaction->code }}</li>
             </ol>
         </nav>
-
-        <div class="d-flex justify-content-between w-100 flex-wrap">
-            <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Transaction: {{ $transaction->name }}</h1>
-                <p class="mb-0">Transaction Code: {{ $transaction->code }}</p>
+        <div class="d-flex justify-content-between w-100 flex-wrap mb-4">
+            <div>
+                <h1 class="h4 text-dark font-weight-bold">Transaction Details: {{ $transaction->name }}</h1>
+                <p class="mb-0 text-muted">Transaction Code: {{ $transaction->code }}</p>
             </div>
             <div>
-                <a href="{{ route('panel.transaction.index') }}"
-                    class="btn btn-outline-gray-600 d-inline-flex align-items-center">
+                <a href="{{ route('panel.transaction.index') }}" class="btn btn-gradient">
                     <i class="fas fa-arrow-left me-1"></i> Back
                 </a>
             </div>
         </div>
-    </div>
 
-    {{-- table --}}
-    <div class="card border-0 shadow mb-4">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped">
+        <!-- Success Alert -->
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        <div class="card border-0 shadow mb-4">
+            <table class="table table-bordered align-middle">
+                <thead class="table-header">
                     <tr>
-                        <th>Name</th>
-                        <td>: {{ $transaction->name }}</td>
+                        <th>Kolom</th>
+                        <th>Details</th>
                     </tr>
-
-                    <tr>
-                        <th>Telepon</th>
-                        <td>: {{ $transaction->phone }}</td>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td>Name</td>
+                        <td>{{ $transaction->name }}</td>
                     </tr>
-
-                    <tr>
-                        <th>Email</th>
-                        <td>: {{ $transaction->email }}</td>
+                    <tr class="table-row">
+                        <td>Phone</td>
+                        <td>{{ $transaction->phone }}</td>
                     </tr>
-
-                    <tr>
-                        <th>Mobil</th>
-                        <td>: {{ $transaction->car->name }}</td>
+                    <tr class="table-row">
+                        <td>Email</td>
+                        <td>{{ $transaction->email }}</td>
                     </tr>
-
-                    <tr>
-                        <th>TGL. Ambil</th>
-                        <td>: {{ date('d-m-Y', strtotime($transaction->pick_date)) }}</td>
+                    <tr class="table-row">
+                        <td>Car</td>
+                        <td>{{ $transaction->car->name }}</td>
                     </tr>
-
-                    <tr>
-                        <th>WKT. Ambil</th>
-                        <td>: {{ $transaction->pick_time }}</td>
+                    <tr class="table-row">
+                        <td>Pick-up Date</td>
+                        <td>{{ date('d-m-Y', strtotime($transaction->pick_date)) }}</td>
                     </tr>
-
-                    <tr>
-                        <th>TGL. Pengembalian</th>
-                        <td>: {{ date('d-m-Y', strtotime($transaction->pick_date)) }}</td>
+                    <tr class="table-row">
+                        <td>Pick-up Time</td>
+                        <td>{{ $transaction->pick_time }}</td>
                     </tr>
-
-                    <tr>
-                        <th>WKT. Pengembalian</th>
-                        <td>: {{ $transaction->drop_time }}</td>
+                    <tr class="table-row">
+                        <td>Return Date</td>
+                        <td>{{ date('d-m-Y', strtotime($transaction->drop_date)) }}</td>
                     </tr>
-
-                    <tr>
-                        <th>LOK. Ambil</th>
-                        <td>: {{ $transaction->pick_option }}</td>
+                    <tr class="table-row">
+                        <td>Return Time</td>
+                        <td>{{ $transaction->drop_time }}</td>
                     </tr>
-
-                    <tr>
-                        <th>LOK. Pengembalian</th>
-                        <td>: {{ $transaction->drop_option }}</td>
+                    <tr class="table-row">
+                        <td>Pick-up Location</td>
+                        <td>{{ $transaction->pick_option }}</td>
                     </tr>
-
-                    <tr>
-                        <th>Total Harga</th>
-                        <td>: Rp. {{ number_format($transaction->price_total, 0, ',', '.') }}</td>
+                    <tr class="table-row">
+                        <td>Return Location</td>
+                        <td>{{ $transaction->drop_option }}</td>
                     </tr>
-
-                    <tr>
-                        <th>Message</th>
-                        <td>: {{ $transaction->message }}</td>
+                    <tr class="table-row">
+                        <td>Total Price</td>
+                        <td>Rp. {{ number_format($transaction->price_total, 0, ',', '.') }}</td>
                     </tr>
-
-                    <tr>
-                        <th>Status</th>
-                        <td>:
+                    <tr class="table-row">
+                        <td>Message</td>
+                        <td>{{ $transaction->message }}</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td>Status</td>
+                        <td>
                             @if ($transaction->status == 'pending')
-                                <span class="badge bg-warning">Pending</span>
+                                <span class="badge status-pending">Pending</span>
                             @elseif ($transaction->status == 'failed')
-                                <span class="badge bg-danger">Failed</span>
+                                <span class="badge status-failed">Failed</span>
                             @else
-                                <span class="badge bg-success">Success</span>
+                                <span class="badge status-success">Success</span>
                             @endif
                         </td>
                     </tr>
-
-                    <tr>
-                        <th>File</th>
-                        <td width="60%">
+                    <tr class="table-row">
+                        <td>File</td>
+                        <td>
                             <img src="{{ asset('storage/' . $transaction->file) }}" class="img-fluid" width="20%"
                                 target="_blank">
                         </td>
                     </tr>
 
                     @isset($review)
-                        <tr>
-                            <th>Rating</th>
-                            <td width="60%">
-                                : {{ $review->rate }}
-                            </td>
+                        <tr class="table-row">
+                            <td>Rating</td>
+                            <td>{{ $review->rate }}</td>
                         </tr>
-
-                        <tr>
-                            <th>Comment</th>
-                            <td width="60%">
-                                : {{ $review->comment }}
-                            </td>
+                        <tr class="table-row">
+                            <td>Comment</td>
+                            <td>{{ $review->comment }}</td>
                         </tr>
                     @endisset
-                </table>
-            </div>
-
-            <div class="float-end mt-2">
-                @if (auth()->user()->role === 'operator')
-                    <a href="" class="btn btn-warning"><i
-                            class="fas fa-edit"></i> Confirm</a>
-                @endif
-            </div>
+                </tbody>
+            </table>
         </div>
+        <!-- Action Button (Operator Role) -->
+        {{-- @if (auth()->user()->role === 'operator')
+            <div class="float-end mt-2">
+             <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i> Confirm</a>
+            </div>
+            @endif --}}
     </div>
 @endsection

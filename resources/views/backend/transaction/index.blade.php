@@ -1,13 +1,13 @@
 @extends('backend.template.main')
 
-@section('title', 'Transaction')
+@section('title', 'Transactions')
 
 @section('content')
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-custom">
                 <li class="breadcrumb-item">
-                    <a href="#">
+                    <a href="#" class="breadcrumb-link">
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -16,64 +16,66 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Transaction</li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('panel.dashboard') }}" class="breadcrumb-link text-gold">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Transactions</li>
             </ol>
         </nav>
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Transaction</h1>
-                <p class="mb-0">Daftar Sewa Mobil PRC</p>
+                <h1 class="h4 text-gold">Transaction Management</h1>
+                <p class="mb-0 text-muted">Manage car rental transactions</p>
             </div>
-            <div>
+            {{-- <div>
                 @if (auth()->user()->role === 'owner')
                     <button type="button" data-bs-toggle="modal" data-bs-target="#downloadModal"
-                        class="btn btn-success d-inline-flex align-items-center text-white">
+                        class="btn btn-gradient d-inline-flex align-items-center">
                         <i class="fas fa-file-excel me-1"></i> Download
                     </button>
                 @endif
-            </div>
+            </div> --}}
         </div>
     </div>
 
     @session('success')
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
+        <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
+            <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endsession
 
     @session('error')
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('error') }}
+        <div class="alert alert-danger alert-dismissible fade show custom-alert" role="alert">
+            <i class="fas fa-times-circle me-2"></i>{{ session('error') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endsession
 
-    {{-- table --}}
-    <div class="transactiond border-0 shadow mb-4">
-        <div class="transactiond-body">
+    <div class="card border-0 shadow-lg mb-4">
+        <div class="card-body bg-gradient-dark rounded">
             <div class="table-responsive">
-                <table class="table table-centered table-hover table-nowrap mb-0 rounded">
-                    <thead class="thead-light">
+                <table class="table table-hover table-striped text-center" style="border-spacing: 0 10px;">
+                    <thead class="table-header">
                         <tr>
-                            <th class="border-0 rounded-start">No</th>
-                            <th class="border-0">Name</th>
-                            <th class="border-0">Telepon</th>
-                            <th class="border-0">Mobil</th>
-                            <th class="border-0">Tgl. ambil</th>
-                            <th class="border-0">Wkt. ambil</th>
-                            <th class="border-0">Tmp. ambil</th>
-                            <th class="border-0">Total harga</th>
-                            <th class="border-0">Status</th>
-                            <th class="border-0 rounded-end">Action</th>
+                            <th class="py-3">No</th>
+                            <th class="py-3">Name</th>
+                            <th class="py-3">Phone</th>
+                            <th class="py-3">Car</th>
+                            <th class="py-3">Pick-up Date</th>
+                            <th class="py-3">Pick-up Time</th>
+                            <th class="py-3">Pick-up Location</th>
+                            <th class="py-3">Total Price</th>
+                            <th class="py-3">Status</th>
+                            <th class="py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($transactions as $item)
-                            <tr>
-                                <td>{{ ($transactions->currentPage() - 1) * $transactions->perPage() + $loop->iteration }}</td>
+                            <tr class="table-row">
+                                <td>{{ ($transactions->currentPage() - 1) * $transactions->perPage() + $loop->iteration }}
+                                </td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->phone }}</td>
                                 <td>{{ $item->car->name }}</td>
@@ -83,31 +85,32 @@
                                 <td>{{ 'Rp. ' . number_format($item->price_total, 0, ',', '.') }}</td>
                                 <td>
                                     @if ($item->status == 'pending')
-                                        <span class="badge bg-warning">Pending</span>
+                                        <span class="badge status-pending">Pending</span>
                                     @elseif($item->status == 'failed')
-                                        <span class="badge bg-danger">Failed</span>
+                                        <span class="badge status-failed">Failed</span>
                                     @else
-                                        <span class="badge bg-success">Success</span>
+                                        <span class="badge status-success">Success</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a href="{{ route('panel.transaction.show', $item->uuid) }}" class="btn btn-sm btn-info">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="{{ route('panel.transaction.show', $item->uuid) }}"
+                                            class="btn btn-sm btn-icon btn-view">
                                             <i class="fas fa-eye"></i>
                                         </a>
-
+                                        @if (auth()->user()->role === 'owner')
+                                            <button type="button" class="btn btn-sm btn-icon btn-confirm"
+                                                data-bs-toggle="modal" data-bs-target="#downloadModal">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        @endif
                                         @if (auth()->user()->role === 'operator')
-                                            <button type="button" class="btn btn-sm btn-primary" onclick="confirmModal(this)"
-                                                data-uuid="{{ $item->uuid }}">
+                                            <button type="button" class="btn btn-sm btn-icon btn-confirm"
+                                                onclick="confirmModal(this)" data-uuid="{{ $item->uuid }}">
                                                 <i class="fa-solid fa-list"></i>
                                             </button>
 
-                                            {{-- <a href="{{ route('panel.transaction.edit', $item->uuid) }}"
-                                                class="btn btn-sm btn-primary">
-                                                <i class="fas fa-edit"></i>
-                                            </a> --}}
-
-                                            <button class="btn btn-sm btn-danger" onclick="deleteTransaction(this)"
+                                            <button class="btn btn-sm btn-icon btn-delete" onclick="deleteTransaction(this)"
                                                 data-uuid="{{ $item->uuid }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
@@ -117,21 +120,21 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="text-center">Data tidak ada</td>
+                                <td colspan="10" class="text-muted">No data available</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
+            </div>
 
-                {{-- pagination --}}
-                <div class="mt-3">
-                    {{ $transactions->links() }}
-                </div>
+            {{-- Pagination --}}
+            <div class="mt-4 d-flex justify-content-end">
+                {{ $transactions->links() }}
             </div>
         </div>
     </div>
 
-    {{-- modal --}}
+    {{-- Modal --}}
     @include('backend.transaction._modal-confirm')
     @include('backend.transaction._modal-download')
 @endsection
@@ -145,16 +148,16 @@
             let uuid = e.getAttribute('data-uuid')
 
             Swal.fire({
-                title: "Anda yakin?",
-                text: "Data tidak akan bisa dikembalikan!",
-                icon: "peringatan",
+                title: "Are you sure?",
+                text: "Data cannot be restored!",
+                icon: "warning",
                 showCancelButton: true,
-                cancelButtonText: "Batal",
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Ya, hapus data!"
+                cancelButtonText: "Cancel",
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#6c757d",
+                confirmButtonText: "Yes, delete it!"
             }).then((result) => {
-                if (result.value) {
+                if (result.isConfirmed) {
                     $.ajax({
                         type: "DELETE",
                         url: `/panel/transaction/${uuid}`,
@@ -163,7 +166,7 @@
                         },
                         success: function(data) {
                             Swal.fire({
-                                title: "Dihapus!",
+                                title: "Deleted!",
                                 text: data.message,
                                 icon: "success",
                                 timer: 2500,
@@ -174,23 +177,19 @@
                         },
                         error: function(data) {
                             Swal.fire({
-                                title: "Gagal!",
-                                text: "File Anda tidak dihapus.",
+                                title: "Failed!",
+                                text: "Unable to delete data.",
                                 icon: "error"
                             });
-
-                            console.log(data);
                         }
                     });
                 }
             });
         }
 
-        // show modal confirm
         const confirmModal = (e) => {
             let uuid = e.getAttribute('data-uuid')
 
-            // set action form
             $('#confirmForm').attr('action', `/panel/transaction/${uuid}`)
             $('#confirmModal').modal('show')
         }

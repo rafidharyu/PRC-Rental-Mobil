@@ -5,9 +5,9 @@
 @section('content')
 <div class="py-4">
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-custom">
             <li class="breadcrumb-item">
-                <a href="#">
+                <a href="#" class="breadcrumb-link">
                     <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -16,19 +16,20 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item">
+                <a href="{{ route('panel.dashboard') }}" class="breadcrumb-link text-gold">Dashboard</a>
+            </li>
             <li class="breadcrumb-item active" aria-current="page">Car</li>
         </ol>
     </nav>
-
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Car</h1>
-            <p class="mb-0">Daftar Sewa Mobil PRC</p>
+            <h1 class="h4 text-gold">Car Management</h1>
+            <p class="mb-0 text-muted">Manage rental car listings and details</p>
         </div>
         <div>
             @if (auth()->user()->role === 'operator')
-                <a href="{{ route('panel.car.create') }}" class="btn btn-warning d-inline-flex align-items-center">
+                <a href="{{ route('panel.car.create') }}" class="btn btn-gradient d-inline-flex align-items-center">
                     <i class="fas fa-plus me-1"></i> Create Car
                 </a>
             @endif
@@ -36,57 +37,54 @@
     </div>
 </div>
 
-@session('success')
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
+
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
+        <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-@endsession
+@endif
 
-{{-- table --}}
-<div class="card border-0 shadow mb-4">
-    <div class="card-body">
+<div class="card border-0 shadow-lg mb-4">
+    <div class="card-body bg-gradient-dark rounded">
         <div class="table-responsive">
-            <table class="table table-centered table-hover table-nowrap mb-0 rounded">
-                <thead class="thead-light">
+            <table class="table table-hover table-striped text-center" style="border-spacing: 0 10px;">
+                <thead class="table-header">
                     <tr>
-                        <th class="border-0 rounded-start">No</th>
-                        <th class="border-0">Name</th>
-                        <th class="border-0">Harga Sewa</th>
-                        <th class="border-0">Status</th>
-                        <th class="border-0">Image</th>
-                        <th class="border-0 rounded-end">Action</th>
+                        <th class="py-3">No</th>
+                        <th class="py-3">Car Name</th>
+                        <th class="py-3">Rental Price</th>
+                        <th class="py-3">Status</th>
+                        <th class="py-3">Image</th>
+                        <th class="py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($cars as $item)
-                        <tr>
+                        <tr class="table-row">
                             <td>{{ ($cars->currentPage() - 1) * $cars->perPage() + $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ 'Rp. ' . number_format($item->price_day, 0, ',', '.') . ' / hari' }}</td>
+                            <td>{{ 'Rp ' . number_format($item->price_day, 0, ',', '.') . ' / day' }}</td>
                             <td>
                                 @if ($item->status == 'available')
-                                    <span class="badge bg-success">Available</span>
+                                    <span class="badge status-available">Available</span>
                                 @else
-                                    <span class="badge bg-danger">Not Available</span>
+                                    <span class="badge status-unavailable">Not Available</span>
                                 @endif
                             </td>
-                            <td width="20%">
-                                <img src="{{ asset('storage/' . $item->image . '') }}" target="_blank">
+                            <td>
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="Car Image" class="table-image">
                             </td>
                             <td>
-                                <div class="btn-group">
-                                    <a href="{{ route('panel.car.show', $item->uuid) }}" class="btn btn-sm btn-info">
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="{{ route('panel.car.show', $item->uuid) }}" class="btn btn-sm btn-icon btn-view">
                                         <i class="fas fa-eye"></i>
                                     </a>
-
                                     @if (auth()->user()->role === 'operator')
-                                        <a href="{{ route('panel.car.edit', $item->uuid) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('panel.car.edit', $item->uuid) }}" class="btn btn-sm btn-icon btn-edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-
-                                        <button class="btn btn-sm btn-danger" onclick="deleteCar(this)"
-                                            data-uuid="{{ $item->uuid }}">
+                                        <button class="btn btn-sm btn-icon btn-delete" onclick="deleteCar(this)" data-uuid="{{ $item->uuid }}">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     @endif
@@ -95,69 +93,54 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center">Data tidak ada</td>
+                            <td colspan="6" class="text-muted">No data available</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
+        </div>
 
-            {{-- pagination --}}
-            <div class="mt-3">
-                {{ $cars->links() }}
-            </div>
+        {{-- Pagination --}}
+        <div class="mt-4 d-flex justify-content-end">
+            {{ $cars->links() }}
         </div>
     </div>
 </div>
 @endsection
 
 @push('js')
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script>
-        const deleteCar = (e) => {
-            let uuid = e.getAttribute('data-uuid')
-
-            Swal.fire({
-                title: "Anda yakin?",
-                text: "Data tidak akan bisa dikembalikan!",
-                icon: "peringatan",
-                showCancelButton: true,
-                cancelButtonText: "Batal",
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Ya, hapus data!"
-            }).then((result) => {
-                if (result.value) {
-                    $.ajax({
-                        type: "DELETE",
-                        url: `/panel/car/${uuid}`,
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function (data) {
-                            Swal.fire({
-                                title: "Dihapus!",
-                                text: data.message,
-                                icon: "success",
-                                timer: 2500,
-                                showConfirmButton: false
-                            }).then(() => {
-                                window.location.reload();
-                            });
-                        },
-                        error: function (data) {
-                            Swal.fire({
-                                title: "Gagal!",
-                                text: "File Anda tidak dihapus.",
-                                icon: "error"
-                            });
-
-                            console.log(data);
-                        }
-                    });
-                }
-            });
-        }
-    </script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const deleteCar = (e) => {
+        let uuid = e.getAttribute('data-uuid');
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Data cannot be restored!",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#6c757d",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "DELETE",
+                    url: `/panel/car/${uuid}`,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        Swal.fire("Deleted!", data.message, "success").then(() => window.location.reload());
+                    },
+                    error: function() {
+                        Swal.fire("Failed!", "Unable to delete data.", "error");
+                    }
+                });
+            }
+        });
+    }
+</script>
 @endpush
+

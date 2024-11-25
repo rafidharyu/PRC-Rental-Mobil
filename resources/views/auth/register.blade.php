@@ -22,7 +22,7 @@
                     data-background-lg="../../assets/img/illustrations/signin.svg">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                            <div class="text-center text-md-center mb-4 mt-md-0">
+                            <div class="text-center text-md-center text-white mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Create Account </h1>
                             </div>
                             <form action="{{ route('register') }}" method="POST" class="mt-4">
@@ -131,7 +131,7 @@
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Already have an account?
-                                    <a href="{{ route('login') }}" class="fw-bold">Login here</a>
+                                    <a href="{{ route('login') }}" class="fw-bold text-white">Login here</a>
                                 </span>
                             </div>
                         </div>
