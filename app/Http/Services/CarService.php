@@ -10,7 +10,7 @@ class CarService
     public function select($paginate = null)
     {
         if ($paginate) {
-            return Car::latest()->select('id', 'uuid', 'name', 'price_day', 'status', 'image')->paginate($paginate);
+            return Car::latest()->select('id', 'uuid', 'name', 'price_day', 'seat', 'fuel', 'transmisi', 'year_of_car', 'status', 'image')->paginate($paginate);
         }
 
         return Car::latest()->get();

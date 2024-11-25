@@ -1,7 +1,7 @@
 @extends('frontend.template.main')
 
-@section('title', 'About')
-@section('head', 'About Us')
+@section('title', 'Tentang')
+@section('head', 'Tentang Kami')
 
 @section('content')
 <!-- About Start -->
