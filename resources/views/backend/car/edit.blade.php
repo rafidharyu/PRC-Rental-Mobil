@@ -144,7 +144,7 @@
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
                             <option value="available" {{ $car->status == 'available' ? 'selected' : '' }}>Tersedia</option>
-                            <option value="unavailable" {{ $car->status == 'not_available' ? 'selected' : '' }}>Tidak Tersedia</option>
+                            <option value="not_available" {{ $car->status == 'not_available' ? 'selected' : '' }}>Tidak Tersedia</option>
                         </select>
 
                         @error('status')

@@ -84,7 +84,7 @@
                             alt="">
                     </div>
                     <div class="img-2">
-                        <img src="{{ asset('frontend') }}/img/about-img-1.jpg" class="img-fluid rounded w-100" alt="">
+                        <img src="{{ asset('frontend') }}/img/PAJERO.jpg" class="img-fluid rounded w-100" alt="">
                     </div>
                 </div>
             </div>

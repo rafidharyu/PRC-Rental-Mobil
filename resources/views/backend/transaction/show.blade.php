@@ -117,8 +117,11 @@
                     <tr>
                         <th>File</th>
                         <td width="60%">
-                            <img src="{{ asset('storage/' . $transaction->file) }}" class="img-fluid" width="20%"
-                                target="_blank">
+                            @if($transaction->file)
+                                <img src="{{ asset('storage/' . $transaction->file) }}" class="img-fluid" width="20%" target="_blank">
+                            @else
+                                -
+                            @endif
                         </td>
                     </tr>
 

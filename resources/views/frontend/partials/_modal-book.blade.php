@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">CONTINUE CAR RESERVATION</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">FORMULIR BOOKING KENDARAAN</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -70,17 +70,9 @@
                                     class="form-select @error('car_id') is-invalid @enderror"
                                     aria-label="Default select example">
                                     <option value="" hidden>Pilih Jenis Mobil</option>
-                                    @foreach ($cars as $car)
-                                    <option value="{{ $car->id }}">{{ $car->name }}</option>
+                                    @foreach ($cars->where('status', 'available') as $car)
+                                        <option value="{{ $car->id }}">{{ $car->name }}</option>
                                     @endforeach
-                                    {{-- <option value="new_avanza">New Avanza</option>
-                                <option value="avanza">Avanza</option>
-                                <option value="brio">Brio</option>
-                                <option value="xpander">Xpander</option>
-                                <option value="new_rush">New Rush</option>
-                                <option value="innova_reborn">Innova Reborn</option>
-                                <option value="fortuner_vrz">Fortuner VRZ</option>
-                                <option value="pajero">Pajero</option> --}}
                                 </select>
 
                                 @error('car_id')

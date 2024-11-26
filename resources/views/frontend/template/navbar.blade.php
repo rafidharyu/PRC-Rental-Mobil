@@ -21,8 +21,14 @@
                 <div class="d-flex align-items-center justify-content-end">
                     {{-- <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-twitter"></i></a> --}}
+                    <a href="https://www.tiktok.com/@sewamobillampung.krc/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
+                        <i class="fab fa-tiktok icon-color"></i>
+                    </a>
                     <a href="https://www.instagram.com/sewamobillampung.co/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
                         <i class="fab fa-instagram icon-color"></i>
+                    </a>
+                    <a href="https://wa.me/6285769040309/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
+                        <i class="fab fa-whatsapp icon-color"></i>
                     </a>
                     {{-- <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a> --}}
                 </div>

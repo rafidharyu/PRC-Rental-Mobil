@@ -19,8 +19,12 @@ class BookingController extends Controller
         $fileService = new FileService();
 
         try {
+            if ($request->hasFile('file')) {
             $data['file'] = $fileService->upload($data['file'], 'transaction');
-
+            } else {
+                $data['file'] = null; // Pastikan null ditulis ke database
+            }
+            
             $car = Car::findOrFail($data['car_id']);
             $start = new \DateTime($data['pick_date']);
             $end = new \DateTime($data['drop_date']);
