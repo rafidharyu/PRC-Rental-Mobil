@@ -68,32 +68,59 @@
 
 .btn.btn-primary {
     color: var(--bs-white);
+    background-color: #ceaa5a;
+    border: 1px solid #b79751;
 }
 
 .btn.btn-primary:hover {
-    background: var(--bs-secondary);
-    border: 1px solid var(--bs-secondary);
+    background: #000000;
+    border: 1px solid #000000;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(17, 24, 39, 0.075);
 }
 
 .btn.btn-secondary {
+    background: #000000;
     color: var(--bs-white);
+    border: 1px solid #ffffff;
 }
 
 .btn.btn-secondary:hover {
-    background: var(--bs-primary);
-    border: 1px solid var(--bs-primary);
+    background: #ceaa5a;
+    border: 1px solid #b79751;
 }
 
 .btn.btn-light {
-    color: var(--bs-primary);
+    color: #b79751;
 }
 
 .btn.btn-light:hover {
     color: var(--bs-white);
-    background: var(--bs-primary);
-    border: 1px solid var(--bs-primary);
+    background: #eac87c;
+    border: 1px solid #b79751;
 }
 
+.btn.btn-whatsapp {
+    color: var(--bs-white);
+    background-color: #18cc4e;
+    border: 1px solid #008c2a;
+}
+
+.btn.btn-whatsapp:hover {
+    background: #000000;
+    border: 1px solid #000000;
+}
+
+.btn.btn-review {
+    background: #000000;
+    color: var(--bs-white);
+    border: 1px solid #000000;
+}
+
+.btn.btn-review:hover {
+    color: #b79751;
+    background: #ffffff;
+    border: 1px solid #ceaa5a;
+}
 /*** Icon Animation Start ***/
 @keyframes icon-animat {
     0%  {border-radius: 67% 33% 29% 71% / 39% 46% 54% 61%;}
@@ -137,7 +164,7 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: #b79751;
 }
 
 .navbar-light .navbar-brand img {
@@ -159,7 +186,7 @@
 }
 
 .dropdown .dropdown-menu a:hover {
-    background: var(--bs-primary);
+    background: #ceaa5a;
     color: var(--bs-white);
 }
 
@@ -167,12 +194,24 @@
     transform: rotateX(0deg);
     visibility: visible;
     margin-top: 8px !important;
-    background: var(--bs-light);
+    background: #ffffff;
     transition: .5s;
     opacity: 1;
 }
 
+.dropdown-item {
+    color: #000000;
+}
 
+.dropdown-item:hover {
+    background: #ceaa5a;
+    color: var(--bs-white);
+}
+
+.dropdown-item.active {
+    background: #ceaa5a;
+    color: var(--bs-white);
+}
 
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
@@ -192,8 +231,8 @@
 @media (max-width: 991px) {
     .navbar.navbar-expand-lg .navbar-toggler {
         padding: 8px 15px;
-        border: 1px solid var(--bs-primary);
-        color: var(--bs-primary);
+        border: 1px solid #ceaa5a;
+        color: #ceaa5a;
     }
 
     .sticky-top .navbar-light .navbar-nav .nav-link {
@@ -209,7 +248,7 @@
 
 .carousel .carousel-item,
 .carousel .carousel-item img {
-    height: 700px;
+    height: 570px;
 }
 
 .carousel-item .carousel-caption {
@@ -240,13 +279,13 @@
     padding: 0;
     margin-top:10px;
     margin-bottom:10px;
-    background-color: var(--bs-secondary);
+    background-color: #000000;
     opacity: 1;
     transition: 0.5s;
 }
 
 .carousel-indicators [data-bs-target].active {
-    background-color: var(--bs-primary);
+    background-color: #ceaa5a;
 }
 
 @media (max-width: 992px) {
@@ -260,12 +299,16 @@
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(31, 46, 78, 1), rgba(0, 12, 33, 0.8)), url(../img/fact-bg.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(84, 84, 84, 0.9)), url(../img/fact-bg.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 60px 0 60px 0;
     transition: 0.5s;
+}
+
+.bg-breadcrumb .bg-breadcrumb-text {
+    color: #ceaa5a;
 }
 
 .bg-breadcrumb .breadcrumb {
@@ -293,8 +336,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bs-secondary);
-    background: var(--bs-primary);
+    color: #000000;
+    background: #ceaa5a;
     border-radius: 67% 33% 29% 71% / 39% 46% 54% 61%;;
     animation-name: icon-animat;
     animation-duration: 5s;
@@ -325,14 +368,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bs-secondary);
-    background-color: #F2CD5C;
+    color: #000000;
+    background:#ceaa5a;
     animation-name: icon-animat;
     animation-duration: 5s;
     animation-delay: 1s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     transition: 0.5s;
+}
+
+.check-icon {
+    color: #ceaa5a;
+    margin-right: 0.25rem;
 }
 
 .about .about-img {
@@ -365,7 +413,7 @@
     top: 0;
     right: 0;
     border-radius: 10px;
-    background-color: #F2CD5C;
+    background: #ceaa5a;
     z-index: -1;
 }
 
@@ -384,12 +432,14 @@
     border-radius: 10px;
     background: var(--bs-secondary);
 }
+
+
 /*** About End ***/
 
 
 /*** Fact Counter Start ***/
 .counter {
-    background: linear-gradient(rgba(0, 12, 33, 0.9), rgba(31, 46, 78, 0.9)), url(../img/fact-bg.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(84, 84, 84, 0.9)), url(../img/fact-bg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -402,8 +452,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bs-secondary);
-    background: var(--bs-primary);
+    color: #000000;
+    background: #ceaa5a;
     animation-name: icon-animat;
     animation-duration: 5s;
     animation-delay: 1s;
@@ -445,7 +495,7 @@
     height: 100%;
     bottom: 0;
     left: 0;
-    background-color: #F2CD5C;
+    background-color: #ceaa5a;
     border-radius: 10px;
     z-index: -1;
     transition: 0.5s;
@@ -463,8 +513,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bs-secondary);
-    background-color: #F2CD5C;
+    color: #000000;
+    background: #ceaa5a;
     animation-name: icon-animat;
     animation-duration: 5s;
     animation-delay: 1s;
@@ -483,7 +533,7 @@
 }
 
 .categories .categories-item:hover {
-    border: 1px solid var(--bs-primary);
+    border: 1px solid #ceaa5a;
 }
 
 .categories .categories-item .categories-item-inner {
@@ -494,11 +544,27 @@
 }
 
 .categories .categories-item .categories-item-inner:hover {
-    box-shadow: 0 0 50px rgba(234, 0, 30, .3);
+    box-shadow: 0 0 50px rgba(211, 162, 0, 0.3);
 }
 
 .categories .categories-item-inner .categories-img {
     background: var(--bs-light);
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Rasio 4:3 (3/4 = 0.75) */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.categories .categories-item-inner .categories-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
 }
 
 .categories .categories-item-inner .categories-content {
@@ -524,7 +590,7 @@
     top: -65px;
     padding: 10px 35px;
     color: var(--bs-white);
-    background: var(--bs-primary);
+    background: #ceaa5a;
     border-radius: 50px;
     transition: 0.5s;
 }
@@ -539,7 +605,7 @@
 
 .categories-carousel .owl-nav .owl-prev:hover,
 .categories-carousel .owl-nav .owl-next:hover {
-    background: var(--bs-secondary);
+    background: #000000;
     color: var(--bs-white);
 }
 /*** Cars Categories End ***/
@@ -548,7 +614,7 @@
 /*** Process Start ***/
 /* Styling untuk container dengan background */
 .steps {
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../img/bg-1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(84, 84, 84, 0.9)), url(../img/bg-1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -557,10 +623,10 @@
 /* Styling untuk setiap item langkah */
 .steps .steps-item {
     position: relative;
-    background: #686D76;
+    background: #000000;
     border-radius: 10px;
     padding: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 /* Styling untuk judul dan paragraf dalam setiap item langkah */
@@ -572,8 +638,8 @@
 /* Styling untuk nomor langkah */
 .steps .steps-item .setps-number {
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     bottom: 0;
     right: 40px;
     font-weight: 900;
@@ -581,10 +647,11 @@
     border-radius: 64px;
     transform: translateY(50%);
     color: var(--bs-white);
-    background: #F2CD5C;
+    background: #ceaa5a;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(30%);
 }
 
 /* Styling untuk dot navigasi */
@@ -596,10 +663,10 @@
 }
 
 .owl-dots .owl-dot {
-    width: 13px;
+    width: 10px;
     height: 10px;
     margin: 0 5px;
-    background-color: #F2CD5C;
+    background-color: #ceaa5a;
     border-radius: 50%;
 }
 
@@ -820,7 +887,7 @@
 .testimonial .testimonial-item {
     position: relative;
     margin-top: 35px;
-    border: 1px solid var(--bs-secondary);
+    border: 1px solid #000000;
     border-radius: 10px;
 }
 
@@ -833,7 +900,7 @@
     transform: translateY(-50%);
     border-radius: 70px;
     color: var(--bs-white);
-    background: var(--bs-secondary);
+    background: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -938,8 +1005,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bs-secondary);
-    background-color: #F2CD5C;
+    color: #000000;
+    background-color: #ceaa5a;
     animation-name: icon-animat;
     animation-duration: 5s;
     animation-delay: 1s;
@@ -953,13 +1020,14 @@
 
 /*** Footer Start ***/
 .footer {
-    background: var(--bs-dark);
+    background: #000000;
 }
 
 .footer .footer-item a {
     line-height: 35px;
     color: var(--bs-body);
     transition: 0.5s;
+
 }
 
 .footer .footer-item p {
@@ -968,7 +1036,7 @@
 
 .footer .footer-item a:hover {
     letter-spacing: 1px;
-    color: var(--bs-primary);
+    color: #ceaa5a;
 }
 
 .footer .footer-item .footer-btn a,
@@ -988,8 +1056,88 @@
 /*** copyright Start ***/
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    background: var(--bs-dark);
+    background: #000000;
 }
 /*** copyright end ***/
 
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the spacing between the label and stars as needed */
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+    font-size: 2rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #ffc936;
+}
+
+.icon-color {
+    color: #b79751;
+}
+
+.bg-black {
+    background-color: #000000; /* Warna hitam */
+}
+
+.bg-secondary {
+    background: #ceaa5a !important;
+    width: 100%;
+}
+
+.text-judul{
+    color: #ceaa5a !important;
+}
+
+
+/*** syarat Start ***/
+.syarat .syarat-item .syarat-item-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background: var(--bs-light);
+    transition: 0.5s;
+}
+
+.syarat .syarat-item .syarat-item-inner .syarat-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 67% 33% 29% 71% / 39% 46% 54% 61%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    background:#ceaa5a;
+    animation-name: icon-animat;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    transition: 0.5s;
+}
+
+.syarat .syarat-item .text-item {
+    color: #000000;
+    padding-left: 0px;
+}
+
+/*** syarat End ***/
 

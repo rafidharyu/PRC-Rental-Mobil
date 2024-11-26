@@ -16,7 +16,7 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('panel.review.index') }}">Review</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $review->transaction->code }}</li>
             </ol>
@@ -25,11 +25,11 @@
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
                 <h1 class="h4">Review: {{ $review->transaction->code }}</h1>
-                <p class="mb-0">Penyewaan: {{ $review->transaction->code }} PRC Sewa Mobil</p>
+                <p class="mb-0">Penyewa: {{ $review->transaction->name }}</p>
             </div>
             <div>
                 <a href="{{ route('panel.review.index') }}" class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                    <i class="fas fa-arrow-left me-1"></i> Back
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
                 </a>
             </div>
         </div>
@@ -41,17 +41,17 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <td>: {{ $review->transaction->name }}</td>
                     </tr>
 
                     <tr>
-                        <th>Car</th>
+                        <th>Mobil</th>
                         <td>: {{ $review->transaction->car->name }}</td>
                     </tr>
 
                     <tr>
-                        <th>Rate</th>
+                        <th>Penilaian</th>
                         <td>: {{ $review->rate}}</td>
                     </tr>
 
@@ -61,7 +61,7 @@
                     </tr>
 
                     <tr>
-                        <th>Created At</th>
+                        <th>Tanggal Dibuat</th>
                         <td>: {{ date('Y-m-d H:i:s', strtotime($review->created_at)) }}</td>
                     </tr>
                 </table>

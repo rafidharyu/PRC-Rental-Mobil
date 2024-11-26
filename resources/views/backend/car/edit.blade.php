@@ -16,21 +16,21 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Cars</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Car</li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Mobil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Mobil</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Edit Car</h1>
-            <p class="mb-0">Ubah data mobil</p>
+            <h1 class="h4">Edit Data Mobil</h1>
+            <p class="mb-0">Ubah Data Mobil PRC</p>
         </div>
         <div>
             <a href="{{ route('panel.car.index') }}"
                 class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
+                <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
     </div>
@@ -49,7 +49,7 @@
             @csrf
 
             <div class="mb-3">
-                <label for="name">Name</label>
+                <label for="name">Nama</label>
                 <input type="text" name="name" id="name"
                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $car->name) }}">
 
@@ -143,8 +143,8 @@
                     <div class="mb-3">
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                            <option value="available" {{ $car->status == 'available' ? 'selected' : '' }}>Available</option>
-                            <option value="unavailable" {{ $car->status == 'not_available' ? 'selected' : '' }}>Not available</option>
+                            <option value="available" {{ $car->status == 'available' ? 'selected' : '' }}>Tersedia</option>
+                            <option value="unavailable" {{ $car->status == 'not_available' ? 'selected' : '' }}>Tidak Tersedia</option>
                         </select>
 
                         @error('status')
@@ -157,7 +157,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="image">Image</label>
+                <label for="image">Gambar</label>
                 <input type="file" name="image" id="image" accept="image/*"
                     class="form-control @error('image') is-invalid @enderror">
 
@@ -171,7 +171,7 @@
             </div>
 
             <div class="float-end">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
             </div>
         </form>
     </div>

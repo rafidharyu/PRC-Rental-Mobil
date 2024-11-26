@@ -14,7 +14,7 @@
                             d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    Back to homepage
+                    Kembali ke Beranda
                 </a>
             </p>
             <div class="row justify-content-center form-bg-image"
@@ -22,13 +22,14 @@
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
-                            <h1 class="mb-0 h3">Sign in to our platform</h1>
+                            <h1 class="mb-0 h3">Selamat Datang di PRC!</h1>
+                            <h6 class="text-muted">Silahkan Login</h6>
                         </div>
                         <form action="{{ route('login') }}" method="POST" class="mt-4">
                             @csrf
                             <!-- Form -->
                             <div class="form-group mb-4">
-                                <label for="email">Your Email</label>
+                                <label for="email">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1">
                                         <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
@@ -41,7 +42,7 @@
                                     </span>
                                     <input type="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror"
-                                        value="{{ old('email') }}" placeholder="example@company.com" id="email"
+                                        value="{{ old('email') }}" placeholder="contoh@gmail.com" id="email"
                                         autofocus required>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +55,7 @@
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Your Password</label>
+                                    <label for="password">Password</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2">
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -76,27 +77,28 @@
                                 </div>
                                 <!-- End of Form -->
                                 <div class="d-flex justify-content-between align-items-top mb-4">
-                                    <div class="form-check">
+                                    {{-- <div class="form-check">
                                         <input class="form-check-input" checked name="remember" type="checkbox" value="" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>
-                                    </div>
+                                    </div> --}}
 
                                     @if (Route::has('password.request'))
-                                    <div><a href="{{ route('password.request') }}" class="small text-right">Lost password?</a>
+                                    <div>
+                                        <a href="{{ route('password.request') }}" class="small text-right">Lupa Password?</a>
                                     </div>
                                     @endif
                                 </div>
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-gray-800">Sign in</button>
+                                <button type="submit" class="btn btn-gray-800">Masuk</button>
                             </div>
                         </form>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="fw-normal">
-                                Not registered?
-                                <a href="{{ route('register') }}" class="fw-bold">Create account</a>
+                                Belum Terdaftar?
+                                <a href="{{ route('register') }}" class="fw-bold">Buat Akun</a>
                             </span>
                         </div>
                     </div>

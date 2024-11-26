@@ -1,79 +1,68 @@
 @extends('frontend.template.main')
 
-@section('title', 'Blog')
-@section('head', 'Our Blog & News')
+@section('title', 'Syarat')
+@section('head', 'Syarat dan Ketentuan')
 
 @section('content')
-        <!-- Blog Start -->
-        <div class="container-fluid blog py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend') }}/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">30 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
+<!-- Blog Start -->
+<div class="container-fluid blog py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-4 text-capitalize mb-3">Syarat dan <span class="text-judul">Ketentuan</span></h1>
+        </div>
+            <div class="container-fluid overflow-hidden syarat">
+                <div class="container pb-5">
+                    <div class="row g-5">
+                        <div class="col-xl-15 mx-auto wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="syarat-item">
+                                <div class="row g-4">
+                                    <div class="col-lg-6">
+                                        <div class="syarat-item-inner border p-4">
+                                            <div class="syarat-icon mb-4">
+                                                <i class="fas fa-file-contract syarat-icon fa-2x"></i>
+                                            </div>
+                                            <h4 class="mb-3">Persyaratan Sewa Mobil</h4>
+                                            <ul style="list-style-position: inside; padding: 0; margin-left: 0; text-align: left;">
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Membawa KTP (Asli)</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Membawa Kartu Keluarga (Asli)</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Memiliki Motor Pribadi</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Memiliki STNK dengan Tahun Keluaran
+                                                    Minimal 2018</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Memiliki SIM C (Motor)</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Menyertakan NPWP</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Menyertakan ID Card Kerja atau Kartu
+                                                    Mahasiswa</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Follow Instagram</li>
+                                            </ul>
+                                                                                </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="syarat-item-inner border p-4">
+                                            <div class="syarat-icon mb-4">
+                                                <i class="fas fa-bookmark syarat-icon fa-2x"></i>
+                                            </div>
+                                            <h4 class="mb-3">Ketentuan Booking</h4>
+                                            <ul style="list-style-position: inside; padding: 0; margin-left: 0; text-align: left;">
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Mengisi Identitas Diri</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Membayar DP 50%</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Mengunggah Bukti Transfer DP</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Mencantumkan Catatan Alamat Pick-up
+                                                    dan Drop-off</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Menyetujui Syarat Sewa Mobil</li>
+                                            </ul>
+                                                                                </div>
+                                    </div>
                                 </div>
-                                <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend') }}/img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">25 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                                </div>
-                                <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{ asset('frontend') }}/img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">27 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                                </div>
-                                <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Banner Start -->
+            @include('frontend.partials._banner')
+            <!-- Banner End -->
         </div>
-        <!-- Blog End -->
+    </div>
+    <!-- Blog End -->
 
-        <!-- Fact Counter -->
-        @include('frontend.partials._counter')
-        <!-- Fact Counter -->
-
-        <!-- Banner Start -->
-        @include('frontend.partials._banner')
-        <!-- Banner End -->
-@endsection
+    @endsection

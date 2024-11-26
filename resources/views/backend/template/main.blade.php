@@ -74,8 +74,8 @@
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
-                    <p class="mb-0 text-center text-lg-start">© 2024-<span class="current-year"></span> <a
-                            class="text-primary fw-normal" href="#" target="_blank">SIB SOMEAH</a>
+                    <p class="mb-0 text-center text-lg-start">© 2022-<span class="current-year"></span> <a
+                            class="text-primary fw-normal" href="#" target="_blank">PRC Lampung</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
@@ -91,7 +91,7 @@
                             <a href="https://themesberg.com/blog">Blog</a>
                         </li> --}}
                         <li class="list-inline-item px-0 px-sm-2">
-                            <a href="#">Kelompok 2 (A)</a>
+                            <a href="#"></a>
                         </li>
                     </ul>
                 </div>

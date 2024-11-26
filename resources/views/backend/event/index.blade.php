@@ -16,7 +16,7 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item active" aria-current="page">Event</li>
         </ol>
     </nav>
@@ -27,20 +27,20 @@
             <p class="mb-0">Daftar Event PRC</p>
         </div>
         <div>
-        @if (auth()->user()->role === 'operator')
+            @if (auth()->user()->role === 'operator')
             <a href="{{ route('panel.event.create') }}" class="btn btn-warning d-inline-flex align-items-center">
-                <i class="fas fa-plus me-1"></i> Create Event
+                <i class="fas fa-plus me-1"></i> Buat Event
             </a>
-        @endif
+            @endif
         </div>
     </div>
 </div>
 
 @if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 @endif
 
 {{-- table --}}
@@ -50,54 +50,52 @@
             <table class="table table-centered table-hover table-nowrap mb-0 rounded">
                 <thead class="thead-light">
                     <tr>
-                        <th class="border-0 rounded-start">No</th>
-                        <th class="border-0">Name</th>
-                        <th class="border-0">Description</th>
-                        <th class="border-0">Status</th>
-                        <th class="border-0">Image</th>
-                        <th class="border-0 rounded-end">Action</th>
+                        <th class="text-center border-0 rounded-start">No</th>
+                        <th class="text-center border-1">Nama</th>
+                        <th class="text-center border-1">Deskripsi</th>
+                        <th class="text-center border-1">Status</th>
+                        <th class="text-center border-1">Gambar</th>
+                        <th class="text-center border-0 rounded-end">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($events as $event)
-                        <tr>
-                            <td>{{ ($events->currentPage() - 1) * $events->perPage() + $loop->iteration }}</td>
-                            <td>{{ $event->name }}</td>
-                            <td>{{ Str::limit($event->description, 50) }}</td>
-                            <td>
-                                @if ($event->status == 'active')
-                                    <span class="badge bg-success">Active</span>
-                                @else
-                                    <span class="badge bg-secondary">Inactive</span>
-                                @endif
-                            </td>
-                            <td width="20%">
-                                <img src="{{ asset('storage/' . $event->image) }}" target="_blank"
-                                    style="max-width: 100px;">
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{ route('panel.event.show', $event->uuid) }}" class="btn btn-sm btn-info">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
+                    <tr>
+                        <td>{{ ($events->currentPage() - 1) * $events->perPage() + $loop->iteration }}</td>
+                        <td>{{ $event->name }}</td>
+                        <td>{{ Str::limit($event->description, 50) }}</td>
+                        <td>
+                            @if ($event->status == 'active')
+                            <span class="badge bg-success">Aktif</span>
+                            @else
+                            <span class="badge bg-danger">Tidak Aktif</span>
+                            @endif
+                        </td>
+                        <td width="20%">
+                            <img src="{{ asset('storage/' . $event->image . '') }}" alt="" class="img-fluid rounded"
+                                style="aspect-ratio: 4/3; object-fit: cover; object-position: center;" target="_blank">
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ route('panel.event.show', $event->uuid) }}" class="btn btn-sm btn-info">
+                                <i class="fas fa-eye"></i>
+                            </a>
 
-                                    @if (auth()->user()->role === 'operator')
-                                        <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
+                            @if (auth()->user()->role === 'operator')
+                            <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
 
-                                        <button class="btn btn-sm btn-danger" onclick="deleteEvent(this)"
-                                            data-uuid="{{ $event->uuid }}">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    @endif
-                                </div>
-                            </td>
-                        </tr>
+                            <button class="btn btn-sm btn-danger" onclick="deleteEvent(this)"
+                                data-uuid="{{ $event->uuid }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            @endif
+                        </td>
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="6" class="text-center">Data tidak ada</td>
-                        </tr>
+                    <tr>
+                        <td colspan="6" class="text-center">Data tidak ada</td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -112,52 +110,53 @@
 @endsection
 
 @push('js')
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        const deleteEvent = (e) => {
-            let uuid = e.getAttribute('data-uuid');
+<script>
+    const deleteEvent = (e) => {
+        let uuid = e.getAttribute('data-uuid');
 
-            Swal.fire({
-                title: "Anda yakin?",
-                text: "Data tidak akan bisa dikembalikan!",
-                icon: "warning",
-                showCancelButton: true,
-                cancelButtonText: "Batal",
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Ya, hapus data!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        type: "DELETE",
-                        url: `/panel/event/${uuid}`,
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function (data) {
-                            Swal.fire({
-                                title: "Dihapus!",
-                                text: data.message,
-                                icon: "success",
-                                timer: 2500,
-                                showConfirmButton: false
-                            }).then(() => {
-                                window.location.reload();
-                            });
-                        },
-                        error: function (xhr, status, error) {
-                            Swal.fire({
-                                title: "Gagal!",
-                                text: xhr.responseJSON ? xhr.responseJSON.message : "Data tidak dapat dihapus.",
-                                icon: "error"
-                            });
-                            console.error("Error details:", status, error);
-                        }
-                    });
-                }
-            });
-        }
-    </script>
+        Swal.fire({
+            title: "Anda yakin?",
+            text: "Data tidak akan bisa dikembalikan!",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Batal",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus data!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "DELETE",
+                    url: `/panel/event/${uuid}`,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        Swal.fire({
+                            title: "Dihapus!",
+                            text: data.message,
+                            icon: "success",
+                            timer: 2500,
+                            showConfirmButton: false
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        Swal.fire({
+                            title: "Gagal!",
+                            text: xhr.responseJSON ? xhr.responseJSON.message :
+                                "Data tidak dapat dihapus.",
+                            icon: "error"
+                        });
+                        console.error("Error details:", status, error);
+                    }
+                });
+            }
+        });
+    }
+</script>
 @endpush

@@ -1,4 +1,4 @@
-<div class="container-fluid counter bg-secondary py-5">
+<div class="container-fluid counter bg-fact py-5">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">

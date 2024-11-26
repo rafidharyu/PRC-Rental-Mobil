@@ -17,70 +17,70 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item active" aria-current="page">Operators</li>
         </ol>
     </nav>
 
-    <div class="d-flex justify-content-between w-100 flex-wrap">
-        <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Operators</h1>
-            <p class="mb-0">Daftar Operator PRC</p>
+    <div style="margin-bottom: 20px">
+        <div class="d-flex justify-content-between w-100 flex-wrap">
+            <div class="mb-3 mb-lg-0">
+                <h1 class="h4">Operators</h1>
+                <p class="mb-0">Daftar Operator PRC</p>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card border-0 shadow mb-4">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-centered table-nowrap mb-0 rounded">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="border-0 rounded-start">Name</th>
-                                    <th class="border-0">Email</th>
-                                    <th class="border-0">Status</th>
-                                    <th class="border-0">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($operators as $operator)
-                                    <tr>
-                                        <td class="fw-bold text-dark">
-                                            {{ $operator->name }}
-                                        </td>
-                                        <td class="fw-bold text-dark">
-                                            {{ $operator->email }}
-                                        </td>
-                                        <td class="fw-bold text-dark">
-                                            @if ($operator->is_active)
-                                                <span class="badge bg-success">Active</span>
-                                            @else
-                                                <span class="badge bg-secondary">Inactive</span>
-                                            @endif
-                                        </td>
-                                        <td class="fw-bold text-dark">
-                                            <a href="{{ route('backend.operators.show', $operator->id) }}"
-                                                class="btn btn-sm btn-info">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
+    <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-nowrap mb-0 rounded">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="text-center border-0 rounded-start">No</th>
+                            <th class="text-center border-1">Nama</th>
+                            <th class="text-center border-1">Email</th>
+                            <th class="text-center border-1">Status</th>
+                            <th class="text-center border-0">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($operators as $operator)
+                        <tr>
+                            <td>{{ ($operators->currentPage() - 1) * $operators->perPage() + $loop->iteration }}</td>
+                            <td class="fw-bold text-dark">
+                                {{ $operator->name }}
+                            </td>
+                            <td class="fw-bold text-dark">
+                                {{ $operator->email }}
+                            </td>
+                            <td class="text-center fw-bold text-dark">
+                                @if ($operator->is_active)
+                                <span class="badge bg-success">Aktif</span>
+                                @else
+                                <span class="badge bg-danger">Tidak Aktif</span>
+                                @endif
+                            </td>
+                            <td class="text-center fw-bold text-dark">
+                                <a href="{{ route('backend.operators.show', $operator->id) }}"
+                                    class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
 
-                                            <a href="{{ route('backend.operators.edit', $operator->id) }}"
-                                                class="btn btn-sm btn-primary">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                <a href="{{ route('backend.operators.edit', $operator->id) }}"
+                                    class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
 
-                                            <button class="btn btn-sm btn-danger" onclick="deleteOperator(this)"
-                                                data-uuid="{{ $operator->uuid }}">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                <button class="btn btn-sm btn-danger" onclick="deleteOperator(this)"
+                                    data-uuid="{{ $operator->uuid }}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

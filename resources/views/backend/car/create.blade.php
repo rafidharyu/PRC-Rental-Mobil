@@ -16,21 +16,21 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Car</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create Car</li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Mobil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tambah Mobil</li>
             </ol>
         </nav>
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Create Car</h1>
-                <p class="mb-0">Tambah Sewa Mobil PRC</p>
+                <h1 class="h4">Tambah Data Mobil</h1>
+                <p class="mb-0">Tambah Data Mobil PRC</p>
             </div>
             <div>
                 <a href="{{ route('panel.car.index') }}"
                     class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                    <i class="fas fa-arrow-left me-1"></i> Back
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
                 </a>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="name">Name</label>
+                    <label for="name">Nama</label>
                     <input type="text" name="name" id="name"
                         class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
 
@@ -95,7 +95,7 @@
                         <div class="mb-3">
                             <label for="fuel">Bahan Bakar</label>
                             <select name="fuel" id="fuel" class="form-select @error('fuel') is-invalid @enderror">
-                                <option value="">-- select --</option>
+                                <option value="">--- Pilih ---</option>
                                 <option value="bensin">Bensin</option>
                                 <option value="diesel">Diesel</option>
                             </select>
@@ -112,7 +112,7 @@
                         <div class="mb-3">
                             <label for="transmisi">Transmisi</label>
                             <select name="transmisi" id="transmisi" class="form-select @error('transmisi') is-invalid @enderror">
-                                <option value="">-- select --</option>
+                                <option value="">--- Pilih ---</option>
                                 <option value="manual">Manual</option>
                                 <option value="automatic">Automatic</option>
                             </select>
@@ -151,9 +151,9 @@
                         <div class="mb-3">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                                <option value="">-- select --</option>
-                                <option value="available">Available</option>
-                                <option value="not_available">Not Available</option>
+                                <option value="">--- Pilih ---</option>
+                                <option value="available">Tersedia</option>
+                                <option value="not_available">Tidak Tersedia</option>
                             </select>
 
                             @error('year_of_car')
@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image">Image</label>
+                    <label for="image">Gambar</label>
                     <input type="file" name="image" id="image" accept="image/*"
                         class="form-control  @error('image') is-invalid @enderror">
 
@@ -178,7 +178,7 @@
                 </div>
 
                 <div class="float-end">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kirim</button>
                 </div>
             </form>
         </div>

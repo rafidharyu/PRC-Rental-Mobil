@@ -1,59 +1,49 @@
 <!-- Footer Start -->
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-    <div class="container py-5">
+<div class="container-fluid footer wow fadeIn" data-wow-delay="0.2s">
+    <div class="container pb-4">
         <div class="row g-5">
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <div class="footer-item">
-                        <h4 class="text-white mb-4">About Us</h4>
-                        <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="position-relative">
-                        <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                        <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
+                        <h4 class="text-white mb-4">PRC Lampung</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.6105640317915!2d105.2086875!3d-5.3904375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40d1b8ca724e5b%3A0x467c53bfeaf76d93!2sSEWA%20MOBIL%20LAMPUNG%20%7C%20PRC%20RENT%20CAR!5e1!3m2!1sen!2sid!4v1731577704075!5m2!1sen!2sid"
+                            width="250" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
-                    <h4 class="text-white mb-4">Quick Links</h4>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> About</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Cars</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Car Types</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Team</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+                    <h4 class="text-white mb-4">Link</h4>
+                    <a href="{{ route('about') }}"><i class="fas fa-angle-right me-2"></i> About</a>
+                    <a href="{{ route('car') }}"><i class="fas fa-angle-right me-2"></i> Mobil</a>
+                    <a href="{{ route('blog') }}"><i class="fas fa-angle-right me-2"></i> Syarat</a>
+                    <a href="{{ route('testimonial') }}"><i class="fas fa-angle-right me-2"></i> Testimoni</a>
+                    <a href="{{ route('contact') }}"><i class="fas fa-angle-right me-2"></i> Kontak Kami</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
-                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <h4 class="text-white mb-4">Jam Operasional</h4>
                     <div class="mb-3">
-                        <h6 class="text-muted mb-0">Mon - Friday:</h6>
-                        <p class="text-white mb-0">09.00 am to 07.00 pm</p>
+                        <h6 class="text-muted mb-0">Setiap Hari:</h6>
+                        <p class="text-white mb-0">07.00 - 24.00</p>
                     </div>
                     <div class="mb-3">
-                        <h6 class="text-muted mb-0">Saturday:</h6>
-                        <p class="text-white mb-0">10.00 am to 05.00 pm</p>
-                    </div>
-                    <div class="mb-3">
-                        <h6 class="text-muted mb-0">Vacation:</h6>
-                        <p class="text-white mb-0">All Sunday is our vacation</p>
+                        <h6 class="text-muted mb-0">Liburan:</h6>
+                        <p class="text-white mb-0">07.00 - 24.00</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
-                    <h4 class="text-white mb-4">Contact Info</h4>
-                    <a href="#"><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
-                    <a href="mailto:info@example.com"><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                    <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +012 345 67890</a>
-                    <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
-                    <div class="d-flex">
-                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-facebook-f text-white"></i></a>
-                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-twitter text-white"></i></a>
-                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href=""><i class="fab fa-instagram text-white"></i></a>
-                        <a class="btn btn-secondary btn-md-square rounded-circle me-0" href=""><i class="fab fa-linkedin-in text-white"></i></a>
+                    <h4 class="text-white mb-4">Info Kontak</h4>
+                    <a href="https://www.google.com/maps/place/SEWA+MOBIL+LAMPUNG+%7C+PRC+RENT+CAR/@-5.3904322,105.2061126,825m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e40d1b8ca724e5b:0x467c53bfeaf76d93!8m2!3d-5.3904375!4d105.2086875!16s%2Fg%2F11kq3vdq8s!5m1!1e2?entry=ttu&g_ep=EgoyMDI0MTExMS4wIKXMDSoASAFQAw%3D%3D" target="_blank"><i class="fa fa-map-marker-alt me-2"></i> Bandar Lampung, Lampung</a>
+                    <a href="mailto:info@example.com" target="_blank"><i class="fas fa-envelope me-2"></i> prclampung@gmail.com</a>
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://wa.me/6285769040309" target="_blank"><i class="fab fa-whatsapp text-white"></i></a>
+
+                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.instagram.com/sewamobillampung.co/" target="_blank"><i class="fab fa-instagram text-white"></i></a>
+                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.tiktok.com/@sewamobillampung.krc" target="_blank"><i class="fab fa-tiktok text-white"></i></a>
                     </div>
                 </div>
             </div>
@@ -67,13 +57,13 @@
     <div class="container">
         <div class="row g-4 align-items-center">
             <div class="col-md-6 text-center text-md-start mb-md-0">
-                <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                <span class="text-body"><i class="fas fa-copyright me-2"></i>MSIB SOMEAH, 2024.</span>
             </div>
             <div class="col-md-6 text-center text-md-end text-body">
                 <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                 <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                 <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
+                Designed By Kelompok 2
             </div>
         </div>
     </div>
@@ -82,6 +72,6 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+<a href="{{ route('home') }}" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 

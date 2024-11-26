@@ -14,7 +14,7 @@
                                 d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        Back to homepage
+                        Kembali ke Beranda
                     </a>
                 </p>
 
@@ -23,14 +23,14 @@
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">Create Account </h1>
+                                <h1 class="mb-0 h3">Buat Akun </h1>
                             </div>
                             <form action="{{ route('register') }}" method="POST" class="mt-4">
                                 @csrf
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="text">Your Name</label>
+                                    <label for="text">Nama</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
@@ -41,7 +41,7 @@
                                             </svg>
                                         </span>
                                         <input type="text" name="name"
-                                            class="form-control @error('name') is-invalid @enderror" placeholder="name..."
+                                            class="form-control @error('name') is-invalid @enderror" placeholder="Nama..."
                                             id="text" autofocus value="{{ old('name') }}">
 
                                         @error('name')
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="form-group mb-4">
-                                    <label for="email">Your Email</label>
+                                    <label for="email">Email</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
@@ -66,7 +66,7 @@
                                         </span>
                                         <input type="email" name="email"
                                             class="form-control @error('email') is-invalid @enderror"
-                                            placeholder="example@company.com" id="email" value="{{ old('email') }}"
+                                            placeholder="contoh@gmail.com" id="email" value="{{ old('email') }}"
                                             autofocus>
 
                                         @error('email')
@@ -81,7 +81,7 @@
                                 <div class="form-group">
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Your Password</label>
+                                        <label for="password">Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -105,7 +105,7 @@
                                     <!-- End of Form -->
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="confirm_password">Confirm Password</label>
+                                        <label for="confirm_password">Konfirmasi Password</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -116,7 +116,7 @@
                                                 </svg>
                                             </span>
                                             <input type="password" name="password_confirmation"
-                                                placeholder="Confirm Password"
+                                                placeholder="Konfirmasi Password"
                                                 class="form-control @error('password') is-invalid @enderror"
                                                 id="confirm_password">
                                         </div>
@@ -124,14 +124,14 @@
                                 </div>
 
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-gray-800">Sign up</button>
+                                    <button type="submit" class="btn btn-gray-800">Daftar</button>
                                 </div>
                             </form>
 
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
-                                    Already have an account?
-                                    <a href="{{ route('login') }}" class="fw-bold">Login here</a>
+                                    Sudah Punya Akun?
+                                    <a href="{{ route('login') }}" class="fw-bold">Login Disini</a>
                                 </span>
                             </div>
                         </div>

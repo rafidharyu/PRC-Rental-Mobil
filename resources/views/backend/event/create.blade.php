@@ -16,21 +16,21 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Event</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Create Event</li>
+            <li class="breadcrumb-item active" aria-current="page">Buat Event</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Create Event</h1>
+            <h1 class="h4">Buat Event</h1>
             <p class="mb-0">Tambah Event PRC</p>
         </div>
         <div>
             <a href="{{ route('panel.event.index') }}"
                 class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
+                <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
     </div>
@@ -49,7 +49,7 @@
             @csrf
 
             <div class="mb-3">
-                <label for="name">Event Name</label>
+                <label for="name">Nama Event</label>
                 <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
                     value="{{ old('name') }}">
 
@@ -61,7 +61,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="description">Description</label>
+                <label for="description">Deskripsi</label>
                 <textarea name="description" id="description" rows="3"
                     class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
 
@@ -75,9 +75,9 @@
             <div class="mb-3">
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                    <option value="">-- select --</option>
-                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
-                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                    <option value="">--- Pilih ---</option>
+                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Aktif</option>
+                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
                 </select>
 
                 @error('status')
@@ -88,7 +88,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="image">Image</label>
+                <label for="image">Gambar</label>
                 <input type="file" name="image" id="image" accept="image/*"
                     class="form-control @error('image') is-invalid @enderror">
 
@@ -100,7 +100,7 @@
             </div>
 
             <div class="float-end">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kirim</button>
             </div>
         </form>
     </div>

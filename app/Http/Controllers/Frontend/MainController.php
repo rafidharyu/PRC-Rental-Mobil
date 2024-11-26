@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Frontend;
 
-
-use App\Http\Controllers\Controller;
-use App\Http\Services\CarService;
+use App\Models\Car;
+use App\Models\Event;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Http\Services\CarService;
+use App\Http\Controllers\Controller;
 
 
 class MainController extends Controller
@@ -16,8 +19,12 @@ class MainController extends Controller
 
     public function index()
     {
-        return view('frontend.index',[
-            'cars' => $this->carService->select()
+        $events = Event::orderByDesc('created_at')->get();
+        $reviews = Review::with('transaction')->latest()->get();
+        return view('frontend.index', [
+            'cars' => $this->carService->select(),
+            'reviews' => $reviews,
+            'events' => $events
         ]);
     }
 
@@ -37,8 +44,10 @@ class MainController extends Controller
 
     public function service()
     {
-        return view('frontend.service',[
-            'cars' => $this->carService->select()
+        $reviews = Review::with('transaction')->latest()->get();
+        return view('frontend.service', [
+            'cars' => $this->carService->select(),
+            'reviews' => $reviews
         ]);
     }
 
@@ -65,8 +74,10 @@ class MainController extends Controller
 
     public function testimonial()
     {
-        return view('frontend.testimonial',[
-            'cars' => $this->carService->select()
+        $reviews = Review::with('transaction')->latest()->get();
+        return view('frontend.testimonial', [
+            'cars' => $this->carService->select(),
+            'reviews' => $reviews
         ]);
     }
 

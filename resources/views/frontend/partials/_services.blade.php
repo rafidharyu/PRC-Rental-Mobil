@@ -1,7 +1,7 @@
 <div class="container-fluid service py-5">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Layanan <span style="color: #F2CD5C;">Utama</span></h1>
+            <h1 class="display-5 text-capitalize mb-3">Layanan <span class="text-judul">Utama</span></h1>
             <p class="mb-0">Kami hadir dengan layanan unggulan yang dirancang khusus untuk memberikan kenyamanan dan kepuasan maksimal. Setiap detail kami perhatikan untuk memastikan kualitas layanan yang tak tertandingi. Dengan tim profesional dan solusi inovatif, kami siap membantu Anda mencapai hasil terbaik, kapan pun Anda membutuhkannya. Kepercayaan Anda, prioritas kami.
             </p>
         </div>

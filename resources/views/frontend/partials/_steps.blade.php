@@ -1,7 +1,7 @@
 <div class="container-fluid steps py-5">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize text-white mb-3">Proses <span style="color: #F2CD5C;">Rental</span></h1>
+            <h1 class="display-5 text-capitalize text-white mb-3">Proses<span class="text-judul"> Rental</span></h1>
             <p class="mb-0 text-white">Kami berkomitmen memberikan layanan rental mobil yang cepat, mudah, dan tanpa
                 kendala. Dengan proses yang dirancang sederhana, kami memastikan Anda bisa mendapatkan kendaraan yang
                 dibutuhkan tanpa kerumitan. Berikut adalah langkah-langkah mudah untuk memudahkan perjalanan Anda:
@@ -10,7 +10,7 @@
 
         <!-- Steps Carousel Wrapper -->
         <div class="owl-carousel steps-carousel owl-theme">
-            <div class="steps-item p-4 mb-4">
+            <div class="steps-item p-4 mb-5 ">
                 <h4>Pilih Mobil Sesuai Kebutuhan Anda</h4>
                 <p class="mb-0">Setiap kendaraan kami rutin diperiksa untuk menjamin keamanan dan kenyamanan Anda.
                     Lihat detail mobil, fitur, dan tarif di website kami, dan pilih yang sesuai kebutuhan Anda.</p>
