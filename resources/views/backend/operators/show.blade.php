@@ -16,21 +16,21 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.operators.index') }}">operators</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('backend.operators.index') }}">Operator</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $operator->name }}</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">operators: {{ $operator->name }}</h1>
-            <p class="mb-0">Detail operators: {{ $operator->name }}</p>
+            <h1 class="h4">Operator: {{ $operator->name }}</h1>
+            <p class="mb-0">Detail Operator: {{ $operator->name }}</p>
         </div>
         <div>
             <a href="{{ route('backend.operators.index') }}"
                 class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
+                <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="card-body">
         <table class="table table-striped">
             <tr>
-                <th>Name</th>
+                <th>Nama</th>
                 <td>: {{ $operator->name }}</td>
             </tr>
             <tr>
@@ -59,9 +59,9 @@
                 <th>Status</th>
                 <td>:
                     @if ($operator->is_active)
-                        <span class="badge bg-success">Active</span>
+                        <span class="badge bg-success">Aktif</span>
                     @else
-                        <span class="badge bg-secondary">Inactive</span>
+                        <span class="badge bg-danger">Tidak Aktif</span>
                     @endif
                 </td>
             </tr>

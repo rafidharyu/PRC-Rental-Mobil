@@ -16,26 +16,26 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Car</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Mobil</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $car->name }}</li>
             </ol>
         </nav>
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Car: {{ $car->name }}</h1>
+                <h1 class="h4">Mobil: {{ $car->name }}</h1>
                 <p class="mb-0">Sewa: {{ $car->name }} Mobil PRC</p>
             </div>
             <div>
                 <a href="{{ route('panel.car.index') }}" class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                    <i class="fas fa-arrow-left me-1"></i> Back
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
                 </a>
             </div>
         </div>
     </div>
 
-     @session('success')
+    @session('success')
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -47,7 +47,7 @@
     <div class="card-body">
         <table class="table table-striped">
             <tr>
-                <th>Name</th>
+                <th>Nama</th>
                 <td>: {{ $car->name }}</td>
             </tr>
             <tr>
@@ -55,47 +55,47 @@
                 <td>: {{ $car->slug }}</td>
             </tr>
             <tr>
-                <th>Seat</th>
+                <th>Bangku</th>
                 <td>: {{ $car->seat }} seats</td>
             </tr>
             <tr>
-                <th>Fuel</th>
+                <th>Bahan Bakar</th>
                 <td>: {{ ucfirst($car->fuel) }}</td>
             </tr>
             <tr>
-                <th>Transmission</th>
+                <th>Transmisi</th>
                 <td>: {{ ucfirst($car->transmisi) }}</td>
             </tr>
             <tr>
-                <th>Year of Car</th>
+                <th>Tahun Kendaraan</th>
                 <td>: {{ $car->year_of_car }}</td>
             </tr>
             <tr>
-                <th>Price Per Day</th>
+                <th>Harga Sewa Perhari</th>
                 <td>: Rp. {{ number_format($car->price_day,0,',','.') }}</td>
             </tr>
             <tr>
                 <th>Status</th>
                 <td>:
                     @if ($car->status == 'available')
-                        <span class="badge bg-success">Available</span>
+                        <span class="badge bg-success">Tersedia</span>
                     @else
-                        <span class="badge bg-danger">Not Available</span>
+                        <span class="badge bg-danger">Tidak Bersedia</span>
                     @endif
                 </td>
             </tr>
             <tr>
-                <th>Image</th>
+                <th>Gambar</th>
                 <td width="60%">
                     <img src="{{ asset('storage/'. $car->image) }}" class="img-fluid" width="20%" target="_blank">
                 </td>
             </tr>
             <tr>
-                <th>Created At</th>
+                <th>Tanggal Dibuat</th>
                 <td>: {{ date('Y-m-d H:i:s', strtotime($car->created_at)) }}</td>
             </tr>
             <tr>
-                <th>Updated At</th>
+                <th>Tanggal Diubah</th>
                 <td>: {{ date('Y-m-d H:i:s', strtotime($car->updated_at)) }}</td>
             </tr>
         </table>

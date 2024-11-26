@@ -16,7 +16,7 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Event</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $event->name }}</li>
         </ol>
@@ -30,7 +30,7 @@
         <div>
             <a href="{{ route('panel.event.index') }}"
                 class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
+                <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
     </div>
@@ -48,35 +48,35 @@
     <div class="card-body">
         <table class="table table-striped">
             <tr>
-                <th>Name</th>
+                <th>Nama</th>
                 <td>: {{ $event->name }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>: {{ $event->description }}</td>
+                <th>Deskripsi</th>
+                <td style="white-space: pre-wrap;">{{ $event->description }}</td>
             </tr>
             <tr>
                 <th>Status</th>
                 <td>:
                     @if ($event->status == 'active')
-                        <span class="badge bg-success">Active</span>
+                        <span class="badge bg-success">Aktif</span>
                     @else
-                        <span class="badge bg-danger">Inactive</span>
+                        <span class="badge bg-danger">Tidak Aktif</span>
                     @endif
                 </td>
             </tr>
             <tr>
-                <th>Image</th>
+                <th>Gambar</th>
                 <td width="60%">
                     <img src="{{ asset('storage/' . $event->image) }}" class="img-fluid" width="20%" target="_blank">
                 </td>
             </tr>
             <tr>
-                <th>Created At</th>
+                <th>Tanggal Dibuat</th>
                 <td>: {{ date('Y-m-d H:i:s', strtotime($event->created_at)) }}</td>
             </tr>
             <tr>
-                <th>Updated At</th>
+                <th>Tanggal Diubah</th>
                 <td>: {{ date('Y-m-d H:i:s', strtotime($event->updated_at)) }}</td>
             </tr>
         </table>
@@ -84,7 +84,7 @@
         <div class="float-end mt-2">
         @if (auth()->user()->role === 'operator')
             <a href="{{ route('panel.event.edit', $event->uuid) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
-                Edit</a>
+                Ubah</a>
         @endif
         </div>
     </div>

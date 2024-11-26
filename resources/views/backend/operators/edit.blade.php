@@ -15,16 +15,16 @@
                     </svg>
                 </a>
             </li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item"><a href="{{ route('backend.operators.index') }}">Operators</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Operator</li>
+            <li class="breadcrumb-item active" aria-current="page">Ubah Operator</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Edit Operator</h1>
-            <p class="mb-0">Edit details of this operator</p>
+            <h1 class="h4">Ubah Operator</h1>
+            <p class="mb-0">Ubah Data Operator</p>
         </div>
         <div>
             <a href="{{ route('backend.operators.index') }}" class="btn btn-outline-gray-600 d-inline-flex align-items-center">

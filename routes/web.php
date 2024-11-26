@@ -22,7 +22,7 @@ Route::get('/feature', [MainController::class, 'feature'])->name('feature');
 Route::get('/car', [MainController::class, 'car'])->name('car');
 Route::get('/testimonial', [MainController::class, 'testimonial'])->name('testimonial');
 
-Route::post('booking', [BookingController::class, 'store'])->name('book.attempt');
+Route::post('home', [BookingController::class, 'store'])->name('book.attempt');
 Route::post('testimonial', [FrontReviewController::class, 'store'])->name('testimonial.attempt');
 
 // Route::prefix('panel')->middleware('auth')->group(function () {

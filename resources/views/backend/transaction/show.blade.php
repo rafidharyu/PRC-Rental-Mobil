@@ -16,21 +16,21 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.transaction.index') }}">Transaction</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.transaction.index') }}">Transaksi</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $transaction->name }}</li>
             </ol>
         </nav>
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Transaction: {{ $transaction->name }}</h1>
-                <p class="mb-0">Transaction Code: {{ $transaction->code }}</p>
+                <h1 class="h4">Transaksi: {{ $transaction->name }}</h1>
+                <p class="mb-0">Kode Transaksi: {{ $transaction->code }}</p>
             </div>
             <div>
                 <a href="{{ route('panel.transaction.index') }}"
                     class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                    <i class="fas fa-arrow-left me-1"></i> Back
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <tr>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <td>: {{ $transaction->name }}</td>
                     </tr>
 
@@ -97,7 +97,7 @@
                     </tr>
 
                     <tr>
-                        <th>Message</th>
+                        <th>Pesan</th>
                         <td>: {{ $transaction->message }}</td>
                     </tr>
 
@@ -105,11 +105,11 @@
                         <th>Status</th>
                         <td>:
                             @if ($transaction->status == 'pending')
-                                <span class="badge bg-warning">Pending</span>
+                                <span class="badge bg-warning">Tertunda</span>
                             @elseif ($transaction->status == 'failed')
-                                <span class="badge bg-danger">Failed</span>
+                                <span class="badge bg-danger">Gagal</span>
                             @else
-                                <span class="badge bg-success">Success</span>
+                                <span class="badge bg-success">Sukses</span>
                             @endif
                         </td>
                     </tr>
@@ -124,14 +124,14 @@
 
                     @isset($review)
                         <tr>
-                            <th>Rating</th>
+                            <th>Penilaian</th>
                             <td width="60%">
                                 : {{ $review->rate }}
                             </td>
                         </tr>
 
                         <tr>
-                            <th>Comment</th>
+                            <th>Komentar</th>
                             <td width="60%">
                                 : {{ $review->comment }}
                             </td>
@@ -143,7 +143,7 @@
             <div class="float-end mt-2">
                 @if (auth()->user()->role === 'operator')
                     <a href="" class="btn btn-warning"><i
-                            class="fas fa-edit"></i> Confirm</a>
+                            class="fas fa-edit"></i> Konfirmasi</a>
                 @endif
             </div>
         </div>

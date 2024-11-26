@@ -4,8 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-secondary">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="fas fa-file-excel"></i> Download
-                    Transactions</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="fas fa-file-excel"></i> Unduh Laporan Transaksi</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -13,7 +12,7 @@
                     id="downloadForm">
                     @csrf
                     <div class="mb-3">
-                        <label for="start_date">Start Date</label>
+                        <label for="start_date">Dari Tanggal</label>
                         <input type="date" name="start_date" id="start_date"
                             class="form-control @error('start_date') is-invalid @enderror"
                             value="{{ old('start_date') }}">
@@ -26,7 +25,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="end_date">End Date</label>
+                        <label for="end_date">Sampai Tanggal</label>
                         <input type="date" name="end_date" id="end_date"
                             class="form-control @error('end_date') is-invalid @enderror"
                             value="{{ old('end_date') }}">
@@ -41,9 +40,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times"></i>
-                    Cancel</button>
+                    Batal</button>
                 <button type="submit" form="downloadForm" class="btn btn-secondary"><i class="fas fa-save"></i>
-                    Submit</button>
+                    Kirim</button>
             </div>
         </div>
     </div>

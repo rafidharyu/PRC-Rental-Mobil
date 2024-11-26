@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
-<title>Volt Premium Bootstrap Dashboard - Sign in page</title>
+<title>PRC - Halaman Masuk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="title" content="Volt Premium Bootstrap Dashboard - Sign in page">
 <meta name="author" content="Themesberg">
@@ -46,24 +46,23 @@
  <!-- Core -->
  <script src="{{ asset('backend') }}/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
  <script src="{{ asset('backend') }}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
- 
+
  <!-- Vendor JS -->
  <script src="{{ asset('backend') }}/vendor/onscreen/dist/on-screen.umd.min.js"></script>
- 
+
  <!-- Slider -->
  <script src="{{ asset('backend') }}/vendor/nouislider/distribute/nouislider.min.js"></script>
- 
+
  <!-- Smooth scroll -->
  <script src="{{ asset('backend') }}/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
- 
+
  <!-- Charts -->
  <script src="{{ asset('backend') }}/vendor/chartist/dist/chartist.min.js"></script>
  <script src="{{ asset('backend') }}/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
- 
+
  <!-- Volt JS -->
  <script src="{{ asset('backend') }}/js/volt.js"></script>
-     
+
  </body>
- 
+
  </html>
- 

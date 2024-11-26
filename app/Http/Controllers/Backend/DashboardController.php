@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -14,8 +15,9 @@ class DashboardController extends Controller
     {
         $totalAmount = Transaction::where('status', 'success')->sum('price_total');
         // Ambil total transaksi
+        // Ambil total transaksi perhari
+        $today = Transaction::whereDate('created_at', Carbon::today())->where('status', 'success')->sum('price_total');
         $totalTransactions = Transaction::count();
-
         // Hitung jumlah transaksi berdasarkan status
         $pendingTransactions = Transaction::where('status', 'pending')->count();
         $failedTransactions = Transaction::where('status', 'failed')->count();
@@ -27,6 +29,7 @@ class DashboardController extends Controller
         // Kirim data ke view
         return view('backend.dashboard.index', [
             'totalAmount' => $totalAmount,
+            'today' => $today,
             'totalTransactions' => $totalTransactions,
             'pendingTransactions' => $pendingTransactions,
             'failedTransactions' => $failedTransactions,

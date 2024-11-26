@@ -74,8 +74,8 @@
 
 .btn.btn-primary:hover {
     background: #000000;
-    color: var(--bs-white);
-    border: 1px solid #ffffff;
+    border: 1px solid #000000;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(17, 24, 39, 0.075);
 }
 
 .btn.btn-secondary {

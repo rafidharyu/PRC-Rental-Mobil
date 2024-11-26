@@ -70,11 +70,19 @@
     <div class="row mt-4">
         <!-- Total Successful Amount -->
         <div class="col-12 mb-4">
-            <div class="card bg-yellow-100 border-0 shadow">
+            <div class="card card-total shadow">
                 <div class="card-header d-flex flex-column flex-sm-row align-items-sm-center">
                     <div>
-                        <div class="fs-5 fw-bold mb-2">Total Successful Amount</div>
-                        <h2 class="fs-3 fw-extrabold">Rp. {{ number_format($totalAmount, 0, ',', '.') }}</h2>
+                        <div class="fs-5 fw-bold mb-2">Total Penghasilan </div>
+                        <h2 class="fs-2 fw-extrabold">Rp. {{ number_format($totalAmount, 0, ',', '.') }}</h2>
+                        <div class="small mt-2">
+                            <span class="fw-normal me-2">Penghasilan {{ Carbon\Carbon::today()->format('d/m/y') }}:</span>
+                            <div>
+                                <span style="font-size: 1.5rem" class="text-success fw-bold">
+                                    Rp. {{ number_format($today, 0, ',', '.') }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,12 +94,12 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="icon-shape icon-shape-primary rounded me-3">
-                            <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 3H8C6.343 3 5 4.343 5 6v3H4c-1.105 0-2 .895-2 2v7c0 1.105.895 2 2 2h1a2 2 0 004 0h6a2 2 0 004 0h1c1.105 0 2-.895 2-2v-7c0-1.105-.895-2-2-2h-1V6c0-1.657-1.343-3-3-3zM8 5h8c.552 0 1 .448 1 1v3H7V6c0-.552.448-1 1-1zM4 11h16v2H4v-2zm2.5 7a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Total Transactions</h2>
+                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Total Transaksi</h2>
                             <h3 class="fw-extrabold mb-0">{{ $totalTransactions }}</h3>
                         </div>
                     </div>
@@ -104,11 +112,11 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <div class="icon-shape icon-shape-primary rounded me-3">
-                            <i class="fas fa-hourglass-half" style="font-size: 30px;"></i>
+                        <div class="icon-shape icon-shape-warning rounded me-3">
+                            <i class="fas fa-hourglass-half" style="font-size: 30px; color: #ffa500;"></i>
                         </div>
                         <div>
-                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Pending Transactions</h2>
+                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Transaksi Tertunda</h2>
                             <h3 class="fw-extrabold mb-0">{{ $pendingTransactions }}</h3>
                         </div>
                     </div>
@@ -121,11 +129,11 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <div class="icon-shape icon-shape-primary rounded me-3">
-                            <i class="fa-solid fa-ban" style="font-size: 30px;"></i>
+                        <div class="icon-shape icon-shape-danger rounded me-3" style="background-color: #fbbebe;">
+                            <i class="fa-solid fa-ban" style="font-size: 30px; color: #dc3545;"></i>
                         </div>
                         <div>
-                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Failed Transactions</h2>
+                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Transaksi Gagal</h2>
                             <h3 class="fw-extrabold mb-0">{{ $failedTransactions }}</h3>
                         </div>
                     </div>
@@ -138,11 +146,11 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <div class="icon-shape icon-shape-primary rounded me-3">
-                            <i class="fa-solid fa-clipboard-check" style="font-size: 30px;"></i>
+                        <div class="icon-shape icon-shape-success rounded me-3" style="background-color: #C6F7D0;">
+                            <i class="fa-solid fa-clipboard-check" style="font-size: 30px; color: #1d9a60;"></i>
                         </div>
                         <div>
-                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Success Transactions</h2>
+                            <h2 class="text-gray-400 mb-0" style="font-size: 14px;">Transaksi Berhasil</h2>
                             <h3 class="fw-extrabold mb-0">{{ $successTransactions }}</h3>
                         </div>
                     </div>
@@ -160,10 +168,10 @@
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h2 class="fs-5 fw-bold mb-0">5 latest transactions</h2>
+                                    <h2 class="fs-5 fw-bold mb-0">Transaksi Terbaru</h2>
                                 </div>
                                 <div class="col text-end">
-                                    <a href="{{ route('panel.transaction.index') }}" class="btn btn-sm btn-primary">See all</a>
+                                    <a href="{{ route('panel.transaction.index') }}" class="btn btn-sm btn-primary">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>
@@ -171,15 +179,15 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th class="border-0 rounded-start">No</th>
-                                        <th class="border-0">Name</th>
-                                        <th class="border-0">Telepon</th>
-                                        <th class="border-0">Mobil</th>
-                                        <th class="border-0">Tgl. ambil</th>
-                                        <th class="border-0">Wkt. ambil</th>
-                                        <th class="border-0">Tmp. ambil</th>
-                                        <th class="border-0">Total harga</th>
-                                        <th class="border-0">Status</th>
+                                        <th class="text-center border-0 rounded-start">No</th>
+                                        <th class="text-center border-0">Nama</th>
+                                        <th class="text-center border-0">Telepon</th>
+                                        <th class="text-center border-0">Mobil</th>
+                                        <th class="text-center border-0">Tgl. ambil</th>
+                                        <th class="text-center border-0">Wkt. ambil</th>
+                                        <th class="text-center border-0">Tmp. ambil</th>
+                                        <th class="text-center border-0">Total harga</th>
+                                        <th class="text-center border-0">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -193,13 +201,13 @@
                                             <td>{{ $item->pick_time }}</td>
                                             <td>{{ $item->pick_option }}</td>
                                             <td>{{ 'Rp. ' . number_format($item->price_total, 0, ',', '.') }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 @if ($item->status == 'pending')
-                                                    <span class="badge bg-warning">Pending</span>
+                                                    <span class="badge bg-warning">Tertunda</span>
                                                 @elseif($item->status == 'failed')
-                                                    <span class="badge bg-danger">Failed</span>
+                                                    <span class="badge bg-danger">Gagal</span>
                                                 @else
-                                                    <span class="badge bg-success">Success</span>
+                                                    <span class="badge bg-success">Berhasil</span>
                                                 @endif
                                             </td>
                                         </tr>

@@ -22,7 +22,7 @@
                         class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                 </div>
                 <div class="d-block">
-                    <h2 class="h5 mb-3">Hi, Jane</h2>
+                    <h2 class="h5 mb-3">Hallo, {{ auth()->user()->name }}</h2>
                     <a href="{{ asset('backend') }}/pages/examples/sign-in.html"
                         class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                         <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -66,7 +66,7 @@
                             <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                         </svg>
                     </span>
-                    <span class="sidebar-text">Dashboard</span>
+                    <span class="sidebar-text">Beranda</span>
                 </a>
             </li>
             <li class="nav-item {{ request()->is(['panel/master', 'panel/car', 'panel/event']) ? 'active' : '' }}">
@@ -97,7 +97,7 @@
                     <ul class="flex-column nav">
                         <li class="nav-item {{ request()->is('panel/car') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('panel.car.index') }}">
-                                <span class="sidebar-text">Car</span>
+                                <span class="sidebar-text">Mobil</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->is('panel/event') ? 'active' : '' }}">
@@ -119,36 +119,29 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </span>
-                    <span class="sidebar-text">Transactions</span>
+                    <span class="sidebar-text">Transaksi</span>
                 </a>
             </li>
             <li class="nav-item ">
                 <a href="{{ route('panel.review.index') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                            <path fill-rule="evenodd"
-                                d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                                clip-rule="evenodd"></path>
+                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 .587l3.668 7.568 8.332 1.151-6.061 5.943 1.548 8.3L12 18.897l-7.487 4.652 1.548-8.3L0 9.306l8.332-1.151L12 .587z"></path>
                         </svg>
+
                     </span>
-                    <span class="sidebar-text">Reviews</span>
+                    <span class="sidebar-text">Review</span>
                 </a>
             </li>
             @if(auth()->check() && auth()->user()->role === 'owner')
             <li class="nav-item ">
                 <a href="{{ route('backend.operators.index') }}" class="nav-link">
                     <span class="sidebar-icon">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                            <path fill-rule="evenodd"
-                                d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                                clip-rule="evenodd"></path>
+                        <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
                         </svg>
                     </span>
-                    <span class="sidebar-text">Operators</span>
+                    <span class="sidebar-text">Operator</span>
                 </a>
             </li>
             @endif
@@ -162,7 +155,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </span>
-                    <span class="sidebar-text">Settings</span>
+                    <span class="sidebar-text">Pengaturan</span>
                 </a>
             </li>
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
@@ -171,14 +164,14 @@
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                     class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
                     <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                        <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                                clip-rule="evenodd"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
                         </svg>
                     </span>
-                    <span>Logout</span>
+                    <span>Keluar</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf

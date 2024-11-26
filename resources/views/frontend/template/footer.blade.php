@@ -72,6 +72,6 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+<a href="{{ route('home') }}" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
