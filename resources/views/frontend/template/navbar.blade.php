@@ -67,8 +67,28 @@
                     </div>
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a>
                 </div>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 me-2" data-bs-toggle="modal" data-bs-target="#modalBook">Booking</a>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                @auth
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4 me-2" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi</a>
+                @endauth
+                @auth
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle py-2 px-4 text-drop" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ auth()->user()->name }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt me-2"></i>Keluar
+                            </a>
+                        </li>
+                    </ul>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill py-2 px-4">Masuk</a>
+                @endauth
             </div>
         </nav>
     </div>

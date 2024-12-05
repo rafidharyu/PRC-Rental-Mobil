@@ -25,8 +25,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/panel/dashboard';
+    protected function redirectTo()
+    {
+        if (auth()->check()) {
+            return auth()->user()->role == 'user' ? '/' : '/panel/dashboard';
+        }
 
+        return "/login";
+    }
     /**
      * Create a new controller instance.
      *

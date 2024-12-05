@@ -56,9 +56,9 @@ header("Status: 404 Not Found");
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                         <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
                         <h1 class="display-1">404</h1>
-                        <h1 class="mb-4">Page Not Found</h1>
-                        <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website! Maybe go to our home page or try to use a search?</p>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ route('index') }}">Go Back To Home</a>
+                        <h1 class="mb-4">Halaman Tidak Ditemukan</h1>
+                        <p class="mb-4">Maaf, halaman yang Anda cari tidak ada di situs web kami! Mungkin Anda bisa mengunjungi beranda kami atau mencoba menggunakan mesin pencari?</p>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="{{ route('index') }}">Kembali ke Beranda</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@ header("Status: 404 Not Found");
     <script src="{{ asset('frontend') }}lib/waypoints/waypoints.min.js"></script>
     <script src="{{ asset('frontend') }}lib/counterup/counterup.min.js"></script>
     <script src="{{ asset('frontend') }}lib/owlcarousel/owl.carousel.min.js"></script>
-    
+
 
     <!-- Template Javascript -->
     <script src="{{ asset('frontend') }}js/main.js"></script>

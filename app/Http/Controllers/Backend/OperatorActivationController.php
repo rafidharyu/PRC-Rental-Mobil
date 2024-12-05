@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\OperatorRequest;
@@ -27,8 +28,29 @@ class OperatorActivationController extends Controller
         // Mengambil data operator yang aktif dan tidak aktif
         $operators = $this->operatorService->getAllOperators();
 
+        // Debugging: Log operators untuk memastikan data operator sudah diambil
+        \Log::info('Operators:', $operators->toArray());
+
         // Mengirim data operator ke view
         return view('backend.operators.index', compact('operators'));
+    }
+
+    public function create()
+    {
+        return view('backend.operators.create');
+    }
+
+    public function store(OperatorRequest $request)
+    {
+        // Tambahkan status inactive saat menyimpan data operator
+        $data = $request->all();
+        $data['is_active'] = 0;  // Set status inactive secara default
+
+        // Simpan data operator ke database menggunakan OperatorService
+        $this->operatorService->store($data);
+
+        // Kembalikan redirect dengan pesan sukses
+        return redirect()->route('backend.operators.index')->with('success', 'Data operator berhasil disimpan');
     }
 
     public function show($id)
@@ -42,16 +64,30 @@ class OperatorActivationController extends Controller
 
     public function edit($id)
     {
-        $operator = $this->operatorService->getOperatorById($id);
+        // Ambil data operator berdasarkan ID
+        $operator = User::findOrFail($id);
+
+        // Return view dengan data operator
         return view('backend.operators.edit', compact('operator'));
     }
 
-    public function update(OperatorRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        // Update status operator menggunakan OperatorService
-        $this->operatorService->updateOperatorStatus($id, $request->is_active);
+        // Validasi input status
+        $request->validate([
+            'is_active' => 'required|boolean',
+        ]);
 
-        return redirect()->route('backend.operators.index')->with('success', 'Status updated successfully');
+        // Ambil operator berdasarkan ID
+        $operator = User::findOrFail($id);
+
+        // Update status operator
+        $operator->is_active = $request->input('is_active');
+        $operator->save();
+
+        // Redirect ke halaman daftar operator dengan pesan sukses
+        return redirect()->route('backend.operators.index')
+            ->with('success', 'Operator status updated successfully.');
     }
 
     public function destroy($id)
@@ -59,7 +95,7 @@ class OperatorActivationController extends Controller
         // Hapus operator menggunakan OperatorService
         $this->operatorService->deleteOperator($id);
 
-        return redirect()->route('backend.operators.index')->with('success', 'User deleted successfully');
+        return redirect()->route('backend.operators.index')->with('success', 'Operator berhasil dihapus');
     }
 
     public function showInactiveAccountPage()

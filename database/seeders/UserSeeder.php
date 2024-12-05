@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => bcrypt('password'),
                 'role' => 'operator',
-                'is_active' => 1,
+                'is_active' => 0,
             ]
         ]);
     }

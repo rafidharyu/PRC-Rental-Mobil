@@ -30,6 +30,8 @@ Route::get('auth/google/callback', [GoogleAuthController::class, 'callbackGoogle
 Route::post('home', [BookingController::class, 'store'])->name('book.attempt');
 Route::post('testimonial', [FrontReviewController::class, 'store'])->name('testimonial.attempt');
 
+Route::get('operator/inactive', [OperatorActivationController::class, 'showInactiveAccountPage'])->name('operator.inactive');
+
 // Route::prefix('panel')->middleware('auth')->group(function () {
 // // Routes for the backend panel, protected by authentication and operator middleware
 Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(function () {
@@ -38,6 +40,7 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
 
     Route::resource('car', CarController::class)->names('panel.car');
     Route::resource('event', EventController::class)->names('panel.event');
+    Route::resource('operator', OperatorActivationController::class)->names('panel.operator');
 
     Route::resource('transaction', TransactionController::class)
         ->except(['create', 'store'])
@@ -51,13 +54,15 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
     // Operator-specific routes
     Route::get('operators/serverside', [OperatorActivationController::class, 'serverside'])->name('backend.operators.serverside');
     Route::post('operators/status', [OperatorActivationController::class, 'status'])->name('backend.operators.status');
+    Route::post('/operator', [OperatorActivationController::class, 'store'])->name('panel.operator.store');
+
 
     // Resource routes for managing operators
     Route::resource('operators', OperatorActivationController::class)
-        ->only(['index', 'show', 'edit', 'update', 'destroy'])
+        ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])
         ->names('backend.operators');
 
-    Route::get('operator/inactive', [OperatorActivationController::class, 'showInactiveAccountPage'])->name('operator.inactive');
+
 });
 // });
 

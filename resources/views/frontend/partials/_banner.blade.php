@@ -10,7 +10,7 @@
                     <a href="https://wa.me/6285769040309" class="btn btn-whatsapp rounded-pill py-3 px-14 px-md-5 me-2">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="{{ route('contact') }}" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                    <a href="{{ route('contact') }}" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Hubungi Kami</a>
                 </div>
             </div>
         </div>

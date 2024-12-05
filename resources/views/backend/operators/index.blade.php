@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Operators')
+@section('title', 'Operator')
 
 @section('content')
 
@@ -18,15 +18,22 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Operators</li>
+            <li class="breadcrumb-item active" aria-current="page">Operator</li>
         </ol>
     </nav>
 
     <div style="margin-bottom: 20px">
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Operators</h1>
+                <h1 class="h4">Operator</h1>
                 <p class="mb-0">Daftar Operator PRC</p>
+            </div>
+            <div>
+                {{-- @if (auth()->user()->role === 'operator') --}}
+                <a href="{{ route('panel.operator.create') }}" class="btn btn-warning d-inline-flex align-items-center">
+                    <i class="fas fa-plus me-1"></i> Buat Akun
+                </a>
+                {{-- @endif --}}
             </div>
         </div>
     </div>
