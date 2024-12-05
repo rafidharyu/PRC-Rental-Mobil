@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Frontend\MainController;
 use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TransactionController;
@@ -21,6 +22,10 @@ Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/feature', [MainController::class, 'feature'])->name('feature');
 Route::get('/car', [MainController::class, 'car'])->name('car');
 Route::get('/testimonial', [MainController::class, 'testimonial'])->name('testimonial');
+
+// Google OAuth Routes
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
 
 Route::post('home', [BookingController::class, 'store'])->name('book.attempt');
 Route::post('testimonial', [FrontReviewController::class, 'store'])->name('testimonial.attempt');
