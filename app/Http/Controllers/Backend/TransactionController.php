@@ -33,15 +33,19 @@ class TransactionController extends Controller
      * Display the specified resource.
      */
     public function show(string $uuid)
-    {
-        $transaction = Transaction::where('uuid', $uuid)->firstOrFail();
-        $review = Review::where('transaction_id', $transaction->id)->first();
+{
+    $transaction = Transaction::where('uuid', $uuid)->firstOrFail();
+    $review = Review::where('transaction_id', $transaction->id)->first();
 
-        return view('backend.transaction.show', [
-            'transaction' => $transaction,
-            'review' => $review
-        ]);
-    }
+    // Menghitung Down Payment (DP)
+    $downPayment = $transaction->price_total * 0.50; // 50% dari harga total
+
+    return view('backend.transaction.show', [
+        'transaction' => $transaction,
+        'review' => $review,
+        'downPayment' => $downPayment, // Kirimkan DP ke view
+    ]);
+}
 
     /**
      * Update the specified resource in storage.

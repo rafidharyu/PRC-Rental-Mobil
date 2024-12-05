@@ -4,11 +4,12 @@
         <div class="row g-5">
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
-                    <div class="footer-item">
-                        <h4 class="text-white mb-4">PRC Lampung</h4>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.6105640317915!2d105.2086875!3d-5.3904375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40d1b8ca724e5b%3A0x467c53bfeaf76d93!2sSEWA%20MOBIL%20LAMPUNG%20%7C%20PRC%20RENT%20CAR!5e1!3m2!1sen!2sid!4v1731577704075!5m2!1sen!2sid"
-                            width="250" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h4 class="text-white mb-4">PRC Lampung</h4>
+                    <div class="d-flex align-items-center ">
+                        <img src="{{ asset('frontend') }}/img/prc.png" width="90" height="65" alt="Logo" class="me-2">
+                        <span>Penyedia rental mobil terpercaya di Lampung </span>
                     </div>
+                    dengan pilihan kendaraan berkualitas untuk bisnis, liburan, atau perjalanan keluarga.
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">

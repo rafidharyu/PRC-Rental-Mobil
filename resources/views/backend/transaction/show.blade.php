@@ -73,7 +73,7 @@
 
                     <tr>
                         <th>TGL. Pengembalian</th>
-                        <td>: {{ date('d-m-Y', strtotime($transaction->pick_date)) }}</td>
+                        <td>: {{ date('d-m-Y', strtotime($transaction->drop_date)) }}</td>
                     </tr>
 
                     <tr>
@@ -92,12 +92,17 @@
                     </tr>
 
                     <tr>
+                        <th>Down Payment</th>
+                        <td>: Rp. {{ number_format($downPayment, 0, ',', '.') }}</td>
+                    </tr>
+
+                    <tr>
                         <th>Total Harga</th>
                         <td>: Rp. {{ number_format($transaction->price_total, 0, ',', '.') }}</td>
                     </tr>
 
                     <tr>
-                        <th>Pesan</th>
+                        <th>Catatan</th>
                         <td>: {{ $transaction->message }}</td>
                     </tr>
 
@@ -143,12 +148,12 @@
                 </table>
             </div>
 
-            <div class="float-end mt-2">
+            {{-- <div class="float-end mt-2">
                 @if (auth()->user()->role === 'operator')
                     <a href="" class="btn btn-warning"><i
                             class="fas fa-edit"></i> Konfirmasi</a>
                 @endif
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

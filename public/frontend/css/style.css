@@ -893,7 +893,7 @@
 }
 /*** Team End ***/
 
-/*** Testimonial Start ***/
+/* Testimonial Start */
 .testimonial-carousel .owl-stage-outer {
     margin-right: -1px;
 }
@@ -945,7 +945,7 @@
     height: 30px;
     border-radius: 30px;
     margin: 20px 10px 0 10px;
-    background: var(--bs-primary);
+    background: #ceaa5a;
     transition: 0.5s;
 }
 
@@ -953,7 +953,7 @@
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    background: var(--bs-secondary);
+    background: #000000;
     transition: 0.5s;
 }
 
@@ -969,7 +969,7 @@
 }
 
 .testimonial-carousel .owl-dots .owl-dot.active span::after {
-    background: var(--bs-primary);
+    background: #eac87c;
 }
 
 .testimonial-carousel .owl-dots .owl-dot span::after {
@@ -999,7 +999,7 @@
     text-shadow: 0 0 4px #fff, 0 0 8px #ffc107;
 }
 
-/*** Testimonial End ***/
+/* Testimonial End */
 
 /*** Contact Start ***/
 .contact .contact-add-item {

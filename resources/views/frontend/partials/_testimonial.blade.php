@@ -31,11 +31,11 @@
                 <div class="col-lg-8">
                     <div class="card shadow mx-4">
                         <div class="p-2 bg-light rounded d-flex justify-content-center">
-                            <div class="bg-secondary rounded p-5">
-                                <h4 class="text-white mb-4">Berikan Penilaian Anda</h4>
+                            <div class="bg-secondary rounded p-4">
+                                <h4 class="text-white mb-3">Berikan Penilaian Anda</h4>
                                 <form action="{{ route('testimonial.attempt') }}" method="post">
                                     @csrf
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label for="code" class="text-white">Code Transaction</label>
                                         <input type="text" name="code" id="code"
                                             class="form-control @error('code')'is-invalid' @enderror"
@@ -46,7 +46,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label for="rate" class="text-white">Rating <span
                                                 style="color: gold; font-size: 25px;">&#9733;</span></label>
                                         <select name="rate" id="rate" class="form-select">
@@ -64,7 +64,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         <label for="comment" class="text-white">Comment</label>
                                         <textarea name="comment" id="comment" cols="5" rows="5"
                                             class="form-control @error('code')'is-invalid' @enderror">{{ old('comment') }}</textarea>
