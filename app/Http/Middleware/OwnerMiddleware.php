@@ -19,6 +19,10 @@ class OwnerMiddleware
             return $next($request);
         }
 
+        if (auth()->check() && auth()->user()->role === 'user') {
+            return redirect()->route('index');
+        }
+
         return redirect('/'); // Redirect jika bukan owner
     }
 }
