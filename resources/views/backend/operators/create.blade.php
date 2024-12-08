@@ -36,6 +36,12 @@
     </div>
 </div>
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
@@ -94,18 +100,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label for="role">Role Operator</label>
-                <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" readonly>
-                    <option value="operator" selected>operator</option>
-                </select>
-
-                @error('role')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+            <input type="hidden" name="role" value="operator" />
 
             <input type="hidden" name="is_active" value="1">
 
@@ -117,3 +112,4 @@
     </div>
 </div>
 @endsection
+

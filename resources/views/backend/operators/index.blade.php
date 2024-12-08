@@ -79,10 +79,10 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <button class="btn btn-sm btn-danger" onclick="deleteOperator(this)"
-                                    data-uuid="{{ $operator->uuid }}">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
+                                <button class="btn btn-sm btn-danger"
+                                        onclick="deleteOperator({{ $operator->id }}, '{{ $operator->name }}')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                             </td>
                         </tr>
                         @endforeach

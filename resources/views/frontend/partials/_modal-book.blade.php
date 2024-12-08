@@ -304,8 +304,7 @@
             // Update nilai di elemen tampilan
             durationElement.textContent = duration;
             totalPriceElement.textContent = totalPrice.toLocaleString('id-ID'); // Format ke Rupiah
-            downPaymentElement.textContent = Math.ceil(totalPrice * 0.5).toLocaleString('id-ID'); // DP 50%
-
+            downPaymentElement.textContent = Math.ceil(totalPrice * 0.2).toLocaleString('id-ID'); // DP 20%
         } else {
             durationElement.textContent = "0";
             totalPriceElement.textContent = "0";

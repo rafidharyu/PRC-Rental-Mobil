@@ -49,13 +49,15 @@
                                         class="text-body ms-1" style="font-size: 14px;">{{ $car->fuel }}</span>
                                 </div>
                             </div>
-                            @auth
-                                <a href="#"
-                                    class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal"data-bs-target="#modalBook">Reservasi Sekarang</a>
+                            @if ($car->status == 'available')
+                                @auth
+                                    <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi Sekarang</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Reservasi Sekarang</a>
+                                @endauth
                             @else
-                                <a href="{{ route('login') }}"
-                                    class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Reservasi Sekarang</a>
-                            @endauth
+                                <button type="button" class="btn btn-primary rounded-pill d-flex justify-content-center py-3 btn-disabled" disabled>Reservasi Sekarang</button>
+                            @endif
                         </div>
                     </div>
                 </div>

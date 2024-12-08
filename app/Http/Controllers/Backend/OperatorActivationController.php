@@ -92,10 +92,15 @@ class OperatorActivationController extends Controller
 
     public function destroy($id)
     {
-        // Hapus operator menggunakan OperatorService
-        $this->operatorService->deleteOperator($id);
+        $operator = User::findOrFail($id);
 
-        return redirect()->route('backend.operators.index')->with('success', 'Operator berhasil dihapus');
+        if ($operator->role !== 'operator') {
+            return response()->json(['message' => 'Tidak bisa menghapus user non-operator.'], 403);
+        }
+
+        $operator->delete();
+
+        return response()->json(['message' => 'Operator berhasil dihapus.']);
     }
 
     public function showInactiveAccountPage()

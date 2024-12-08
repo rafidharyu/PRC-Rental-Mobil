@@ -1158,3 +1158,13 @@
 
 /*** syarat End ***/
 
+
+.btn-disabled:disabled {
+    width: 350px; /* Atur lebar tombol */
+    height: 57px; /* Atur tinggi tombol */
+    border-radius: 50px; /* Bentuk bulat */
+    background-color: rgba(211, 162, 0, 0.3); /* Warna tombol disabled */
+    color: #7a7a7a; /* Warna teks tombol disabled */
+    cursor: not-allowed;
+    opacity: 0.7; /* Sedikit transparan */
+}

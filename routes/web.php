@@ -56,7 +56,6 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
     Route::post('operators/status', [OperatorActivationController::class, 'status'])->name('backend.operators.status');
     Route::post('/operator', [OperatorActivationController::class, 'store'])->name('panel.operator.store');
 
-
     // Resource routes for managing operators
     Route::resource('operators', OperatorActivationController::class)
         ->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])
