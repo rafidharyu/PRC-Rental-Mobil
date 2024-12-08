@@ -13,7 +13,7 @@
             <div class="col-lg-6 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
                     <a href="https://www.google.com/maps/place/SEWA+MOBIL+LAMPUNG+%7C+PRC+RENT+CAR/@-5.3904322,105.2061126,825m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e40d1b8ca724e5b:0x467c53bfeaf76d93!8m2!3d-5.3904375!4d105.2086875!16s%2Fg%2F11kq3vdq8s!5m1!1e2?entry=ttu&g_ep=EgoyMDI0MTExMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-muted me-4"><i class="fas fa-map-marker-alt icon-color me-2"></i>Temukan Lokasi</a>
-                    <a href="https://wa.me/6285769040309" target="_blank" class="text-muted me-4"><i class="fab fa-whatsapp icon-color me-2"></i>085769040309</a>
+                    <a href="https://wa.me/6285174362969" target="_blank" class="text-muted me-4"><i class="fab fa-whatsapp icon-color me-2"></i>085174362969</a>
                     <a href="mailto:example@gmail.com" class="text-muted me-0"><i class="fas fa-envelope icon-color me-2"></i>prclampung@gmail.com</a>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     <a href="https://www.instagram.com/sewamobillampung.co/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
                         <i class="fab fa-instagram icon-color"></i>
                     </a>
-                    <a href="https://wa.me/6285769040309/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
+                    <a href="https://wa.me/6285174362969/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
                         <i class="fab fa-whatsapp icon-color"></i>
                     </a>
                     {{-- <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a> --}}
