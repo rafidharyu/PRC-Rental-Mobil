@@ -1,13 +1,13 @@
 <div class="container-fluid categories pt-5 pb-5">
     <div class="container pb-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.3s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Pilihan <span class="text-judul">Mobil</span></h1>
             <p class="mb-0">Kami menyediakan berbagai pilihan kendaraan sesuai kebutuhan Anda. Mulai dari mobil
                 keluarga yang nyaman, mobil mewah untuk acara spesial, hingga kendaraan praktis untuk perjalanan
                 sehari-hari. Dengan pilihan yang beragam, Anda dapat dengan mudah menemukan kendaraan yang tepat untuk
                 disewa, sesuai dengan selera dan anggaran Anda.
         </div>
-        <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+        <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.3s">
             @foreach ($cars as $car)
                 <div class="categories-item p-2">
                     <div class="categories-item-inner">
@@ -49,13 +49,15 @@
                                         class="text-body ms-1" style="font-size: 14px;">{{ $car->fuel }}</span>
                                 </div>
                             </div>
-                            @auth
-                                <a href="#"
-                                    class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal"data-bs-target="#modalBook">Reservasi Sekarang</a>
+                            @if ($car->status == 'available')
+                                @auth
+                                    <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi Sekarang</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Reservasi Sekarang</a>
+                                @endauth
                             @else
-                                <a href="{{ route('login') }}"
-                                    class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Reservasi Sekarang</a>
-                            @endauth
+                                <button type="button" class="btn btn-primary rounded-pill d-flex justify-content-center py-3 btn-disabled" disabled>Reservasi Sekarang</button>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -63,3 +65,4 @@
         </div>
     </div>
 </div>
+
