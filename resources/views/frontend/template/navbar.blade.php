@@ -68,8 +68,8 @@
                 </div>
                 @auth
                 <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
-                    <a href="" class="btn btn-primary rounded-pill py-2 px-4 me-2 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi</a>
-                    <div class="nav-item dropdown">
+                    <a href="" class="btn btn-primary rounded-pill py-2 px-4 me-2 mb-2 mb-lg-0 d-block d-lg-inline-block" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi</a>
+                    <div class="nav-item dropdown ms-lg-3">
                         <a class="nav-link dropdown-toggle text-drop" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ auth()->user()->name }}
                         </a>
