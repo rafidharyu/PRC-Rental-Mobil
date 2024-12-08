@@ -4,7 +4,7 @@
             <img src="{{ asset('frontend') }}/img/banner-1.jpg" class="img-fluid rounded w-100" alt="">
             <div class="banner-content">
                 {{-- <h2 class="text-primary">Sewa Mobil Sekarang!</h2> --}}
-                <h1 class="text-judul">Siap memulai perjalanan Anda?</h1>
+                <h1 class="text-banner">Siap memulai perjalanan Anda?</h1>
                 <p class="text-white">Hubungi sekarang, dapatkan penawaran terbaik dari kami!</p>
                 <div class="banner-btn">
                     <a href="https://wa.me/6285769040309" class="btn btn-whatsapp rounded-pill py-3 px-14 px-md-5 me-2">

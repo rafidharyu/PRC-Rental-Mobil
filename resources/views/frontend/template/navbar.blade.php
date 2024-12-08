@@ -52,8 +52,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     <a class="nav-item nav-link {{ request()->routeIs('index') ? 'active' : '' }}" href="{{ route('index') }}">Beranda</a>
-                    <a class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang</a>
-                    <a class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a>
+                    {{-- <a class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang</a> --}}
+                    {{-- <a class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a> --}}
                     <a class="nav-item nav-link {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Syarat</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('feature') || request()->routeIs('car') || request()->routeIs('testimonial') || request()->routeIs('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Halaman</a>
@@ -61,9 +61,9 @@
                             <a href="{{ route('feature') }}" class="dropdown-item {{ request()->routeIs('feature') ? 'active' : '' }}">Fitur</a>
                             <a href="{{ route('car') }}" class="dropdown-item {{ request()->routeIs('car') ? 'active' : '' }}">Mobil</a>
                             <a href="{{ route('testimonial') }}" class="dropdown-item {{ request()->routeIs('testimonial') ? 'active' : '' }}">Testimoni</a>
-                            {{-- <a href="404.html" class="dropdown-item {{ request()->routeIs('404') ? 'active' : '' }}">404 Page</a> --}}
+                            <a href="404.html" class="dropdown-item {{ request()->routeIs('404') ? 'active' : '' }}">404 Page</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a>
                 </div>
                 @auth
