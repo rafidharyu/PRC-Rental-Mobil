@@ -128,28 +128,38 @@
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                         <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
                                     </div>
-                                    <input class="form-control" type="date" id="pick_date" name="pick_date"
-                                        value="{{ old('pick_date') }}" required
+                                    <input class="form-control rounded-end" type="date" id="pick_date"
+                                        name="pick_date" value="{{ old('pick_date') }}" required
                                         min="{{ old('pick_date') ? old('pick_date') : date('Y-m-d') }}">
-                                    <select class="form-select ms-3" name="pick_time"
-                                        aria-label="Default select example">
-                                        <option value="06:00" {{ old('pick_time') == '06:00' ? 'selected' : '' }}>6:00
-                                            Pagi</option>
-                                        <option value="07:00" {{ old('pick_time') == '07:00' ? 'selected' : '' }}>7:00
-                                            Pagi</option>
-                                        <option value="08:00" {{ old('pick_time') == '08:00' ? 'selected' : '' }}>8:00
-                                            Pagi</option>
-                                        <option value="09:00" {{ old('pick_time') == '09:00' ? 'selected' : '' }}>9:00
-                                            Pagi</option>
-                                        <option value="10:00" {{ old('pick_time') == '10:00' ? 'selected' : '' }}>10:00
-                                            Pagi</option>
-                                        <option value="11:00" {{ old('pick_time') == '11:00' ? 'selected' : '' }}>11:00
-                                            Pagi</option>
-                                        <option value="12:00" {{ old('pick_time') == '12:00' ? 'selected' : '' }}>12:00
-                                            Siang</option>
-                                        <option value="13:00" {{ old('pick_time') == '13:00' ? 'selected' : '' }}>1:00
-                                            Siang</option>
-                                    </select>
+                                    <div class="form-select-time">
+                                        <select class="form-select ms-3" name="pick_time"
+                                            aria-label="Default select example">
+                                            <option value="06:00"
+                                                {{ old('pick_time') == '06:00' ? 'selected' : '' }}>6:00
+                                                Pagi</option>
+                                            <option value="07:00"
+                                                {{ old('pick_time') == '07:00' ? 'selected' : '' }}>7:00
+                                                Pagi</option>
+                                            <option value="08:00"
+                                                {{ old('pick_time') == '08:00' ? 'selected' : '' }}>8:00
+                                                Pagi</option>
+                                            <option value="09:00"
+                                                {{ old('pick_time') == '09:00' ? 'selected' : '' }}>9:00
+                                                Pagi</option>
+                                            <option value="10:00"
+                                                {{ old('pick_time') == '10:00' ? 'selected' : '' }}>10:00
+                                                Pagi</option>
+                                            <option value="11:00"
+                                                {{ old('pick_time') == '11:00' ? 'selected' : '' }}>11:00
+                                                Pagi</option>
+                                            <option value="12:00"
+                                                {{ old('pick_time') == '12:00' ? 'selected' : '' }}>12:00
+                                                Siang</option>
+                                            <option value="13:00"
+                                                {{ old('pick_time') == '13:00' ? 'selected' : '' }}>1:00
+                                                Siang</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -157,28 +167,38 @@
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                         <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop Off</span>
                                     </div>
-                                    <input class="form-control" type="date" id="drop_date" name="drop_date"
-                                        value="{{ old('drop_date') }}" required
+                                    <input class="form-control rounded-end" type="date" id="drop_date"
+                                        name="drop_date" value="{{ old('drop_date') }}" required
                                         min="{{ old('pick_date') ? old('pick_date') : date('Y-m-d') }}">
-                                    <select class="form-select ms-3" name="drop_time"
-                                        aria-label="Default select example">
-                                        <option value="06:00" {{ old('drop_time') == '06:00' ? 'selected' : '' }}>6:00
-                                            Pagi</option>
-                                        <option value="07:00" {{ old('drop_time') == '07:00' ? 'selected' : '' }}>7:00
-                                            Pagi</option>
-                                        <option value="08:00" {{ old('drop_time') == '08:00' ? 'selected' : '' }}>8:00
-                                            Pagi</option>
-                                        <option value="09:00" {{ old('drop_time') == '09:00' ? 'selected' : '' }}>9:00
-                                            Pagi</option>
-                                        <option value="10:00" {{ old('drop_time') == '10:00' ? 'selected' : '' }}>10:00
-                                            Pagi</option>
-                                        <option value="11:00" {{ old('drop_time') == '11:00' ? 'selected' : '' }}>11:00
-                                            Pagi</option>
-                                        <option value="12:00" {{ old('drop_time') == '12:00' ? 'selected' : '' }}>12:00
-                                            Siang</option>
-                                        <option value="13:00" {{ old('drop_time') == '13:00' ? 'selected' : '' }}>1:00
-                                            Siang</option>
-                                    </select>
+                                    <div class="form-select-time">
+                                        <select class="form-select ms-3" name="drop_time" style=""
+                                            aria-label="Default select example">
+                                            <option value="06:00"
+                                                {{ old('drop_time') == '06:00' ? 'selected' : '' }}>6:00
+                                                Pagi</option>
+                                            <option value="07:00"
+                                                {{ old('drop_time') == '07:00' ? 'selected' : '' }}>7:00
+                                                Pagi</option>
+                                            <option value="08:00"
+                                                {{ old('drop_time') == '08:00' ? 'selected' : '' }}>8:00
+                                                Pagi</option>
+                                            <option value="09:00"
+                                                {{ old('drop_time') == '09:00' ? 'selected' : '' }}>9:00
+                                                Pagi</option>
+                                            <option value="10:00"
+                                                {{ old('drop_time') == '10:00' ? 'selected' : '' }}>10:00
+                                                Pagi</option>
+                                            <option value="11:00"
+                                                {{ old('drop_time') == '11:00' ? 'selected' : '' }}>11:00
+                                                Pagi</option>
+                                            <option value="12:00"
+                                                {{ old('drop_time') == '12:00' ? 'selected' : '' }}>12:00
+                                                Siang</option>
+                                            <option value="13:00"
+                                                {{ old('drop_time') == '13:00' ? 'selected' : '' }}>1:00
+                                                Siang</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -206,8 +226,8 @@
 
                             {{-- <p class="text-start text-white d-block mb-2">DP yang harus dibayarkan: </p> --}}
                             <div class="form-group mt-3">
-                                <input type="file" name="file" class="form-control @error('file') is-invalid @enderror"
-                                    accept=".jpg,.jpeg,.png">
+                                <input type="file" name="file"
+                                    class="form-control @error('file') is-invalid @enderror" accept=".jpg,.jpeg,.png">
 
                                 @error('file')
                                     <span class="invalid-feedback" role="alert">
@@ -219,8 +239,8 @@
 
                             <div class="col-12">
                                 <div class="input-group">
-                                    <textarea class="form-control @error('message') is-invalid @enderror" name="message"
-                                        rows="5" placeholder="Catatan :
+                                    <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="5"
+                                        placeholder="Catatan :
 - Berikan catatan yang diinginkan.
 - Berikan alamat lokasi jika memilih opsi 'tempat lain'.
 - Upload file bukti pembayaran jika sudah memberikan DP.">{{ old('message') }}</textarea>
@@ -235,8 +255,8 @@
 
                             <div class="col-12">
                                 <div class="form-check">
-                                    <input class="form-check-input @error('agree') is-invalid @enderror" type="checkbox"
-                                        value="1" id="agree" name="agree" required>
+                                    <input class="form-check-input @error('agree') is-invalid @enderror"
+                                        type="checkbox" value="1" id="agree" name="agree" required>
                                     <label class="form-check-label" for="agree">
                                         Saya setuju dengan <a href="{{ route('blog') }}" target="_blank">syarat dan
                                             kondisi</a> yang
@@ -274,7 +294,7 @@
 
     let pricePerDay = 0;
 
-    carSelect.addEventListener('change', function () {
+    carSelect.addEventListener('change', function() {
         const selectedOption = carSelect.options[carSelect.selectedIndex];
         pricePerDay = parseInt(selectedOption.getAttribute('data-price')) || 0;
         calculateBookingDetails();
@@ -289,7 +309,8 @@
         const pickDate = new Date(pickDateInput.value);
         const dropDate = new Date(dropDateInput.value);
         const driveOption = document.getElementById('drive_option'); // Ambil elemen opsi sopir
-        const isWithDriver = driveOption.value === 'dikemudikan_oleh_sopir'; // Periksa apakah opsi "Dengan Sopir" dipilih
+        const isWithDriver = driveOption.value ===
+        'dikemudikan_oleh_sopir'; // Periksa apakah opsi "Dengan Sopir" dipilih
 
         if (pickDate && dropDate && dropDate >= pickDate) {
             const duration = Math.ceil((dropDate - pickDate) / (1000 * 60 * 60 * 24)) + 1; // Tambah 1 hari
@@ -312,5 +333,7 @@
             downPaymentElement.textContent = "0";
         }
     }
+mobile
 
+main
 </script>
