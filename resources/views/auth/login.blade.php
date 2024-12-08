@@ -42,12 +42,12 @@
                                     </span>
                                     <input type="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror"
-                                        value="{{ old('email') }}" placeholder="contoh@gmail.com" id="email"
-                                        autofocus required>
+                                        value="{{ old('email') }}" placeholder="contoh@gmail.com" id="email" autofocus
+                                        required>
                                     @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
@@ -69,25 +69,27 @@
                                             class="form-control @error('password') is-invalid @enderror" id="password"
                                             required>
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
                                 <!-- End of Form -->
                                 <div class="d-flex justify-content-between align-items-top mb-4">
                                     {{-- <div class="form-check">
-                                        <input class="form-check-input" checked name="remember" type="checkbox" value="" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <input class="form-check-input" checked name="remember" type="checkbox" value=""
+                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>
                                     </div> --}}
 
                                     @if (Route::has('password.request'))
-                                    <div>
-                                        <a href="{{ route('password.request') }}" class="small text-right">Lupa Password?</a>
-                                    </div>
+                                        <div>
+                                            <a href="{{ route('password.request') }}" class="small text-right">Lupa
+                                                Password?</a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -95,6 +97,15 @@
                                 <button type="submit" class="btn btn-gray-800">Masuk</button>
                             </div>
                         </form>
+                        <div class="mt-3 mb-4 text-center">
+                            <span class="fw-normal">atau masuk dengan</span>
+                        </div>
+                        <div class="d-flex justify-content-center my-4">
+                            <a href="{{ route('google-auth') }}" class="btn btn-icon-only btn-pill btn-outline-gray-500 me-2"
+                                aria-label="google button" title="Akun Google">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </div>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="fw-normal">
                                 Belum Terdaftar?
