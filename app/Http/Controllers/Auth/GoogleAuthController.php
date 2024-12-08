@@ -40,11 +40,19 @@ class GoogleAuthController extends Controller
             // Login the user
             Auth::login($user);
 
-            // Redirect to the dashboard
-            return redirect()->route('panel.dashboard');
+            // Redirect to the correct page based on the user's role
+            if ($user->role === 'user') {
+                return redirect()->route('index');
+            } elseif (in_array($user->role, ['operator', 'owner'])) {
+                return redirect()->route('panel.dashboard');
+            } else {
+                // Handle unknown roles
+                return redirect()->route('index')->with('error', 'Unknown role: ' . $user->role);
+            }
         } catch (\Throwable $th) {
             // Handle errors
             return redirect()->route('index')->with('error', 'Login with Google failed: ' . $th->getMessage());
         }
     }
 }
+

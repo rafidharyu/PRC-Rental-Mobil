@@ -1,3 +1,11 @@
+{{-- @if(auth()->check())
+    @if(auth()->user()->role == 'user')
+        <script>window.location.href = '/';</script>
+    @endif
+@else
+<script>window.location.href = '{{ route('login') }}';</script>
+@endif --}}
+
 @extends('backend.template.main')
 
 @section('title', 'Dashboard')

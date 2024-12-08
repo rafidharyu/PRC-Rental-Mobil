@@ -55,22 +55,37 @@
                     {{-- <a class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang</a> --}}
                     {{-- <a class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a> --}}
                     <a class="nav-item nav-link {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Syarat</a>
-                    <a class="nav-item nav-link {{ request()->routeIs('car') ? 'active' : '' }}" href="{{ route('car') }}">Mobil</a>
-                    <a class="nav-item nav-link {{ request()->routeIs('testimonial') ? 'active' : '' }}" href="{{ route('testimonial') }}">Testimoni</a>
-
-                    {{-- <div class="nav-item dropdown">
+                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('feature') || request()->routeIs('car') || request()->routeIs('testimonial') || request()->routeIs('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Halaman</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('feature') }}" class="dropdown-item {{ request()->routeIs('feature') ? 'active' : '' }}">Fitur Kami</a>
-                            <a href="{{ route('car') }}" class="dropdown-item {{ request()->routeIs('car') ? 'active' : '' }}">Mobil Kami</a>
+                            <a href="{{ route('feature') }}" class="dropdown-item {{ request()->routeIs('feature') ? 'active' : '' }}">Fitur</a>
+                            <a href="{{ route('car') }}" class="dropdown-item {{ request()->routeIs('car') ? 'active' : '' }}">Mobil</a>
                             <a href="{{ route('testimonial') }}" class="dropdown-item {{ request()->routeIs('testimonial') ? 'active' : '' }}">Testimoni</a>
                             <a href="404.html" class="dropdown-item {{ request()->routeIs('404') ? 'active' : '' }}">404 Page</a>
                         </div>
                     </div> --}}
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a>
                 </div>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 me-2" data-bs-toggle="modal" data-bs-target="#modalBook">Booking</a>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                @auth
+                <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
+                    <a href="" class="btn btn-primary rounded-pill py-2 px-4 me-2 mb-2 mb-lg-0 d-block d-lg-inline-block" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi</a>
+                    <div class="nav-item dropdown ms-lg-3">
+                        <a class="nav-link dropdown-toggle text-drop" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu m-0">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt me-2"></i>Keluar
+                            </a>
+                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill py-2 px-4">Masuk</a>
+                @endauth
             </div>
         </nav>
     </div>
