@@ -120,7 +120,7 @@
         Swal.fire({
             title: "Anda yakin?",
             text: "Data tidak akan bisa dikembalikan!",
-            icon: "peringatan",
+            icon: "warning",
             showCancelButton: true,
             cancelButtonText: "Batal",
             confirmButtonColor: "#3085d6",

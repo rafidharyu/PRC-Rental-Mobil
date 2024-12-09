@@ -63,7 +63,7 @@
                             <a href="{{ route('testimonial') }}" class="dropdown-item {{ request()->routeIs('testimonial') ? 'active' : '' }}">Testimoni</a>
                             <a href="404.html" class="dropdown-item {{ request()->routeIs('404') ? 'active' : '' }}">404 Page</a>
                         </div>
-                    </div> --}}
+                    </div> 
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a>
                 </div>
                 @auth
