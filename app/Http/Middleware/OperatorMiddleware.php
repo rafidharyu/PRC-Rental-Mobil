@@ -13,7 +13,7 @@ class OperatorMiddleware
         // Ensure user is authenticated
         if (Auth::check()) {
             $user = Auth::user();
-            
+
             // Check if the user is an operator and inactive
             if ($user->role == 'operator' && !$user->is_active) {
                 // Exclude the 'operator.inactive' route to prevent a redirect loop
@@ -21,6 +21,11 @@ class OperatorMiddleware
                     return redirect()->route('operator.inactive');  // Redirect to the inactive page
                 }
             }
+        }
+
+        // Cek apakah pengguna adalah user
+        if (Auth::check() && Auth::user()->role === 'user') {
+            return redirect()->route('index'); // Arahkan pengguna ke halaman utama
         }
 
         return $next($request);
