@@ -223,6 +223,10 @@
                                     id="total_price">0</span><br>
                                 DP yang harus dibayarkan: Rp. <span id="down_payment">0</span>
                             </p>
+                            
+                            <p class="text-start text-white d-block mb-0">
+                                NoRek Mandiri: <br> 1140025085724 a/n NAUFAL SULTHON FAKHR
+                            </p>
 
                             {{-- <p class="text-start text-white d-block mb-2">DP yang harus dibayarkan: </p> --}}
                             <div class="form-group mt-3">
