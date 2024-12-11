@@ -25,66 +25,68 @@
             @endforeach
         </div>
 
-        @if (request()->routeIs('testimonial'))
-        <div class="my-5 pt-5">
-            <div class="row gy-4 justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card shadow mx-4">
-                        <div class="p-2 bg-light rounded d-flex justify-content-center">
-                            <div class="bg-secondary rounded p-4">
-                                <h4 class="text-white mb-3">Berikan Penilaian Anda</h4>
-                                <form action="{{ route('testimonial.attempt') }}" method="post">
-                                    @csrf
-                                    <div class="mb-2">
-                                        <label for="code" class="text-white">Code Transaction</label>
-                                        <input type="text" name="code" id="code"
-                                            class="form-control @error('code')'is-invalid' @enderror"
-                                            value="{{ old('code') }}">
-                                        @error('code')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="rate" class="text-white">Rating <span
-                                                style="color: gold; font-size: 25px;">&#9733;</span></label>
-                                        <select name="rate" id="rate" class="form-select">
-                                            <option value="" hidden>-- Choose Review --</option>
-                                            <option value="1" style="color: gold;">&#9733;</option>
-                                            <option value="2" style="color: gold;">&#9733;&#9733;</option>
-                                            <option value="3" style="color: gold;">&#9733;&#9733;&#9733;</option>
-                                            <option value="4" style="color: gold;">&#9733;&#9733;&#9733;&#9733;</option>
-                                            <option value="5" style="color: gold;">&#9733;&#9733;&#9733;&#9733;&#9733;
-                                            </option>
-                                        </select>
-                                        @error('rate')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="comment" class="text-white">Comment</label>
-                                        <textarea name="comment" id="comment" cols="5" rows="5"
-                                            class="form-control @error('code')'is-invalid' @enderror">{{ old('comment') }}</textarea>
-                                        @error('code')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="float-end">
-                                        <button type="submit" class="btn btn-review">Kirim</button>
-                                    </div>
-                                </form>
+        @auth
+            @if (request()->routeIs('testimonial'))
+            <div class="my-5 pt-5">
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow mx-4">
+                            <div class="p-2 bg-light rounded d-flex justify-content-center">
+                                <div class="bg-secondary rounded p-4">
+                                    <h4 class="text-white mb-3">Berikan Penilaian Anda</h4>
+                                    <form action="{{ route('testimonial.attempt') }}" method="post">
+                                        @csrf
+                                        <div class="mb-2">
+                                            <label for="code" class="text-white">Code Transaction</label>
+                                            <input type="text" name="code" id="code"
+                                                class="form-control @error('code') is-invalid @enderror"
+                                                value="{{ old('code') }}">
+                                            @error('code')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="rate" class="text-white">Rating <span
+                                                    style="color: gold; font-size: 25px;">&#9733;</span></label>
+                                            <select name="rate" id="rate" class="form-select">
+                                                <option value="" hidden>-- Choose Review --</option>
+                                                <option value="1" style="color: gold;">&#9733;</option>
+                                                <option value="2" style="color: gold;">&#9733;&#9733;</option>
+                                                <option value="3" style="color: gold;">&#9733;&#9733;&#9733;</option>
+                                                <option value="4" style="color: gold;">&#9733;&#9733;&#9733;&#9733;</option>
+                                                <option value="5" style="color: gold;">&#9733;&#9733;&#9733;&#9733;&#9733;
+                                                </option>
+                                            </select>
+                                            @error('rate')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="comment" class="text-white">Comment</label>
+                                            <textarea name="comment" id="comment" cols="5" rows="5"
+                                                class="form-control @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>
+                                            @error('comment')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="float-end">
+                                            <button type="submit" class="btn btn-review">Kirim</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        @endif
+            @endif
+        @endauth
     </div>
 </div>
 
