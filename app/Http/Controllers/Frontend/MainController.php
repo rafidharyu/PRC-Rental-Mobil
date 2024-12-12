@@ -19,34 +19,34 @@ class MainController extends Controller
     ) {}
 
     public function index()
-{
-    $events = Event::orderByDesc('created_at')->get();
-    $reviews = Review::with('transaction')->latest()->get();
-    $transactions = Transaction::all();
-    $cars = Car::all();
+    {
+        $events = Event::where('status', 'active')->orderByDesc('created_at')->get();
+        $reviews = Review::with('transaction')->latest()->get();
+        $transactions = Transaction::all();
+        $cars = Car::all();
 
-    return view('frontend.index', [
-        'cars' => $this->carService->select(),
-        'reviews' => $reviews,
-        'events' => $events,
-        'reviewsCount' => $reviews->count(),
-        'carsCount' => $cars->count(),
-        'transactionsCount' => $transactions->count(),
-        'eventsCount' => $events->count(),
-    ]);
-}
+        return view('frontend.index', [
+            'cars' => $this->carService->select(),
+            'reviews' => $reviews,
+            'events' => $events,
+            'reviewsCount' => $reviews->count(),
+            'carsCount' => $cars->count(),
+            'transactionsCount' => $transactions->count(),
+            'eventsCount' => $events->count(),
+        ]);
+    }
 
 
     public function car()
     {
-        return view('frontend.car',[
+        return view('frontend.car', [
             'cars' => $this->carService->select()
         ]);
     }
 
     public function about()
     {
-        return view('frontend.about',[
+        return view('frontend.about', [
             'cars' => $this->carService->select()
         ]);
     }
@@ -62,21 +62,21 @@ class MainController extends Controller
 
     public function blog()
     {
-        return view('frontend.blog',[
+        return view('frontend.blog', [
             'cars' => $this->carService->select()
         ]);
     }
 
     public function contact()
     {
-        return view('frontend.contact',[
+        return view('frontend.contact', [
             'cars' => $this->carService->select()
         ]);
     }
 
     public function feature()
     {
-        return view('frontend.feature',[
+        return view('frontend.feature', [
             'cars' => $this->carService->select()
         ]);
     }
@@ -89,6 +89,4 @@ class MainController extends Controller
             'reviews' => $reviews
         ]);
     }
-
-
 }

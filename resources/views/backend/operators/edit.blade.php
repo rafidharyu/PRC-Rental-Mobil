@@ -76,7 +76,7 @@
             <!-- Submit Button -->
             <div class="float-end">
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save"></i> Submit
+                    <i class="fas fa-save"></i> Simpan
                 </button>
             </div>
         </form>

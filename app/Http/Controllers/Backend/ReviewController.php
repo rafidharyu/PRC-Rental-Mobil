@@ -12,14 +12,14 @@ class ReviewController extends Controller
     public function index(): View
     {
         return view('backend.review.index', [
-            'reviews' => Review::with('transaction:id,code,name,car_id')->paginate(10),
+            'reviews' => Review::with('transaction:id,code,name,car_id')->latest()->paginate(10),
         ]);
     }
 
     public function show(string $uuid): View
     {
         $review = Review::with('transaction:id,code,name,car_id')
-        ->whereUuid($uuid)->firstOrFail();
+            ->whereUuid($uuid)->firstOrFail();
 
         return view('backend.review.show', [
             'review' => $review

@@ -132,8 +132,7 @@
                                         name="pick_date" value="{{ old('pick_date') }}" required
                                         min="{{ old('pick_date') ? old('pick_date') : date('Y-m-d') }}">
                                     <div class="form-select-time">
-                                        <select class="form-select ms-3" name="pick_time"
-                                            aria-label="Default select example">
+                                        <select class="form-select ms-3" name="pick_time" aria-label="Default select example">
                                             <option value="06:00"
                                                 {{ old('pick_time') == '06:00' ? 'selected' : '' }}>6:00
                                                 Pagi</option>
@@ -171,8 +170,7 @@
                                         name="drop_date" value="{{ old('drop_date') }}" required
                                         min="{{ old('pick_date') ? old('pick_date') : date('Y-m-d') }}">
                                     <div class="form-select-time">
-                                        <select class="form-select ms-3" name="drop_time" style=""
-                                            aria-label="Default select example">
+                                        <select class="form-select ms-3" name="drop_time" aria-label="Default select example">
                                             <option value="06:00"
                                                 {{ old('drop_time') == '06:00' ? 'selected' : '' }}>6:00
                                                 Pagi</option>
@@ -223,7 +221,7 @@
                                     id="total_price">0</span><br>
                                 DP yang harus dibayarkan: Rp. <span id="down_payment">0</span>
                             </p>
-                            
+
                             <p class="text-start text-white d-block mb-0">
                                 NoRek Mandiri: <br> 1140025085724 a/n NAUFAL SULTHON FAKHR
                             </p>
@@ -289,6 +287,12 @@
 </div>
 
 <script>
+    document.getElementById('pick_date').addEventListener('change', function() {
+        const pickDate = this.value; // Ambil nilai pick_date
+        const dropDateInput = document.getElementById('drop_date');
+        dropDateInput.min = pickDate; // Set nilai min pada drop_date
+    });
+    
     const carSelect = document.getElementById('car_id');
     const pickDateInput = document.getElementById('pick_date');
     const dropDateInput = document.getElementById('drop_date');
@@ -329,7 +333,7 @@
             // Update nilai di elemen tampilan
             durationElement.textContent = duration;
             totalPriceElement.textContent = totalPrice.toLocaleString('id-ID'); // Format ke Rupiah
-            downPaymentElement.textContent = Math.ceil(totalPrice * 0.2).toLocaleString('id-ID'); // DP 20%
+            downPaymentElement.textContent = Math.ceil(totalPrice * 0.5).toLocaleString('id-ID'); // DP 50%
         } else {
             durationElement.textContent = "0";
             totalPriceElement.textContent = "0";
