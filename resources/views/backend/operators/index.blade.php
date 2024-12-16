@@ -29,11 +29,9 @@
                 <p class="mb-0">Daftar Operator PRC</p>
             </div>
             <div>
-                {{-- @if (auth()->user()->role === 'operator') --}}
                 <a href="{{ route('panel.operator.create') }}" class="btn btn-warning d-inline-flex align-items-center">
                     <i class="fas fa-plus me-1"></i> Buat Akun
                 </a>
-                {{-- @endif --}}
             </div>
         </div>
     </div>
@@ -53,38 +51,39 @@
                     </thead>
                     <tbody>
                         @foreach ($operators as $operator)
-                        <tr>
-                            <td>{{ ($operators->currentPage() - 1) * $operators->perPage() + $loop->iteration }}</td>
-                            <td class="fw-bold text-dark">
-                                {{ $operator->name }}
-                            </td>
-                            <td class="fw-bold text-dark">
-                                {{ $operator->email }}
-                            </td>
-                            <td class="text-center fw-bold text-dark">
-                                @if ($operator->is_active)
-                                <span class="badge bg-success">Aktif</span>
-                                @else
-                                <span class="badge bg-danger">Tidak Aktif</span>
-                                @endif
-                            </td>
-                            <td class="text-center fw-bold text-dark">
-                                <a href="{{ route('backend.operators.show', $operator->id) }}"
-                                    class="btn btn-sm btn-info">
-                                    <i class="fas fa-eye"></i>
-                                </a>
+                            <tr>
+                                <td>{{ ($operators->currentPage() - 1) * $operators->perPage() + $loop->iteration }}</td>
+                                <td class="fw-bold text-dark">
+                                    {{ $operator->name }}
+                                </td>
+                                <td class="fw-bold text-dark">
+                                    {{ $operator->email }}
+                                </td>
+                                <td class="text-center fw-bold text-dark">
+                                    @if ($operator->is_active)
+                                        <span class="badge bg-success">Aktif</span>
+                                    @else
+                                        <span class="badge bg-danger">Tidak Aktif</span>
+                                    @endif
+                                </td>
+                                <td class="text-center fw-bold text-dark">
+                                    <a href="{{ route('backend.operators.show', $operator->id) }}"
+                                        class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
-                                <a href="{{ route('backend.operators.edit', $operator->id) }}"
-                                    class="btn btn-sm btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </a>
+                                    <a href="{{ route('backend.operators.edit', $operator->id) }}"
+                                        class="btn btn-sm btn-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
 
-                                <button class="btn btn-sm btn-danger"
+                                    <!-- Tombol Hapus -->
+                                    <button class="btn btn-sm btn-danger"
                                         onclick="deleteOperator({{ $operator->id }}, '{{ $operator->name }}')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -94,3 +93,52 @@
 </div>
 
 @endsection
+
+@push('js')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const deleteOperator = (operatorId, operatorName) => {
+            Swal.fire({
+                title: `Anda yakin?`,
+                text: `Operator ${operatorName} akan dihapus dan tidak bisa dikembalikan!`,
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Batal",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, hapus!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('backend.operators.destroy', '') }}/" + operatorId,
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+                            Swal.fire({
+                                title: "Dihapus!",
+                                text: response.message,
+                                icon: "success",
+                                timer: 2500,
+                                showConfirmButton: false
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function (xhr) {
+                            Swal.fire({
+                                title: "Gagal!",
+                                text: xhr.responseJSON.message || "Operator gagal dihapus.",
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+@endpush

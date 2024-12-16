@@ -46,7 +46,7 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="text-center rounded" style="background-color: black; padding: 1rem;">
-                                <h1 class="display-6" style="color: white;">2</h1>
+                                <h1 class="display-6" style="color: white;">2+</h1>
                                 <h5 class="text-light mb-0">Tahun Berdiri</h5>
                             </div>
                         </div>

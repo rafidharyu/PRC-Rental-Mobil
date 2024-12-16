@@ -66,4 +66,60 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
 // });
 
 Auth::routes();
+
+Route::get('/register', function () {
+    if (Auth::check()) {
+        // Dapatkan role dari pengguna yang sudah login
+        $role = Auth::user()->role;
+
+        // Redirect berdasarkan role
+        if ($role === 'owner' || $role === 'operator') {
+            return redirect()->route('panel.dashboard'); // Redirect ke dashboard
+        }
+
+        return redirect()->route('index'); // Redirect ke halaman utama untuk user biasa
+    }
+
+    // Jika belum login, tampilkan halaman register
+    return view('auth.register');
+})->name('register');
+
+// Pembatasan Login untuk Role User, Operator, dan Owner
+Route::get('/login', function () {
+    if (Auth::check()) {
+        // Pengalihan berdasarkan peran
+        $role = Auth::user()->role; // Memastikan 'peran' tersedia di model User
+        if ($role === 'owner') {
+            return redirect()->route('panel.dashboard');
+        } elseif ($role === 'operator') {
+            return redirect()->route('panel.dashboard');
+        } elseif ($role === 'user') {
+            return redirect()->route('index');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+    return view('auth.login');
+})->name('login');
+
+// Redirect /home berdasarkan peran setelah login
+Route::get('/home', function () {
+    if (Auth::check()) {
+        // Pengalihan berdasarkan peran
+        $role = Auth::user()->role; // Memastikan 'peran' tersedia di model User
+        if ($role === 'owner' || $role === 'operator' ) {
+            return redirect()->route('panel.dashboard');
+        } else {
+            return view('home'); // Jika peran tidak dikenali, tampilkan halaman utama
+        }
+
+        if ($role === 'user') {
+            return redirect()->route('index');
+        } else {
+            return view('home');
+        }
+    }
+    return redirect()->route('login');
+})->name('home');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

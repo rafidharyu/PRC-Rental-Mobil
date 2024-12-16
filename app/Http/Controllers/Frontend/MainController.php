@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Car;
 use App\Models\Event;
 use App\Models\Review;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Services\CarService;
 use App\Http\Controllers\Controller;
@@ -18,15 +19,23 @@ class MainController extends Controller
     ) {}
 
     public function index()
-    {
-        $events = Event::orderByDesc('created_at')->get();
-        $reviews = Review::with('transaction')->latest()->get();
-        return view('frontend.index', [
-            'cars' => $this->carService->select(),
-            'reviews' => $reviews,
-            'events' => $events
-        ]);
-    }
+{
+    $events = Event::orderByDesc('created_at')->get();
+    $reviews = Review::with('transaction')->latest()->get();
+    $transactions = Transaction::all();
+    $cars = Car::all();
+
+    return view('frontend.index', [
+        'cars' => $this->carService->select(),
+        'reviews' => $reviews,
+        'events' => $events,
+        'reviewsCount' => $reviews->count(),
+        'carsCount' => $cars->count(),
+        'transactionsCount' => $transactions->count(),
+        'eventsCount' => $events->count(),
+    ]);
+}
+
 
     public function car()
     {

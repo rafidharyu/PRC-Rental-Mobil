@@ -32,11 +32,11 @@
                                     <div class="col-md-6 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.5s">
                                         <div class="contact-add-item p-4">
                                             <div class="contact-icon mb-4">
-                                                <a href="https://wa.me/6285769040309" target="_blank"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
+                                                <a href="https://wa.me/6285174362969" target="_blank"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
                                             </div>
                                             <div>
                                                 <h4>WhatsApp</h4>
-                                                <p class="mb-0">+62 85769040309</p>
+                                                <p class="mb-0">+62 851-7436-2969</p>
                                             </div>
                                         </div>
                                     </div>

@@ -1,3 +1,29 @@
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #EA001E;
+    --bs-secondary: #1F2E4E;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #F2F2F2;
+    --bs-dark: #000C21;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
+}
 
 /*** Spinner Start ***/
 /*** Spinner ***/
@@ -795,6 +821,89 @@
     z-index: 5;
 }
 
+/* Untuk tampilan desktop */
+@media (min-width: 992px) {
+    .banner .banner-item .banner-content h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .banner .banner-item .banner-content h1 {
+        font-size: 70px;
+        margin-bottom: 15px;
+        color: #ceaa5a;
+    }
+
+    .banner .banner-item .banner-content p {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .banner .banner-item .banner-content .banner-btn {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .banner .banner-item .banner-content .banner-btn .btn {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .banner .banner-item .banner-content .banner-btn .btn-whatsapp {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .banner .banner-item .banner-content .banner-btn .btn-primary {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 991px) {
+    .banner-item {
+        width: 100%;
+        padding: 0;
+    }
+
+    .banner-content {
+        text-align: right;
+        padding: 10px;
+    }
+
+    .text-banner {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: right;
+        color: #ceaa5a;
+    }
+
+    .banner-content p {
+        font-size: 10px;
+        margin-bottom: 15px;
+    }
+
+    .banner-btn .btn-whatsapp {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+
+    .banner-btn .btn-primary {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    /* .banner-item img {
+        width: 500px;
+        height: auto;
+    } */
+}
+
+/*
 @media (min-width: 992px) {
     .banner .banner-item .banner-content h2 {
         font-size: 45px;
@@ -810,7 +919,7 @@
         font-size: 40px;
         margin-bottom: 20px;
     }
-}
+} */
 /*** Banner End ***/
 
 /*** Team Start ***/

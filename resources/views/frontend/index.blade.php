@@ -38,39 +38,40 @@
         @endforeach
     </div>
 </div>
-<!-- Carousel End -->
+    <!-- Carousel End -->
+
+    <!-- About Start -->
+    @include('frontend.partials._about')
+    <!-- About End -->
+
+    <!-- Fact Counter -->
+    @include('frontend.partials._counter')
+    <!-- Fact Counter -->
+
+    <!-- Services Start -->
+    @include('frontend.partials._services')
+    <!-- Services End -->
 
 
-        <!-- Features Start -->
-        @include('frontend.partials._features')
-        <!-- Features End -->
+    <!-- Features Start -->
+    @include('frontend.partials._features')
+    <!-- Features End -->
 
-        <!-- About Start -->
-        @include('frontend.partials._about')
-        <!-- About End -->
-
-        <!-- Fact Counter -->
-        @include('frontend.partials._counter')
-        <!-- Fact Counter -->
-
-        <!-- Services Start -->
-        @include('frontend.partials._services')
-        <!-- Services End -->
-
-        <!-- Car categories Start -->
+    {{-- <!-- Car categories Start -->
         @include('frontend.partials._car-categories')
-        <!-- Car categories End -->
+        <!-- Car categories End --> --}}
 
-        <!-- Car Steps Start -->
-        @include('frontend.partials._steps')
-        <!-- Car Steps End -->
+    <!-- Car Steps Start -->
+    @include('frontend.partials._steps')
+    <!-- Car Steps End -->
 
-        <!-- Banner Start -->
-        @include('frontend.partials._banner')
-        <!-- Banner End -->
+    <!-- Banner Start -->
+    @include('frontend.partials._banner')
+    <!-- Banner End -->
 
-        <!-- Testimonial Start -->
-        @include('frontend.partials._testimonial')
-        <!-- Testimonial End -->
+    {{--
+    <!-- Testimonial Start -->
+    @include('frontend.partials._testimonial')
+    <!-- Testimonial End --> --}}
 
 @endsection
