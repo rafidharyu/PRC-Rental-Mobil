@@ -95,7 +95,7 @@
                     <div class="mb-3">
                         <label for="fuel">Bahan Bakar</label>
                         <select name="fuel" id="fuel" class="form-select @error('fuel') is-invalid @enderror">
-                            <option value="petrol" {{ old('fuel', $car->fuel) == 'bensin' ? 'selected' : '' }}>Bensin</option>
+                            <option value="bensin" {{ old('fuel', $car->fuel) == 'bensin' ? 'selected' : '' }}>Bensin</option>
                             <option value="diesel" {{ old('fuel', $car->fuel) == 'diesel' ? 'selected' : '' }}>Diesel</option>
                         </select>
 

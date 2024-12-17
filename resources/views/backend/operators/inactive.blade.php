@@ -18,8 +18,8 @@
                         Silakan hubungi owner untuk aktivasi akun Anda.
                     </p>
                     <div class="text-center">
-                        <a href="mailto:{{ $ownerEmail }}" class="btn " style="background-color: #e0be74;">
-                            <i class="fas fa-envelope"></i> Hubungi Owner
+                        <a href="https://wa.me/6285174362969?text=Halo, saya ingin konfirmasi akun operator saya." target="_blank" class="btn " style="background-color: #34c759;">
+                            <i class="fab fa-whatsapp"></i> Hubungi Owner
                         </a>
                     </div>
                 </div>

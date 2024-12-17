@@ -37,7 +37,7 @@
                                     <form action="{{ route('testimonial.attempt') }}" method="post">
                                         @csrf
                                         <div class="mb-2">
-                                            <label for="code" class="text-white">Code Transaction</label>
+                                            <label for="code" class="text-white">Kode Transaksi</label>
                                             <input type="text" name="code" id="code"
                                                 class="form-control @error('code') is-invalid @enderror"
                                                 value="{{ old('code') }}">
@@ -48,10 +48,10 @@
                                             @enderror
                                         </div>
                                         <div class="mb-2">
-                                            <label for="rate" class="text-white">Rating <span
+                                            <label for="rate" class="text-white">Penilaian <span
                                                     style="color: gold; font-size: 25px;">&#9733;</span></label>
                                             <select name="rate" id="rate" class="form-select">
-                                                <option value="" hidden>-- Choose Review --</option>
+                                                <option value="" hidden>--Pilih Penilaian--</option>
                                                 <option value="1" style="color: gold;">&#9733;</option>
                                                 <option value="2" style="color: gold;">&#9733;&#9733;</option>
                                                 <option value="3" style="color: gold;">&#9733;&#9733;&#9733;</option>

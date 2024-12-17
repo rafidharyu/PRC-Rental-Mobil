@@ -10,14 +10,14 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="media d-flex align-items-center">
                             <img class="avatar rounded-circle" alt="Image placeholder"
-                                src="{{ asset('backend') }}/assets/img/team/profile-picture-3.jpg">
+                                src="{{ auth()->user()->role === 'owner' ? asset('backend/assets/img/team/avatar.png') : asset('backend/assets/img/team/avatar2.png') }}">
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                                 <span class="mb-0 font-small fw-bold text-gray-900">{{ auth()->user()->name }}</span>
                             </div>
                         </div>
                     </a>
                     <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('password.request') }}">
+                        {{-- <a class="dropdown-item d-flex align-items-center" href="{{ route('password.request') }}">
                             <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -25,8 +25,8 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                             Reset Password
-                        </a>
-                        <div role="separator" class="dropdown-divider my-1"></div>
+                        </a> --}}
+                        {{-- <div role="separator" class="dropdown-divider my-1"></div> --}}
 
                         {{-- Logout --}}
                         <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
