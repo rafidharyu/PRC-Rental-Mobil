@@ -21,7 +21,7 @@
                                             <div class="syarat-icon mb-4">
                                                 <i class="fas fa-file-contract syarat-icon fa-2x"></i>
                                             </div>
-                                            <h4 class="mb-3">Persyaratan Sewa Mobil</h4>
+                                            <h4 class="mb-3">Persyaratan Sewa Mobil (Lepas Kunci)</h4>
                                             <ul
                                                 style="list-style-position: inside; padding: 0; margin-left: 0; text-align: left;">
                                                 <li class="h6 text-item" style="margin-bottom: 5px;">Membawa KTP (Asli)</li>

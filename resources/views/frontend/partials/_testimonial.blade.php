@@ -66,7 +66,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-2">
-                                            <label for="comment" class="text-white">Comment</label>
+                                            <label for="comment" class="text-white">Komentar</label>
                                             <textarea name="comment" id="comment" cols="5" rows="5"
                                                 class="form-control @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>
                                             @error('comment')

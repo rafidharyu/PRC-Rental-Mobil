@@ -18,12 +18,13 @@
             class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
             <div class="d-flex align-items-center">
                 <div class="avatar-lg me-4">
-                    <img src="{{ asset('backend') }}/assets/img/team/profile-picture-3.jpg"
-                        class="card-img-top rounded-circle border-white" alt="Bonnie Green">
+                    <img src="{{ auth()->user()->role === 'owner' ? asset('backend/assets/img/team/avatar.png') : asset('backend/assets/img/team/avatar2.png') }}""
+                        class="card-img-top rounded-circle border-white" alt="Foto Profile">
                 </div>
                 <div class="d-block">
-                    <h2 class="h5 mb-3">Hallo, {{ auth()->user()->name }}</h2>
-                    <a href="{{ asset('backend') }}/pages/examples/sign-in.html"
+                    <h2 class="h5 mb-1 mt-3">{{ auth()->user()->name }}</h2>
+                    <p>{{ auth()->user()->role }}</p>
+                    {{-- <a href="{{ asset('backend') }}/pages/examples/sign-in.html"
                         class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                         <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,7 @@
                             </path>
                         </svg>
                         Sign Out
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div class="collapse-close d-md-none">

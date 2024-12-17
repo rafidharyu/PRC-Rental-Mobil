@@ -4,7 +4,7 @@
 Kepada Yth. {{ $data['name'] }},
 
 @if ($data['status'] != 'failed')
-    Kode Booking Anda: **{{ $data['code'] }}**.
+    Kode Booking Anda: {{ $data['code'] }}
 @endif
 
 @if ($data['status'] == 'failed')

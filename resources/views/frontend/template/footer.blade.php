@@ -15,7 +15,6 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <h4 class="text-white mb-4">Link</h4>
-                    <a href="{{ route('about') }}"><i class="fas fa-angle-right me-2"></i> About</a>
                     <a href="{{ route('car') }}"><i class="fas fa-angle-right me-2"></i> Mobil</a>
                     <a href="{{ route('blog') }}"><i class="fas fa-angle-right me-2"></i> Syarat</a>
                     <a href="{{ route('testimonial') }}"><i class="fas fa-angle-right me-2"></i> Testimoni</a>

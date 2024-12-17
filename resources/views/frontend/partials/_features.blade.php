@@ -14,7 +14,7 @@
                             <div class="ms-4">
                                 <h5 class="mb-3">Layanan Kelas Satu</h5>
                                 <p class="mb-0">PRC Lampung menyediakan perjalanan premium dengan mobil mewah,
-                                    sopir profesional, dan fasilitas eksklusif seperti Wi-Fi dan interior elegan.
+                                    sopir profesional, dan fasilitas eksklusif.
                                     Cocok untuk perjalanan bisnis, acara penting, dan wisata.</p>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="feature-item justify-content-end">
                             <div class="text-end me-4">
-                                <h5 class="mb-3">Penjemputan & Pengantaran Gratis</h5>
-                                <p class="mb-0">PRC Lampung memberikan kemudahan bagi pelanggan dengan layanan antar-jemput langsung ke lokasi tertentu tanpa biaya tambahan, menjadikan pengalaman sewa mobil lebih praktis dan efisien.</p>
+                                <h5 class="mb-3">Layanan Penjemputan & Pengantaran</h5>
+                                <p class="mb-0">PRC Lampung memberikan kemudahan bagi pelanggan dengan layanan antar-jemput langsung ke lokasi tertentu, menjadikan pengalaman sewa mobil lebih praktis dan efisien.</p>
                             </div>
                             <div class="feature-icon">
                                 <span class="fa fa-map-pin fa-2x"></span>
