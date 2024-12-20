@@ -292,7 +292,7 @@
         const dropDateInput = document.getElementById('drop_date');
         dropDateInput.min = pickDate; // Set nilai min pada drop_date
     });
-    
+
     const carSelect = document.getElementById('car_id');
     const pickDateInput = document.getElementById('pick_date');
     const dropDateInput = document.getElementById('drop_date');

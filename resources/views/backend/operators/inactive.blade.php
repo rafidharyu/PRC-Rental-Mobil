@@ -18,7 +18,10 @@
                         Silakan hubungi owner untuk aktivasi akun Anda.
                     </p>
                     <div class="text-center">
-                        <a href="https://wa.me/6285174362969?text=Halo, saya ingin konfirmasi akun operator saya." target="_blank" class="btn " style="background-color: #34c759;">
+                        {{-- <a href="https://wa.me/6285174362969?text=Halo, saya ingin konfirmasi akun operator saya." target="_blank" class="btn " style="background-color: #34c759;">
+                            <i class="fab fa-whatsapp"></i> Hubungi Owner
+                        </a> --}}
+                        <a href="https://wa.me/6285174362969?text=Halo, mohon konfirmasi akun operator saya dengan email: {{ auth()->user()->email }}" target="_blank" class="btn " style="background-color: #34c759;">
                             <i class="fab fa-whatsapp"></i> Hubungi Owner
                         </a>
                     </div>

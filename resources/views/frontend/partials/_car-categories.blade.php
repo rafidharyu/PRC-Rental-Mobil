@@ -51,7 +51,8 @@
                             </div>
                             @if ($car->status == 'available')
                                 @auth
-                                    <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal" data-bs-target="#modalBook">Reservasi Sekarang</a>
+                                    <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" data-bs-toggle="modal" data-bs-target="#modalBook"
+                                        onclick="document.getElementById('car_id').value = '{{ $car->id }}'">Reservasi Sekarang</a>
                                 @else
                                     <a href="{{ route('login') }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Reservasi Sekarang</a>
                                 @endauth
