@@ -36,7 +36,7 @@
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
-                                                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0A7 7 0 0123 9z"
+                                                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
                                         </span>
@@ -81,7 +81,7 @@
                                 <div class="form-group">
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Password</label>
+                                        <label for="password">Kata Sandi</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -105,7 +105,7 @@
                                     <!-- End of Form -->
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="confirm_password">Konfirmasi Password</label>
+                                        <label for="confirm_password">Konfirmasi Kata Sandi</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon2">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -131,7 +131,7 @@
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Sudah Punya Akun?
-                                    <a href="{{ route('login') }}" class="fw-bold">Login Disini</a>
+                                    <a href="{{ route('login') }}" class="fw-bold">Masuk Disini</a>
                                 </span>
                             </div>
                         </div>

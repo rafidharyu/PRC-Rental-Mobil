@@ -26,9 +26,9 @@
 
                     <div class="mb-3">
                         <label for="end_date">Sampai Tanggal</label>
-                        <input type="date" name="end_date" id="end_date"
-                            class="form-control @error('end_date') is-invalid @enderror"
-                            value="{{ old('end_date') }}">
+                        <input class="form-control @error('end_date') is-invalid @enderror" type="date" id="end_date"
+                            name="end_date" value="{{ old('end_date') }}" required
+                            min="{{ old('start_date') ? old('start_date') : date('Y-m-d') }}">
 
                         @error('end_date')
                             <span class="invalid-feedback" role="alert">
@@ -47,3 +47,68 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('start_date').addEventListener('change', function() {
+        var startDate = this.value;
+        document.getElementById('end_date').setAttribute('min', startDate);
+    });
+
+    document.getElementById('downloadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+            }
+        }).then(response => response.blob())
+        .then(blob => {
+            if (blob.size > 0) {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'laporan-transaksi.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: 'Laporan berhasil diunduh!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset();
+                var modal = bootstrap.Modal.getInstance(document.getElementById('downloadModal'));
+                modal.hide();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Terjadi kesalahan saat mengunduh laporan.',
+                });
+            }
+        }).catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Terjadi kesalahan saat mengunduh laporan.',
+            });
+        });
+    });
+</script>
+
+<script>
+    document.getElementById('start_date').addEventListener('change', function() {
+        var startDate = this.value;
+        document.getElementById('end_date').setAttribute('min', startDate);
+    });
+</script>
+
+

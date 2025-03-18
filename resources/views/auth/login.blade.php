@@ -18,7 +18,7 @@
                 </a>
             </p>
             <div class="row justify-content-center form-bg-image"
-                style="background-image: url({{ asset('backend/assets/img/illustrations/signin.svg') }});">
+                style="">
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Password</label>
+                                    <label for="password">Kata Sandi</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2">
                                             <svg class="icon icon-xs text-gray-600" fill="currentColor"
@@ -88,7 +88,7 @@
                                     @if (Route::has('password.request'))
                                         <div>
                                             <a href="{{ route('password.request') }}" class="small text-right">Lupa
-                                                Password?</a>
+                                                Kata Sandi?</a>
                                         </div>
                                     @endif
                                 </div>

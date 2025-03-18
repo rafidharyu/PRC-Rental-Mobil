@@ -10,7 +10,7 @@
                         <span class="text-white fs-2 fw-bold" data-toggle="counter-up">{{ $reviewsCount }}</span>
                         <span class="h1 fw-bold text-white">+</span>
                     </div>
-                    <h4 class="text-white mb-0">Review</h4>
+                    <h4 class="text-white mb-0">Ulasan</h4>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
@@ -46,7 +46,7 @@
                         <span class="text-white fs-2 fw-bold" data-toggle="counter-up">{{ $eventsCount }}</span>
                         <span class="h1 fw-bold text-white">+</span>
                     </div>
-                    <h4 class="text-white mb-0">Event</h4>
+                    <h4 class="text-white mb-0">Acara dan Promo</h4>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <div class="container-fluid testimonial pt-5 pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Review<span class="text-judul"> Klien Kami</span></h1>
+            <h1 class="display-5 text-capitalize mb-3">Ulasan<span class="text-judul"> Klien Kami</span></h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
             @foreach ($reviews as $review)
@@ -66,7 +66,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-2">
-                                            <label for="comment" class="text-white">Comment</label>
+                                            <label for="comment" class="text-white">Komentar</label>
                                             <textarea name="comment" id="comment" cols="5" rows="5"
                                                 class="form-control @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>
                                             @error('comment')

@@ -7871,8 +7871,11 @@ fieldset:disabled .btn {
     margin-left: 0 !important
 }
 
-.ms-1 {
-    margin-left: .25rem !important
+@media (max-width: 576px) {
+    .ms-1 {
+        margin-left: .25rem !important;
+        font-size: 0.75rem !important;
+    }
 }
 
 .ms-2 {

@@ -59,7 +59,7 @@ class EventController extends Controller
             // Menyimpan event baru
             $this->eventService->create($data);
 
-            return redirect()->route('panel.event.index')->with('success', 'Event has been created');
+            return redirect()->route('panel.event.index')->with('success', 'Acara / Promo Berhasil Ditambahkan');
         } catch (\Exception $err) {
             // Jika terjadi error, hapus gambar yang sudah diupload
             if (isset($data['image'])) {
@@ -119,7 +119,7 @@ class EventController extends Controller
             // Tidak perlu menambahkan UUID karena sudah ada
             $this->eventService->update($data, $uuid);
 
-            return redirect()->route('panel.event.index')->with('success', 'Event has been updated');
+            return redirect()->route('panel.event.index')->with('success', 'Acara / Promo Berhasil Diubah');
         } catch (\Exception $err) {
             // Jika terjadi error, hapus gambar yang sudah diupload
             if (isset($data['image'])) {
@@ -147,7 +147,7 @@ class EventController extends Controller
         $getEvent->delete();
 
         return response()->json([
-            'message' => 'Event has been deleted'
+            'message' => 'Acara / Promo Berhasil Dihapus'
         ]);
     }
 }

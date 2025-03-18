@@ -24,17 +24,23 @@
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
             <h1 class="h4">Ubah Operator</h1>
-            <p class="mb-0">Ubah Data Operator</p>
+            <p class="mb-0">Ubah Status Operator</p>
         </div>
         <div>
             <a href="{{ route('backend.operators.index') }}" class="btn btn-outline-gray-600 d-inline-flex align-items-center">
-                <i class="fas fa-arrow-left me-1"></i> Back
+                <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
     </div>
 </div>
 
-@if(session('error'))
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>
@@ -48,7 +54,7 @@
 
             <!-- Name Field (Read-only) -->
             <div class="mb-3">
-                <label for="name">Name</label>
+                <label for="name">Nama</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $operator->name) }}" readonly>
             </div>
 
@@ -62,8 +68,8 @@
             <div class="mb-3">
                 <label for="is_active">Status</label>
                 <select name="is_active" id="is_active" class="form-select @error('is_active') is-invalid @enderror">
-                    <option value="1" {{ $operator->is_active ? 'selected' : '' }}>Active</option>
-                    <option value="0" {{ !$operator->is_active ? 'selected' : '' }}>Inactive</option>
+                    <option value="1" {{ $operator->is_active ? 'selected' : '' }}>Aktif</option>
+                    <option value="0" {{ !$operator->is_active ? 'selected' : '' }}>Tidak Aktif</option>
                 </select>
 
                 @error('is_active')

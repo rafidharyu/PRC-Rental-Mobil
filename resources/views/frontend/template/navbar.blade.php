@@ -13,8 +13,8 @@
             <div class="col-lg-6 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
                     <a href="https://www.google.com/maps/place/SEWA+MOBIL+LAMPUNG+%7C+PRC+RENT+CAR/@-5.3904322,105.2061126,825m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e40d1b8ca724e5b:0x467c53bfeaf76d93!8m2!3d-5.3904375!4d105.2086875!16s%2Fg%2F11kq3vdq8s!5m1!1e2?entry=ttu&g_ep=EgoyMDI0MTExMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-muted me-4"><i class="fas fa-map-marker-alt icon-color me-2"></i>Temukan Lokasi</a>
-                    <a href="https://wa.me/6285174362969" target="_blank" class="text-muted me-4"><i class="fab fa-whatsapp icon-color me-2"></i>085174362969</a>
-                    <a href="mailto:example@gmail.com" class="text-muted me-0"><i class="fas fa-envelope icon-color me-2"></i>prclampung@gmail.com</a>
+                    <a href="https://wa.me/6285769040309" target="_blank" class="text-muted me-4"><i class="fab fa-whatsapp icon-color me-2"></i>085769040309</a>
+                    <a href="mailto:prclampung.id@gmail.com" class="text-muted me-0"><i class="fas fa-envelope icon-color me-2"></i>prclampung.id@gmail.com</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-end">
@@ -27,7 +27,7 @@
                     <a href="https://www.instagram.com/sewamobillampung.co/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
                         <i class="fab fa-instagram icon-color"></i>
                     </a>
-                    <a href="https://wa.me/6285174362969/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
+                    <a href="https://wa.me/6285769040309/" target="_blank" class="btn btn-light btn-sm-square rounded-circle me-3">
                         <i class="fab fa-whatsapp icon-color"></i>
                     </a>
                     {{-- <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a> --}}
@@ -56,7 +56,7 @@
                     {{-- <a class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service') }}">Layanan</a> --}}
                     <a class="nav-item nav-link {{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Syarat</a>
                     <a class="nav-item nav-link {{ request()->routeIs('car') ? 'active' : '' }}" href="{{ route('car') }}">Mobil</a>
-                    <a class="nav-item nav-link {{ request()->routeIs('testimonial') ? 'active' : '' }}" href="{{ route('testimonial') }}">Testimoni</a>
+                    <a class="nav-item nav-link {{ request()->routeIs('testimonial') ? 'active' : '' }}" href="{{ route('testimonial') }}">Ulasan</a>
 
                     {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('feature') || request()->routeIs('car') || request()->routeIs('testimonial') || request()->routeIs('404') ? 'active' : '' }}" data-bs-toggle="dropdown">Halaman</a>
@@ -87,7 +87,8 @@
                     </div>
                 </div>
                 @else
-                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill py-2 px-4">Masuk</a>
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill py-2 px-4 me-2">Masuk</a>
+                <a href="{{ route('register') }}" class="btn btn-primary rounded-pill py-2 px-4">Daftar</a>
                 @endauth
             </div>
         </nav>

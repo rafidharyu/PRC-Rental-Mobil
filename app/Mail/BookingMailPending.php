@@ -24,13 +24,19 @@ class BookingMailPending extends Mailable
         $this->data = $data;
     }
 
+    public function build()
+    {
+        return $this->subject('Booking Pending')
+                    ->view('mail.booking.pending')
+                    ->with('data', $this->data);
+    }
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('prc_sewamobil@gmail.com', 'PRC Sewa Mobil'),
+            from: new Address('prclampung.id@gmail.com', 'PRC Sewa Mobil'),
             subject: 'Booking Mail Pending',
         );
     }

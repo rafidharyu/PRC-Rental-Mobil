@@ -1,6 +1,6 @@
 @extends('frontend.template.main')
 
-@section('title', 'Home')
+@section('title', 'Beranda')
 
 @section('content')
 <!-- Carousel Start -->
@@ -22,7 +22,7 @@
                     <div class="carousel-caption">
                         <div class="container py-4">
                             <div class="row g-5">
-                                <div class="col-lg-6 text-start fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
+                                <div class="col-lg-10 text-start fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                                     style="animation-delay: 1s;">
                                     <div class="text-start">
                                         <h1 class="display-5 text-white">{{ $event->name }}</h1>
@@ -42,7 +42,7 @@
                     <div class="carousel-caption">
                         <div class="container py-4">
                             <div class="row g-5">
-                                <div class="col-lg-6 text-start fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
+                                <div class="col-lg-10 text-start fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                                     style="animation-delay: 1s;">
                                     <div class="text-start">
                                         <h1 class="display-5 text-white">{{ $event->name }}</h1>
@@ -76,7 +76,7 @@
 
 
 <!-- Features Start -->
-@include('frontend.partials._features')
+{{-- @include('frontend.partials._features') --}}
 <!-- Features End -->
 
 {{-- <!-- Car categories Start -->

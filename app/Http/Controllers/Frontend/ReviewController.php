@@ -23,14 +23,14 @@ class ReviewController extends Controller
         $transaction = Transaction::where('code', $data['code'])->first();
 
         if (!$transaction) {
-            return redirect()->back()->with('error', 'Transaction not found');
+            return redirect()->back()->with('error', 'Transaksi Tidak Ditemukan');
         }
 
         // cek sudah ada reviewnya
         $review = Review::where('transaction_id', $transaction->id)->first();
 
         if ($review) {
-            return redirect()->back()->with('error', 'Transaction already sent');
+            return redirect()->back()->with('error', 'Transaksi Sudah Diberi Ulasan');
         }
 
         try {
@@ -40,7 +40,7 @@ class ReviewController extends Controller
                 'comment'        => $data['comment']
             ]);
 
-            return redirect()->back()->with('success', 'Review has been sent');
+            return redirect()->back()->with('success', 'Ulasan Berhasil Dibuat');
         } catch (\Exception $err) {
             return redirect()->back()->with('error', $err->getMessage());
         }

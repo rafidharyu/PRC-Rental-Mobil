@@ -81,7 +81,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Master</span>
+                        <span class="sidebar-text">Manajemen</span>
                     </span>
                     <span class="link-arrow">
                         <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
@@ -102,7 +102,7 @@
                         </li>
                         <li class="nav-item {{ request()->is(['panel/event', 'panel/event/create', 'panel/event/*']) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('panel.event.index') }}">
-                                <span class="sidebar-text">Event</span>
+                                <span class="sidebar-text">Acara dan Promo</span>
                             </a>
                         </li>
                     </ul>
@@ -130,7 +130,7 @@
                         </svg>
 
                     </span>
-                    <span class="sidebar-text">Review</span>
+                    <span class="sidebar-text">Ulasan</span>
                 </a>
             </li>
             @if(auth()->check() && auth()->user()->role === 'owner')

@@ -1,7 +1,7 @@
 @extends('frontend.template.main')
 
-@section('title', 'Testimoni')
-@section('head', 'Testimoni Kami')
+@section('title', 'Ulasan')
+@section('head', 'Ulasan Kami')
 
 @section('content')
     @include('frontend.partials._testimonial')

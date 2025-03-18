@@ -31,7 +31,7 @@ class ReviewController extends Controller
         // Check if the user is not an operator
         if (auth()->check() && auth()->user()->role !== 'operator') {
             return response()->json([
-                'message' => 'You are not authorized to delete this review.'
+                'message' => 'Anda tidak diizinkan untuk menghapus ulasan ini.'
             ]);
         }
 
@@ -39,7 +39,7 @@ class ReviewController extends Controller
         $review->delete();
 
         return response()->json([
-            'message' => 'Review deleted successfully'
+            'message' => 'Ulasan Berhasil Dihapus'
         ]);
     }
 }

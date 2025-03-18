@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Car: ' . $car->name)
+@section('title', 'Mobil: ' . $car->name)
 
 @section('content')
     <div class="py-4">

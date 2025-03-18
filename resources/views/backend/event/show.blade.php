@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Event: ' . $event->name)
+@section('title', 'Acara / Promo: ' . $event->name)
 
 @section('content')
 <div class="py-4">
@@ -17,15 +17,15 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Event</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Acara dan Promo</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $event->name }}</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Event: {{ $event->name }}</h1>
-            <p class="mb-0">Detail Event: {{ $event->name }}</p>
+            <h1 class="h4">Acara / Promo: {{ $event->name }}</h1>
+            <p class="mb-0">Detail Acara / Promo: {{ $event->name }}</p>
         </div>
         <div>
             <a href="{{ route('panel.event.index') }}"

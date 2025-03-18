@@ -31,16 +31,6 @@ class RegisterController extends Controller
     protected $redirectTo = '/';
 
     /**
-     * Redirect the user to the registration completed page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function registered()
-    {
-        return redirect()->intended($this->redirectTo);
-    }
-
-    /**
      * Create a new controller instance.
      *
      * @return void

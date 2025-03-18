@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'operators: ' . $operator->name)
+@section('title', 'Operator: ' . $operator->name)
 
 @section('content')
 <div class="py-4">

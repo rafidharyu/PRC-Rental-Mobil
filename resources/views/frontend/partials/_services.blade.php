@@ -11,8 +11,10 @@
                     <div class="service-icon mb-4">
                         <i class="fa fa-phone-alt fa-2x"></i>
                     </div>
-                    <h5 class="mb-3">Reservasi Telepon</h5>
-                    <p class="mb-0">Layanan pemesanan melalui telepon yang memudahkan Anda untuk menyewa mobil kapan saja, di mana saja. Tim kami siap membantu Anda dengan cepat.</p>
+                    <h5 class="mb-3">Layanan Bantuan 24/7</h5>
+                    <p class="mb-0">PRC Lampung menyediakan layanan bantuan yang tersedia 24 jam,
+                        terutama jika ada kendala selama perjalanan.
+                        Pelanggan dapat menghubungi melalui WhatsApp.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -38,8 +40,9 @@
                     <div class="service-icon mb-4">
                         <i class="fa fa-umbrella fa-2x"></i>
                     </div>
-                    <h5 class="mb-3">Asuransi Jiwa</h5>
-                    <p class="mb-0">Kami menawarkan asuransi jiwa untuk memberikan perlindungan ekstra selama perjalanan Anda, memastikan kenyamanan dan keamanan.</p>
+                    <h5 class="mb-3">Paket Perjalanan Wisata</h5>
+                    <p class="mb-0">
+                        Nikmati perjalanan wisata tanpa ribet dengan paket sewa mobil lengkap dengan itinerary menarik ke destinasi pilihan.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">

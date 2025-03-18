@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Event')
+@section('title', 'Acara dan Promo')
 
 @section('content')
 <div class="py-4">
@@ -17,19 +17,19 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Event</li>
+            <li class="breadcrumb-item active" aria-current="page">Acara dan Promo</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Event</h1>
-            <p class="mb-0">Daftar Event PRC</p>
+            <h1 class="h4">Acara dan Promo</h1>
+            <p class="mb-0">Daftar Acara / Promo PRC</p>
         </div>
         <div>
             @if (auth()->user()->role === 'operator')
             <a href="{{ route('panel.event.create') }}" class="btn btn-warning d-inline-flex align-items-center">
-                <i class="fas fa-plus me-1"></i> Buat Event
+                <i class="fas fa-plus me-1"></i> Buat Acara / Promo
             </a>
             @endif
         </div>

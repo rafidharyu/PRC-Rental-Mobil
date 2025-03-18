@@ -20,11 +20,10 @@ class BookingController extends Controller
 
     try {
         // Handle file upload
-        if ($request->hasFile('file')) {
-            $data['file'] = $fileService->upload($data['file'], 'transaction');
-        } else {
-            $data['file'] = null; // Pastikan null ditulis ke database
-        }
+        $data = $fileService->handleUploads($request, $data, [
+            'file' => 'transaction',
+            'ktp' => 'ktp'
+        ]);
 
         // Ambil data mobil
         $car = Car::findOrFail($data['car_id']);
@@ -47,19 +46,22 @@ class BookingController extends Controller
         $data['down_payment'] = $totalPrice * 0.5;
         $data['price_total'] = $totalPrice;
 
-        // Kirim email
-        Mail::to('owner@gmail.com')
-            ->cc('operator@gmail.com')
-            ->queue(new BookingMailPending($data)); //php artisan queue:work
+        // Kirim email ke pengguna
+        Mail::to(auth()->user()->email)
+        ->cc($data['email'])
+        ->queue(new BookingMailPending($data));//php artisan queue:work
 
         // Simpan transaksi
         Transaction::create($data);
 
-        return redirect()->back()->with('success', 'Booking has been sent');
+        return redirect()->back()->with('success', 'Reservasi Telah Berhasil Dikirim');
     } catch (\Exception $err) {
         // Hapus file jika ada error
         if (isset($data['file'])) {
             $fileService->delete($data['file']);
+        }
+        if (isset($data['ktp'])) {
+            $fileService->delete($data['ktp']);
         }
 
         return redirect()->back()->with('error', $err->getMessage());

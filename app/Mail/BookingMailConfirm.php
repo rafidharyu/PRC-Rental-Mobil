@@ -29,7 +29,7 @@ class BookingMailConfirm extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('prc_sewamobil@gmail.com', 'PRC Sewa Mobil'),
+            from: new Address('prclampung.id@gmail.com', 'PRC Sewa Mobil'),
             subject: 'Booking Mail Confirm',
         );
     }

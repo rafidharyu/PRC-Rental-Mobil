@@ -47,7 +47,7 @@ class CarController extends Controller
 
             $this->carService->create($data);
 
-            return redirect()->route('panel.car.index')->with('success', 'Car has been created');
+            return redirect()->route('panel.car.index')->with('success', 'Data Mobil Berhasil Ditambahkan');
         } catch (\Exception $err) {
             $this->fileService->delete($data['image']);
 
@@ -103,7 +103,7 @@ class CarController extends Controller
 
             $this->carService->update($data, $uuid);
 
-            return redirect()->route('panel.car.index')->with('success', 'Car has been updated');
+            return redirect()->route('panel.car.index')->with('success', 'Data Mobil Berhasil Diubah');
         } catch (\Exception $err) {
             if (isset($data['image'])) {
                 $this->fileService->delete($data['image']);
@@ -121,7 +121,7 @@ class CarController extends Controller
         if (auth()->check() && auth()->user()->role === 'owner') {
             return redirect()->route('panel.car.index')->with('error', 'Owner tidak diizinkan mengakses halaman ini.');
         }
-        
+
         $getCar = $this->carService->selectFirstBy('uuid', $uuid);
 
         $this->fileService->delete($getCar->image);
@@ -129,7 +129,7 @@ class CarController extends Controller
         $getCar->delete();
 
         return response()->json([
-            'message' => 'Mobil telah dihapus'
+            'message' => 'Data Mobil Berhasil Dihapus'
         ]);
     }
 }

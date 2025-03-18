@@ -65,7 +65,7 @@ Route::prefix('panel')->middleware(['auth', OperatorMiddleware::class])->group(f
 });
 // });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/register', function () {
     if (Auth::check()) {

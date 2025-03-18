@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Review: ' . $review->transaction->code)
+@section('title', 'Ulasan: ' . $review->transaction->code)
 
 @section('content')
     <div class="py-4">
@@ -17,14 +17,14 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('panel.review.index') }}">Review</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('panel.review.index') }}">Ulasan</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $review->transaction->code }}</li>
             </ol>
         </nav>
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Review: {{ $review->transaction->code }}</h1>
+                <h1 class="h4">Ulasan: {{ $review->transaction->code }}</h1>
                 <p class="mb-0">Penyewa: {{ $review->transaction->name }}</p>
             </div>
             <div>

@@ -34,6 +34,7 @@ class BookingRequest extends FormRequest
             'drop_option' => 'required|in:garasi,tempat_lain',
             'drive_option' => 'required|in:menyetir_sendiri,dikemudikan_oleh_sopir',
             'price_total' => 'nullable|numeric',
+            'ktp'      => 'nullable|image|mimes:jpg,jpeg,png|mimetypes:image/jpeg,image/png|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file'      => 'nullable|image|mimes:jpg,jpeg,png|mimetypes:image/jpeg,image/png|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'message'   => 'nullable|min:3'
         ];

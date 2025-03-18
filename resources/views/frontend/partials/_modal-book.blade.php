@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">FORMULIR BOOKING KENDARAAN</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">FORMULIR RESERVASI KENDARAAN</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -86,7 +86,7 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pengambilan</span>
                                     </div>
 
                                     <select name="pick_option" id="pick_option"
@@ -107,7 +107,7 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Pengembalian</span>
                                     </div>
                                     <select name="drop_option" id="drop_option"
                                         class="form-select @error('drop_option') is-invalid @enderror">
@@ -126,7 +126,7 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pengambilan</span>
                                     </div>
                                     <input class="form-control rounded-end" type="date" id="pick_date"
                                         name="pick_date" value="{{ old('pick_date') }}" required
@@ -164,7 +164,7 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop Off</span>
+                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pengembalian</span>
                                     </div>
                                     <input class="form-control rounded-end" type="date" id="drop_date"
                                         name="drop_date" value="{{ old('drop_date') }}" required
@@ -204,7 +204,7 @@
                                 <select name="drive_option" id="drive_option"
                                     class="form-select @error('drive_option') is-invalid @enderror"
                                     aria-label="Default select example">
-                                    <option value="" hidden>Opsi Sopir</option>
+                                    <option value="" hidden>Pilihan Sopir</option>
                                     <option value="menyetir_sendiri">Tanpa Sopir (+ Rp.0)</option>
                                     <option value="dikemudikan_oleh_sopir">Dengan Sopir (+ Rp.200.000/hari)</option>
                                 </select>
@@ -216,28 +216,47 @@
                                 @enderror
                             </div>
 
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                        <span class="ms-1">Unggah KTP</span>
+                                    </div>
+                                    <input type="file" name="ktp"
+                                        class="form-control @error('ktp') is-invalid @enderror" accept=".jpg,.jpeg,.png">
+
+                                    @error('ktp')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <p class="text-start text-white d-block mb-0">
                                 Total biaya sewa selama <span id="duration">0</span> hari: Rp. <span
                                     id="total_price">0</span><br>
-                                DP yang harus dibayarkan: Rp. <span id="down_payment">0</span>
+                                Uang Muka yang harus dibayarkan: Rp. <span id="down_payment">0</span>
                             </p>
 
                             <p class="text-start text-white d-block mb-0">
                                 NoRek Mandiri: <br> 1140025085724 a/n NAUFAL SULTHON FAKHR
                             </p>
 
-                            {{-- <p class="text-start text-white d-block mb-2">DP yang harus dibayarkan: </p> --}}
-                            <div class="form-group mt-3">
-                                <input type="file" name="file"
-                                    class="form-control @error('file') is-invalid @enderror" accept=".jpg,.jpeg,.png">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                        <span class="ms-1">Unggah Bukti Pembayaran</span>
+                                    </div>
+                                    <input type="file" name="file"
+                                        class="form-control @error('file') is-invalid @enderror" accept=".jpg,.jpeg,.png">
 
-                                @error('file')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('file')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-
 
                             <div class="col-12">
                                 <div class="input-group">
@@ -292,7 +311,7 @@
         const dropDateInput = document.getElementById('drop_date');
         dropDateInput.min = pickDate; // Set nilai min pada drop_date
     });
-    
+
     const carSelect = document.getElementById('car_id');
     const pickDateInput = document.getElementById('pick_date');
     const dropDateInput = document.getElementById('drop_date');

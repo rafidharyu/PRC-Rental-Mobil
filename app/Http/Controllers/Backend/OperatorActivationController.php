@@ -87,7 +87,7 @@ class OperatorActivationController extends Controller
 
         // Redirect ke halaman daftar operator dengan pesan sukses
         return redirect()->route('backend.operators.index')
-            ->with('success', 'Operator status updated successfully.');
+            ->with('success', 'Status operator berhasil diubah.');
     }
 
     public function destroy($id)

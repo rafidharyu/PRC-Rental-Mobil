@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Transaction: ' . $transaction->code)
+@section('title', 'Transaksi: ' . $transaction->code)
 
 @section('content')
     <div class="py-4">
@@ -42,6 +42,10 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <tr>
+                        <th>Tanggal Reservasi</th>
+                        <td>: {{ date('Y-m-d H:i:s', strtotime($transaction->created_at)) }}</td>
+                    </tr>
+                    <tr>
                         <th>Nama</th>
                         <td>: {{ $transaction->name }}</td>
                     </tr>
@@ -62,37 +66,37 @@
                     </tr>
 
                     <tr>
-                        <th>TGL. Ambil</th>
+                        <th>Tgl. Ambil</th>
                         <td>: {{ date('d-m-Y', strtotime($transaction->pick_date)) }}</td>
                     </tr>
 
                     <tr>
-                        <th>WKT. Ambil</th>
+                        <th>Wkt. Ambil</th>
                         <td>: {{ $transaction->pick_time }}</td>
                     </tr>
 
                     <tr>
-                        <th>TGL. Pengembalian</th>
+                        <th>Tgl. Pengembalian</th>
                         <td>: {{ date('d-m-Y', strtotime($transaction->drop_date)) }}</td>
                     </tr>
 
                     <tr>
-                        <th>WKT. Pengembalian</th>
+                        <th>Wkt. Pengembalian</th>
                         <td>: {{ $transaction->drop_time }}</td>
                     </tr>
 
                     <tr>
-                        <th>LOK. Ambil</th>
+                        <th>Lok. Ambil</th>
                         <td>: {{ $transaction->pick_option }}</td>
                     </tr>
 
                     <tr>
-                        <th>LOK. Pengembalian</th>
+                        <th>Lok. Pengembalian</th>
                         <td>: {{ $transaction->drop_option }}</td>
                     </tr>
 
                     <tr>
-                        <th>Down Payment</th>
+                        <th>Uang Muka</th>
                         <td>: Rp. {{ number_format($downPayment, 0, ',', '.') }}</td>
                     </tr>
 
@@ -115,6 +119,17 @@
                                 <span class="badge bg-danger">Gagal</span>
                             @else
                                 <span class="badge bg-success">Sukses</span>
+                            @endif
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>KTP</th>
+                        <td width="60%">
+                            @if($transaction->ktp)
+                                <img src="{{ asset('storage/' . $transaction->ktp) }}" class="img-fluid" width="20%" target="_blank">
+                            @else
+                                -
                             @endif
                         </td>
                     </tr>
@@ -148,12 +163,30 @@
                 </table>
             </div>
 
-            {{-- <div class="float-end mt-2">
+            <div class="float-end mt-2">
                 @if (auth()->user()->role === 'operator')
-                    <a href="" class="btn btn-warning"><i
-                            class="fas fa-edit"></i> Konfirmasi</a>
+                    <a href="javascript:void(0);" class="btn btn-warning" onclick="confirmModal(this)"
+                    data-uuid="{{ $transaction->uuid }}">
+                        <i class="fas fa-check"></i> Konfirmasi</a>
                 @endif
-            </div> --}}
+            </div>
         </div>
     </div>
+@include('backend.transaction._modal-confirm')
 @endsection
+
+@push('js')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // show modal confirm
+    const confirmModal = (e) => {
+        let uuid = e.getAttribute('data-uuid')
+
+        // set action form
+        $('#confirmForm').attr('action', `/panel/transaction/${uuid}`)
+        $('#confirmModal').modal('show')
+    }
+</script>
+@endpush

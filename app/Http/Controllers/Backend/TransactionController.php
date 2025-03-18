@@ -67,7 +67,7 @@ class TransactionController extends Controller
                 // ->send(new BookingMailConfirm($transaction));
                 ->queue(new BookingMailConfirm($transaction)); //php artisan queue:work
 
-            return redirect()->back()->with('success', 'Transaction status updated successfully');
+            return redirect()->back()->with('success', 'Transaksi Berhasil Dikonfirmasi');
         } catch (\Exception $error) {
             return redirect()->back()->with('error', $error->getMessage());
         }
@@ -91,7 +91,7 @@ class TransactionController extends Controller
         $getTransaction->delete();
 
         return response()->json([
-            'message' => 'Transaction has been deleted'
+            'message' => 'Transaksi Berhasil Dihapus'
         ]);
     }
 

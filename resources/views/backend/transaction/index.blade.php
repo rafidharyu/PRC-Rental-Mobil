@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Transaction')
+@section('title', 'Transaksi')
 
 @section('content')
 <div class="py-4">
@@ -24,7 +24,7 @@
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
             <h1 class="h4">Transaksi</h1>
-            <p class="mb-0">Daftar Sewa Mobil PRC</p>
+            <p class="mb-0">Daftar Transaksi Sewa Mobil PRC</p>
         </div>
         <div>
             @if (auth()->user()->role === 'owner')
@@ -98,7 +98,7 @@
                             @if (auth()->user()->role === 'operator')
                             <button type="button" class="btn btn-sm btn-primary" onclick="confirmModal(this)"
                                 data-uuid="{{ $item->uuid }}">
-                                <i class="fa-solid fa-edit"></i>
+                                <i class="fas fa-check"></i>
                             </button>
 
                             {{-- <a href="{{ route('panel.transaction.edit', $item->uuid) }}"

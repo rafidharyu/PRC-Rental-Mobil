@@ -24,6 +24,7 @@ class Transaction extends Model
         'drop_option',
         'drive_option',
         'price_total',
+        'ktp',
         'file',
         'message',
         'status'

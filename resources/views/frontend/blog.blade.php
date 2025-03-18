@@ -52,12 +52,14 @@
                                                 style="list-style-position: inside; padding: 0; margin-left: 0; text-align: left;">
                                                 <li class="h6 text-item" style="margin-bottom: 5px;">Mengisi Identitas Diri
                                                 </li>
-                                                <li class="h6 text-item" style="margin-bottom: 5px;">Membayar DP 50%</li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Mengunggah Foto KTP
+                                                </li>
+                                                <li class="h6 text-item" style="margin-bottom: 5px;">Membayar Uang Muka 50%</li>
                                                 <li class="h6 text-item" style="margin-bottom: 5px;">Mengunggah Bukti
                                                     Transfer DP</li>
                                                 <li class="h6 text-item" style="margin-bottom: 5px;">Mencantumkan Catatan
-                                                    Alamat Pick-up
-                                                    dan Drop-off</li>
+                                                    Alamat Pengambilan
+                                                    dan Pengembalian</li>
                                                 <li class="h6 text-item" style="margin-bottom: 5px;">Menyetujui Syarat Sewa
                                                     Mobil</li>
                                             </ul>

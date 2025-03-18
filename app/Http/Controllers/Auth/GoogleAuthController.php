@@ -23,35 +23,30 @@ class GoogleAuthController extends Controller
     public function callbackGoogle()
     {
         try {
-            // Get the authenticated user from Google
             $googleUser = Socialite::driver('google')->user();
 
-            // Find or create the user in the database
             $user = User::firstOrCreate(
                 ['google_id' => $googleUser->getId()],
                 [
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
-                    'password' => bcrypt('defaultpassword'), // Set a default password if necessary
+                    'password' => bcrypt('defaultpassword'),
+                    'role' => 'user',
                 ]
             );
 
-            // Login the user
             Auth::login($user);
 
-            // Redirect to the correct page based on the user's role
             if ($user->role === 'user') {
                 return redirect()->route('index');
             } elseif (in_array($user->role, ['operator', 'owner'])) {
                 return redirect()->route('panel.dashboard');
             } else {
-                // Handle unknown roles
-                return redirect()->route('index')->with('error', 'Unknown role: ' . $user->role);
+                return redirect()->route('index')->with('error', 'Masuk dengan Google Gagal');
             }
         } catch (\Throwable $th) {
-            // Handle errors
-            return redirect()->route('index')->with('error', 'Login with Google failed: ' . $th->getMessage());
+            return redirect()->route('index')->with('error', 'Masuk dengan Google Gagal');
         }
     }
 }

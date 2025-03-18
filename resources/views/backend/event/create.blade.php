@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Create Event')
+@section('title', 'Tambah Acara / Promo')
 
 @section('content')
 <div class="py-4">
@@ -17,15 +17,15 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Event</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Buat Event</li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Acara dan Promo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Buat Acara / Promo</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Buat Event</h1>
-            <p class="mb-0">Tambah Event PRC</p>
+            <h1 class="h4">Buat Acara / Promo</h1>
+            <p class="mb-0">Tambah Acara / Promo PRC</p>
         </div>
         <div>
             <a href="{{ route('panel.event.index') }}"
@@ -48,58 +48,70 @@
         <form action="{{ route('panel.event.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-3">
-                <label for="name">Nama Event</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
-                    value="{{ old('name') }}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name">Nama Acara / Promo</label>
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
+                            value="{{ old('name') }}">
 
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="status">Status</label>
+                        <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
+                            <option value="">--- Pilih ---</option>
+                            <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Aktif</option>
+                            <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
+                        </select>
+
+                        @error('status')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="description">Deskripsi</label>
+                            <textarea name="description" id="description" rows="6"
+                                class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+
+                            @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="image">Gambar</label>
+                            <input type="file" name="image" id="image" accept="image/*"
+                                class="form-control @error('image') is-invalid @enderror">
+
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="description">Deskripsi</label>
-                <textarea name="description" id="description" rows="3"
-                    class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-
-                @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="status">Status</label>
-                <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                    <option value="">--- Pilih ---</option>
-                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Aktif</option>
-                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
-                </select>
-
-                @error('status')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="image">Gambar</label>
-                <input type="file" name="image" id="image" accept="image/*"
-                    class="form-control @error('image') is-invalid @enderror">
-
-                @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="float-end">
+            <div class="text-end">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kirim</button>
             </div>
         </form>

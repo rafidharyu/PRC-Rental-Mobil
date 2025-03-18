@@ -22,7 +22,7 @@
                                             <i class="fas fa-map-marker-alt text-judul me-2"></i><p class="mb-0">Sumber Rejo, Kemiling, Bandar Lampung City, Lampung 35153</p>
                                         </div>
                                         <div class="d-flex align-items-center mb-3">
-                                            <a href="mailto:prclampung@gmail.com" target="_blank"><i class="fas fa-envelope text-judul me-2"></i></a><p class="mb-0">prclampung@gmail.com</p>
+                                            <a href="mailto:prclampung.id@gmail.com" target="_blank"><i class="fas fa-envelope text-judul me-2"></i></a><p class="mb-0">prclampung.id@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
@@ -32,11 +32,11 @@
                                     <div class="col-md-6 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.5s">
                                         <div class="contact-add-item p-4">
                                             <div class="contact-icon mb-4">
-                                                <a href="https://wa.me/6285174362969" target="_blank"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
+                                                <a href="https://wa.me/6285769040309" target="_blank"><i class="fab fa-whatsapp fa-2x text-dark"></i></a>
                                             </div>
                                             <div>
                                                 <h4>WhatsApp</h4>
-                                                <p class="mb-0">+62 851-7436-2969</p>
+                                                <p class="mb-0">+62 857-6904-0309</p>
                                             </div>
                                         </div>
                                     </div>

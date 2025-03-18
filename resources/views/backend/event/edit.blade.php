@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Edit Event')
+@section('title', 'Edit Acara / Promo')
 
 @section('content')
 <div class="py-4">
@@ -17,15 +17,15 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Event</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ubah Event</li>
+            <li class="breadcrumb-item"><a href="{{ route('panel.event.index') }}">Acara dan Promo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ubah Acara / Promo</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Ubah Event</h1>
-            <p class="mb-0">Ubah Data Event</p>
+            <h1 class="h4">Ubah Acara / Promo</h1>
+            <p class="mb-0">Ubah Data Acara / Promo</p>
         </div>
         <div>
             <a href="{{ route('panel.event.index') }}"
@@ -47,59 +47,70 @@
         <form action="{{ route('panel.event.update', $event->uuid) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name">Nama Acara / Promo</label>
+                        <input type="text" name="name" id="name"
+                            class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $event->name) }}">
 
-            <div class="mb-3">
-                <label for="name">NamaEvent</label>
-                <input type="text" name="name" id="name"
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $event->name) }}">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
 
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="status">Status</label>
+                        <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
+                            <option value="active" {{ old('status', $event->status) == 'active' ? 'selected' : '' }}>Aktif</option>
+                            <option value="inactive" {{ old('status', $event->status) == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
+                        </select>
 
-            <div class="mb-3">
-                <label for="description">Deskripsi</label>
-                <textarea name="description" id="description" rows="3"
-                    class="form-control @error('description') is-invalid @enderror">{{ old('description', $event->description) }}</textarea>
+                        @error('status')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
 
-                @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="description">Deskripsi</label>
+                            <textarea name="description" id="description" rows="6"
+                                class="form-control @error('description') is-invalid @enderror">{{ old('description', $event->description) }}</textarea>
 
-            <div class="mb-3">
-                <label for="status">Status</label>
-                <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                    <option value="active" {{ old('status', $event->status) == 'active' ? 'selected' : '' }}>Aktif</option>
-                    <option value="inactive" {{ old('status', $event->status) == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
-                </select>
+                            @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
 
-                @error('status')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="image">Gambar</label>
+                            <input type="file" name="image" id="image" accept="image/*"
+                                class="form-control @error('image') is-invalid @enderror">
 
-            <div class="mb-3">
-                <label for="image">Gambar</label>
-                <input type="file" name="image" id="image" accept="image/*"
-                    class="form-control @error('image') is-invalid @enderror">
+                            @if($event->image)
+                                <img src="{{ asset('storage/' . $event->image) }}" alt="" class="img-fluid mt-3" width="40%">
+                            @endif
 
-                @if($event->image)
-                    <img src="{{ asset('storage/' . $event->image) }}" alt="" class="img-fluid mt-3" width="10%">
-                @endif
-
-                @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="float-end">

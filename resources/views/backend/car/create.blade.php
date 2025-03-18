@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Create Car')
+@section('title', 'Tambah Mobil')
 
 @section('content')
     <div class="py-4">
@@ -48,19 +48,21 @@
             <form action="{{ route('panel.car.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="mb-3">
-                    <label for="name">Nama</label>
-                    <input type="text" name="name" id="name"
-                        class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
-
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="name">Nama</label>
+                            <input type="text" name="name" id="name"
+                                class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="price_day">Harga Sewa</label>
@@ -75,6 +77,10 @@
                         </div>
                     </div>
 
+
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="seat">Bangku</label>
@@ -88,9 +94,7 @@
                             @enderror
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="fuel">Bahan Bakar</label>
@@ -108,6 +112,10 @@
                         </div>
                     </div>
 
+
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="transmisi">Transmisi</label>
@@ -124,9 +132,7 @@
                             @enderror
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="year_of_car">Tahun Kendaraan</label>
@@ -146,7 +152,22 @@
                             @enderror
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="image">Gambar</label>
+                            <input type="file" name="image" id="image" accept="image/*"
+                                class="form-control  @error('image') is-invalid @enderror">
+
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="status">Status</label>
@@ -165,17 +186,6 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="image">Gambar</label>
-                    <input type="file" name="image" id="image" accept="image/*"
-                        class="form-control  @error('image') is-invalid @enderror">
-
-                    @error('image')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
 
                 <div class="float-end">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kirim</button>

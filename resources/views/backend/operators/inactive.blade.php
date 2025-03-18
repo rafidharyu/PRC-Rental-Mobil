@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Account Inactive')
+@section('title', 'Akun Tidak Aktif')
 
 @section('content')
 <div class="container mt-7 pb-7">

@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Create Operator')
+@section('title', 'Tambah Operator')
 
 @section('content')
 <div class="py-4">
@@ -53,51 +53,60 @@
     <div class="card-body">
         <form action="{{ route('panel.operator.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name">Nama Operator</label>
+                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
+                            value="{{ old('name') ?? '' }}">
 
-            <div class="mb-3">
-                <label for="name">Nama Operator</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
-                    value="{{ old('name') ?? '' }}">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="email">Email Operator</label>
+                        <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror"
+                            value="{{ old('email') ?? '' }}">
 
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="email">Email Operator</label>
-                <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror"
-                    value="{{ old('email') ?? '' }}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="password">Kata Sandi Operator</label>
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
 
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="password_confirmation">Konfirmasi Kata Sandi Operator</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror">
 
-            <div class="mb-3">
-                <label for="password">Password Operator</label>
-                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
-
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="password_confirmation">Confirm Password Operator</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror">
-
-                @error('password_confirmation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                        @error('password_confirmation')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
             <input type="hidden" name="role" value="operator" />

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->enum('drop_option', ['garasi', 'tempat_lain']);
             $table->enum('drive_option', ['menyetir_sendiri', 'dikemudikan_oleh_sopir']);
             $table->integer('price_total');
+            $table->string('ktp')->nullable();
             $table->string('file')->nullable();
             $table->text('message')->nullable();
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');

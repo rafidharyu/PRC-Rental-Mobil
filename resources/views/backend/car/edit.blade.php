@@ -1,6 +1,6 @@
 @extends('backend.template.main')
 
-@section('title', 'Edit Car')
+@section('title', 'Edit Mobil')
 
 @section('content')
 <div class="py-4">
@@ -18,13 +18,13 @@
             </li>
             <li class="breadcrumb-item"><a href="{{ route('panel.dashboard') }}">Beranda</a></li>
             <li class="breadcrumb-item"><a href="{{ route('panel.car.index') }}">Mobil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Mobil</li>
+            <li class="breadcrumb-item active" aria-current="page">Ubah Mobil</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Edit Data Mobil</h1>
+            <h1 class="h4">Ubah Data Mobil</h1>
             <p class="mb-0">Ubah Data Mobil PRC</p>
         </div>
         <div>
@@ -47,20 +47,20 @@
         <form action="{{ route('panel.car.update', $car->uuid) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-
-            <div class="mb-3">
-                <label for="name">Nama</label>
-                <input type="text" name="name" id="name"
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $car->name) }}">
-
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
             <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="name">Nama</label>
+                        <input type="text" name="name" id="name"
+                            class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $car->name) }}">
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="price_day">Harga Sewa</label>
@@ -74,7 +74,9 @@
                         @enderror
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="seat">Bangku</label>
@@ -88,9 +90,6 @@
                         @enderror
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="fuel">Bahan Bakar</label>
@@ -106,7 +105,9 @@
                         @enderror
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="transmisi">Transmisi</label>
@@ -122,9 +123,6 @@
                         @enderror
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="year_of_car">Tahun Kendaraan</label>
@@ -138,7 +136,23 @@
                         @enderror
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="image">Gambar</label>
+                        <input type="file" name="image" id="image" accept="image/*"
+                            class="form-control @error('image') is-invalid @enderror">
 
+                        <img src="{{ asset('storage/' . $car->image) }}" alt="" class="img-fluid mt-3" width="25%">
+
+                        @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="status">Status</label>
@@ -154,20 +168,6 @@
                         @enderror
                     </div>
                 </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="image">Gambar</label>
-                <input type="file" name="image" id="image" accept="image/*"
-                    class="form-control @error('image') is-invalid @enderror">
-
-                <img src="{{ asset('storage/' . $car->image) }}" alt="" class="img-fluid mt-3" width="10%">
-
-                @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
             </div>
 
             <div class="float-end">

@@ -20,22 +20,29 @@
             <div class="steps-item p-4 mb-4">
                 <h4>Pesan dengan Langkah Mudah</h4>
                 <p class="mb-0">Kami menawarkan beberapa cara untuk memesan mobil, baik melalui website atau langsung
-                    via WhatsApp. Cukup isi informasi seperti nama, email, no. hp, tanggal, waktu sewa, lokasi, dan
+                    ke Tempat Rental. Cukup isi informasi seperti nama, email, no. hp, tanggal, waktu sewa, lokasi, dan
                     jenis mobil pilihan Anda.</p>
                 <div class="setps-number">02</div>
             </div>
 
             <div class="steps-item p-4 mb-4">
-                <h4>Konfirmasi Pemesanan dan Pembayaran Uang Muka (DP)</h4>
-                <p class="mb-0">Setelah pemesanan diajukan, tim kami akan mengonfirmasi ketersediaan mobil dan
-                    memberikan detail pesanan. Anda dapat melanjutkan dengan pembayaran DP untuk mengamankan mobil
-                    pilihan.</p>
+                <h4>Pembayaran Uang Muka (DP) dan Konfirmasi Pemesanan</h4>
+                <p class="mb-0">Konfirmasi pemesanan setelah pembayaran DP dilakukan,
+                    tim kami akan memeriksa dan mengonfirmasi detail pesanan.
+                    Dengan pembayaran DP, Anda dapat mengamankan mobil pilihan Anda.</p>
                 <div class="setps-number">03</div>
             </div>
 
             <div class="steps-item p-4 mb-4">
+                <h4>Selesaikan Sisa Pembayaran</h4>
+                <p class="mb-0">Setelah konfirmasi Anda terima, Anda perlu menyelesaikan pembayaran sisa reservasi sebelum jadwal pemakaian.
+                    Pastikan pembayaran dilakukan tepat waktu untuk memastikan mobil tetap tersedia sesuai pesanan Anda.</p>
+                <div class="setps-number">06</div>
+            </div>
+
+            <div class="steps-item p-4 mb-4">
                 <h4>Pengantaran atau Pengambilan Kendaraan</h4>
-                <p class="mb-0">Setelah DP diterima, Anda bisa mengambil mobil di lokasi kami atau kami antar ke
+                <p class="mb-0">Setelah Pembayaran Lunas diterima, Anda bisa mengambil mobil di lokasi kami atau kami antar ke
                     rumah, kantor, atau tempat lain sesuai permintaan. Kendaraan akan disiapkan bersih dan siap
                     digunakan sesuai jadwal.</p>
                 <div class="setps-number">04</div>
@@ -46,14 +53,6 @@
                 <p class="mb-0">Setelah perjalanan selesai, Anda bisa mengembalikan mobil di lokasi kami atau kami
                     jemput. Proses pengembalian cepat dan mudah, dengan panduan untuk kondisi mobil.</p>
                 <div class="setps-number">05</div>
-            </div>
-
-            <div class="steps-item p-4 mb-4">
-                <h4>Selesaikan Sisa Pembayaran</h4>
-                <p class="mb-0">Setelah mobil dikembalikan, Anda hanya perlu menyelesaikan pembayaran sisa sewa. Kami
-                    menyediakan berbagai metode pembayaran, baik transfer bank maupun pembayaran online, dengan sistem
-                    transparan tanpa biaya tersembunyi.</p>
-                <div class="setps-number">06</div>
             </div>
         </div>
     </div>
